@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		27332F6D26E7E2110032CBD0 /* DateAsString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27332F6C26E7E2110032CBD0 /* DateAsString.swift */; };
 		27473FD626E59B8A00A6DB8D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27473FD526E59B8A00A6DB8D /* AppDelegate.swift */; };
 		27473FD826E59B8A00A6DB8D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27473FD726E59B8A00A6DB8D /* SceneDelegate.swift */; };
 		27473FDD26E59B8A00A6DB8D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27473FDB26E59B8A00A6DB8D /* Main.storyboard */; };
@@ -30,6 +31,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		27332F6C26E7E2110032CBD0 /* DateAsString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateAsString.swift; sourceTree = "<group>"; };
 		27473FD226E59B8A00A6DB8D /* FungiFinderFinal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FungiFinderFinal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		27473FD526E59B8A00A6DB8D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		27473FD726E59B8A00A6DB8D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -68,6 +70,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		27332F6B26E7E1FB0032CBD0 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				27332F6C26E7E2110032CBD0 /* DateAsString.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
 		27473FC926E59B8A00A6DB8D = {
 			isa = PBXGroup;
 			children = (
@@ -92,6 +102,7 @@
 				27473FF426E59C4E00A6DB8D /* CoreData */,
 				27473FEE26E59C1600A6DB8D /* Controllers */,
 				27473FED26E59C0400A6DB8D /* Views */,
+				27332F6B26E7E1FB0032CBD0 /* Extension */,
 				27473FEC26E59BEF00A6DB8D /* Resources */,
 				27473FF626E59C7500A6DB8D /* FungiFinderFinal.entitlements */,
 			);
@@ -277,6 +288,7 @@
 				2747400126E5A22100A6DB8D /* Observation+Convenience.swift in Sources */,
 				27473FFF26E5A1A400A6DB8D /* CoreDataStack.swift in Sources */,
 				2747400526E5A9F300A6DB8D /* MushroomController.swift in Sources */,
+				27332F6D26E7E2110032CBD0 /* DateAsString.swift in Sources */,
 				27473FE026E59B8A00A6DB8D /* FungiFinderFinal.xcdatamodeld in Sources */,
 				2747401126E5ABEE00A6DB8D /* MushroomDetailViewController.swift in Sources */,
 				27473FD626E59B8A00A6DB8D /* AppDelegate.swift in Sources */,

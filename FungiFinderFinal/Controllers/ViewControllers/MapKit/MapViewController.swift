@@ -17,8 +17,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     //MARK: - PROPERTIES
     // Gets location of device
     let manager = CLLocationManager()
-    var observation: Observation?
-
+    var observations: [Observation]?
     
     //MARK: - LIFECYCLES
     
@@ -30,12 +29,22 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     
     override func viewDidAppear(_ animated: Bool) {
         setupViews()
-        
+        fetchObservations()
+
     }
     
     //MARK: - TEST
     
+    func fetchObservations() {
+        ObservationController.shared.fetchOBservations()
+        
+       self.observations = ObservationController.shared.observations
+    }
     
+    
+ 
+
+
     //MARK: - PERMISSIONS
     func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
         switch manager.authorizationStatus {
@@ -49,7 +58,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
             break
         case .authorizedAlways:
             break
-            // For use when the app is open
+        // For use when the app is open
         case .authorizedWhenInUse:
             break
         @unknown default:
@@ -101,23 +110,23 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         // Set delegate for mapView
         mapView.delegate = self
         // Allows reaction to touch on map (tap recognizer)
-        let gestureRecognizer = UITapGestureRecognizer(target: self, action:#selector(handleTap))
-            gestureRecognizer.delegate = self
-            mapView.addGestureRecognizer(gestureRecognizer)
+//        let gestureRecognizer = UITapGestureRecognizer(target: self, action:#selector(handleTap))
+//        gestureRecognizer.delegate = self
+//        mapView.addGestureRecognizer(gestureRecognizer)
     }
-// Handles the tap & gets location coordinates
-    @objc func handleTap(gestureRecognizer: UITapGestureRecognizer) {
-        
-        let location = gestureRecognizer.location(in: mapView)
-        let coordinate = mapView.convert(location, toCoordinateFrom: mapView)
-        
-        // Add annotation(pin):
-        let annotation = MKPointAnnotation()
-        annotation.coordinate = coordinate
-        mapView.addAnnotation(annotation)
+    // Handles the tap & gets location coordinates
+//    @objc func handleTap(gestureRecognizer: UITapGestureRecognizer) {
+//
+//        let location = gestureRecognizer.location(in: mapView)
+//        let coordinate = mapView.convert(location, toCoordinateFrom: mapView)
+//
+//        // Add annotation(pin):
+//        let annotation = MKPointAnnotation()
+//        annotation.coordinate = coordinate
+//        mapView.addAnnotation(annotation)
         //annotation.title
         //annotation.subtitle
-    }
+//    }
     
     // Delegate function; gets called when location is updated
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
@@ -132,6 +141,17 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     }
     // Zoom into map on location, & add pin
     func render(_ location: CLLocation) {
+        fetchObservations()
+        guard let observations = observations else { return }
+        for observation in observations {
+            let coordinate = CLLocationCoordinate2D(latitude: observation.latitude, longitude: observation.longitude)
+            
+            let pin = MKPointAnnotation()
+            pin.coordinate = coordinate
+            mapView.addAnnotation(pin)
+            pin.title = observation.name
+            pin.subtitle = observation.date?.dateAsString()
+        }
         // The latitude and longitude associated with a location
         let coordinate = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
         // The width and height of a map region.
@@ -140,9 +160,6 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         let region = MKCoordinateRegion(center: coordinate, span: span)
         mapView.setRegion(region, animated: true)
         
-        let pin = MKPointAnnotation()
-        pin.coordinate = coordinate
-        //mapView.addAnnotation(pin)
     }
     // Set custom image for map pin
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
@@ -154,7 +171,12 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         annotationView.canShowCallout = true
         return annotationView
     }
-
+    
+//    func addObservationToMap(observation: Observation) {
+//        let obsCoordinate = CLLocationCoordinate2D(latitude: observation.latitude, longitude: observation.longitude)
+//        mapView.addAnnotation(obsCoordinate as! MKAnnotation)
+//    }
+    
     
     /*
      // MARK: - Navigation

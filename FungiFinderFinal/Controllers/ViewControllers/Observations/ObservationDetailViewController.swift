@@ -31,22 +31,26 @@ class ObservationDetailViewController: UIViewController, CLLocationManagerDelega
     let manager = CLLocationManager()
     var saveLat: Double?
     var saveLong: Double?
+    var switchLat: Double?
+    var switchLong: Double?
     
     //MARK: - LIFECYCLES
     override func viewDidLoad() {
         super.viewDidLoad()
         updateViews()
+        setupViews()
         self.hideKeyboardWhenTappedAround()
         
-        manager.desiredAccuracy = kCLLocationAccuracyBest
-        // set delegate for location
-        manager.delegate = self
-        // Request permission
-        manager.requestWhenInUseAuthorization()
-        // Fetch location
-        manager.startUpdatingLocation()
+//        manager.desiredAccuracy = kCLLocationAccuracyBest
+//        // set delegate for location
+//        manager.delegate = self
+//        // Request permission
+//        manager.requestWhenInUseAuthorization()
+//        // Fetch location
+//        manager.startUpdatingLocation()
     }
     
+
     //MARK: - ACTIONS
     @IBAction func saveButtonTapped(_ sender: Any) {
         guard let name = nameTextField.text, !name.isEmpty,
@@ -58,7 +62,7 @@ class ObservationDetailViewController: UIViewController, CLLocationManagerDelega
         if let observation = observation {
             ObservationController.shared.updateObservation(observation, name: name, date: datePicker.date, notes: notes, reminder: reminderPicker.date, type: type, latitude: latitude ?? 0.0, longitude: longitude ?? 0.0)
         } else {
-            ObservationController.shared.createObservation(with: name, date: datePicker.date, notes: notes, reminder: reminderPicker.date, type: type, latitude: saveLat ?? 0.0, longitude: saveLong ?? 0.0)
+            ObservationController.shared.createObservation(with: name, date: datePicker.date, notes: notes, reminder: reminderPicker.date, type: type, latitude: switchLat ?? 0.0, longitude: switchLong ?? 0.0)
         }
         navigationController?.popViewController(animated: true)
     }
@@ -73,10 +77,11 @@ class ObservationDetailViewController: UIViewController, CLLocationManagerDelega
     //        manager.startUpdatingLocation()
     //    }
     @IBAction func saveLocationSwitchTapped(_ sender: Any) {
-        if saveLocationSwitch.isEnabled {
+        if saveLocationSwitch.isOn == true {
+            switchLat = saveLat
+            switchLong = saveLong
+        } else if saveLocationSwitch.isOn == false {
             return
-        } else if !saveLocationSwitch.isEnabled{
-            manager.stopUpdatingLocation()
         }
     }
     
@@ -146,16 +151,16 @@ class ObservationDetailViewController: UIViewController, CLLocationManagerDelega
     }
     
     //MARK: - HELPER METHODS
-    //    func setupViews() {
-    //        // Set accuracy for location
-    //        manager.desiredAccuracy = kCLLocationAccuracyBest
-    //        // set delegate for location
-    //        manager.delegate = self
-    //        // Request permission
-    //        manager.requestWhenInUseAuthorization()
-    //        // Fetch location
-    //        manager.startUpdatingLocation()
-    //    }
+        func setupViews() {
+            // Set accuracy for location
+            manager.desiredAccuracy = kCLLocationAccuracyBest
+            // set delegate for location
+            manager.delegate = self
+            // Request permission
+            manager.requestWhenInUseAuthorization()
+            // Fetch location
+            manager.startUpdatingLocation()
+        }
     
     // Delegate function; gets called when location is updated
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
