@@ -7,8 +7,9 @@
 
 import UIKit
 import CoreLocation
+import MapKit
 
-class ObservationDetailViewController: UIViewController, CLLocationManagerDelegate {
+class ObservationDetailViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
     
     //MARK: - OUTLETS
     
@@ -19,10 +20,10 @@ class ObservationDetailViewController: UIViewController, CLLocationManagerDelega
     @IBOutlet weak var typeTextField: UITextField!
     @IBOutlet weak var latitudeLabel: UILabel!
     @IBOutlet weak var longitudeLabel: UILabel!
-    @IBOutlet weak var saveLocationButton: UIButton!
     @IBOutlet weak var saveLocationSwitch: UISwitch!
-    
-    
+    @IBOutlet weak var mapView: MKMapView!
+    @IBOutlet weak var selectImageButton: UIButton!
+    @IBOutlet weak var photoImageView: UIImageView!
     
     //MARK: - PROPERTIES
     var observation: Observation?
@@ -41,16 +42,8 @@ class ObservationDetailViewController: UIViewController, CLLocationManagerDelega
         setupViews()
         self.hideKeyboardWhenTappedAround()
         
-//        manager.desiredAccuracy = kCLLocationAccuracyBest
-//        // set delegate for location
-//        manager.delegate = self
-//        // Request permission
-//        manager.requestWhenInUseAuthorization()
-//        // Fetch location
-//        manager.startUpdatingLocation()
     }
     
-
     //MARK: - ACTIONS
     @IBAction func saveButtonTapped(_ sender: Any) {
         guard let name = nameTextField.text, !name.isEmpty,
@@ -67,22 +60,19 @@ class ObservationDetailViewController: UIViewController, CLLocationManagerDelega
         navigationController?.popViewController(animated: true)
     }
     
-    //    @IBAction func saveLocationButtonTapped(_ sender: Any) {
-    //        manager.desiredAccuracy = kCLLocationAccuracyBest
-    //        // set delegate for location
-    //        manager.delegate = self
-    //        // Request permission
-    //        manager.requestWhenInUseAuthorization()
-    //        // Fetch location
-    //        manager.startUpdatingLocation()
-    //    }
     @IBAction func saveLocationSwitchTapped(_ sender: Any) {
         if saveLocationSwitch.isOn == true {
             switchLat = saveLat
             switchLong = saveLong
+            mapView.isHidden = false
         } else if saveLocationSwitch.isOn == false {
+            mapView.isHidden = true
             return
         }
+    }
+   
+    @IBAction func selectImageButtonTapped(_ sender: Any) {
+        
     }
     
     //MARK: - PERMISSIONS
@@ -160,23 +150,63 @@ class ObservationDetailViewController: UIViewController, CLLocationManagerDelega
             manager.requestWhenInUseAuthorization()
             // Fetch location
             manager.startUpdatingLocation()
+            // Set delegate for mapView
+            mapView.delegate = self
         }
     
     // Delegate function; gets called when location is updated
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let location = locations.first {
             let userLocation = location.coordinate
-            //observation?.latitude = userLocation.latitude
-            //observation?.longitude = userLocation.longitude
+
             saveLat = userLocation.latitude
             saveLong = userLocation.longitude
             
             manager.stopUpdatingLocation()
             
-            //render(location)
+            render(location)
         }
     }
     
+    // Zoom into map on location
+    func render(_ location: CLLocation) {
+        // If there is an Observation, display stored locaiton.
+        if let observation = observation {
+            let coordinate = CLLocationCoordinate2D(latitude: observation.latitude, longitude: observation.longitude)
+            // The width and height of a map region.
+            let span = MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1)
+            // Set maps region(view)
+            let region = MKCoordinateRegion(center: coordinate, span: span)
+            mapView.setRegion(region, animated: true)
+            // Creates annotation(pin)
+            let pin = MKPointAnnotation()
+            pin.coordinate = coordinate
+            mapView.addAnnotation(pin)
+            // If there isn't a current Observation, a new one is being created.  Display current locaiton.
+        } else {
+        let coordinate = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
+
+        // The width and height of a map region.
+        let span = MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1)
+        // Set maps region(view)
+        let region = MKCoordinateRegion(center: coordinate, span: span)
+        mapView.setRegion(region, animated: true)
+            // Creates annotation(pin)
+        let pin = MKPointAnnotation()
+        pin.coordinate = coordinate
+        mapView.addAnnotation(pin)
+    }
+}
+    // Set custom image for map pin
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        if annotation is MKUserLocation {
+            return nil
+        }
+        let annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: "customAnnotation")
+        annotationView.image = #imageLiteral(resourceName: "fungiPoint2")
+        annotationView.canShowCallout = true
+        return annotationView
+    }
     /*
      // MARK: - Navigation
      

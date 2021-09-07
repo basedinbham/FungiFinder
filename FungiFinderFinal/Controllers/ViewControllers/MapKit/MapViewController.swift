@@ -131,9 +131,6 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     // Delegate function; gets called when location is updated
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let location = locations.first {
-            //let userLocation = location.coordinate
-            //userLocation.latitude
-            //userLocation.longitude
             manager.stopUpdatingLocation()
             
             render(location)
@@ -171,12 +168,6 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         annotationView.canShowCallout = true
         return annotationView
     }
-    
-//    func addObservationToMap(observation: Observation) {
-//        let obsCoordinate = CLLocationCoordinate2D(latitude: observation.latitude, longitude: observation.longitude)
-//        mapView.addAnnotation(obsCoordinate as! MKAnnotation)
-//    }
-    
     
     /*
      // MARK: - Navigation
