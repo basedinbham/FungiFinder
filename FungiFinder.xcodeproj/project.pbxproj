@@ -1,0 +1,507 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		27473FD626E59B8A00A6DB8D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27473FD526E59B8A00A6DB8D /* AppDelegate.swift */; };
+		27473FD826E59B8A00A6DB8D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27473FD726E59B8A00A6DB8D /* SceneDelegate.swift */; };
+		27473FDD26E59B8A00A6DB8D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27473FDB26E59B8A00A6DB8D /* Main.storyboard */; };
+		27473FE026E59B8A00A6DB8D /* FungiFinderFinal.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 27473FDE26E59B8A00A6DB8D /* FungiFinderFinal.xcdatamodeld */; };
+		27473FE226E59B8C00A6DB8D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 27473FE126E59B8C00A6DB8D /* Assets.xcassets */; };
+		27473FE526E59B8C00A6DB8D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27473FE326E59B8C00A6DB8D /* LaunchScreen.storyboard */; };
+		27473FF926E59C7C00A6DB8D /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27473FF826E59C7C00A6DB8D /* CloudKit.framework */; };
+		27473FFB26E59CD400A6DB8D /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27473FFA26E59CD400A6DB8D /* MapKit.framework */; };
+		27473FFD26E59D3400A6DB8D /* Mushroom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27473FFC26E59D3400A6DB8D /* Mushroom.swift */; };
+		27473FFF26E5A1A400A6DB8D /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27473FFE26E5A1A400A6DB8D /* CoreDataStack.swift */; };
+		2747400126E5A22100A6DB8D /* Observation+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2747400026E5A22100A6DB8D /* Observation+Convenience.swift */; };
+		2747400526E5A9F300A6DB8D /* MushroomController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2747400426E5A9F300A6DB8D /* MushroomController.swift */; };
+		2747400726E5AB1E00A6DB8D /* ObservationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2747400626E5AB1E00A6DB8D /* ObservationController.swift */; };
+		2747400926E5AB7B00A6DB8D /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2747400826E5AB7B00A6DB8D /* HomeViewController.swift */; };
+		2747400B26E5AB9400A6DB8D /* LandingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2747400A26E5AB9400A6DB8D /* LandingViewController.swift */; };
+		2747400D26E5ABB300A6DB8D /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2747400C26E5ABB300A6DB8D /* MapViewController.swift */; };
+		2747400F26E5ABCF00A6DB8D /* MushroomTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2747400E26E5ABCF00A6DB8D /* MushroomTableViewController.swift */; };
+		2747401126E5ABEE00A6DB8D /* MushroomDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2747401026E5ABEE00A6DB8D /* MushroomDetailViewController.swift */; };
+		2747401326E5AC1000A6DB8D /* ObservationsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2747401226E5AC1000A6DB8D /* ObservationsTableViewController.swift */; };
+		2747401526E5AC3200A6DB8D /* ObservationDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2747401426E5AC3200A6DB8D /* ObservationDetailViewController.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		27473FD226E59B8A00A6DB8D /* FungiFinderFinal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FungiFinderFinal.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		27473FD526E59B8A00A6DB8D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		27473FD726E59B8A00A6DB8D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		27473FDC26E59B8A00A6DB8D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		27473FDF26E59B8A00A6DB8D /* FungiFinderFinal.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FungiFinderFinal.xcdatamodel; sourceTree = "<group>"; };
+		27473FE126E59B8C00A6DB8D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		27473FE426E59B8C00A6DB8D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		27473FE626E59B8C00A6DB8D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		27473FF626E59C7500A6DB8D /* FungiFinderFinal.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FungiFinderFinal.entitlements; sourceTree = "<group>"; };
+		27473FF826E59C7C00A6DB8D /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
+		27473FFA26E59CD400A6DB8D /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		27473FFC26E59D3400A6DB8D /* Mushroom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mushroom.swift; sourceTree = "<group>"; };
+		27473FFE26E5A1A400A6DB8D /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
+		2747400026E5A22100A6DB8D /* Observation+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Observation+Convenience.swift"; sourceTree = "<group>"; };
+		2747400426E5A9F300A6DB8D /* MushroomController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MushroomController.swift; sourceTree = "<group>"; };
+		2747400626E5AB1E00A6DB8D /* ObservationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservationController.swift; sourceTree = "<group>"; };
+		2747400826E5AB7B00A6DB8D /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		2747400A26E5AB9400A6DB8D /* LandingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingViewController.swift; sourceTree = "<group>"; };
+		2747400C26E5ABB300A6DB8D /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		2747400E26E5ABCF00A6DB8D /* MushroomTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MushroomTableViewController.swift; sourceTree = "<group>"; };
+		2747401026E5ABEE00A6DB8D /* MushroomDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MushroomDetailViewController.swift; sourceTree = "<group>"; };
+		2747401226E5AC1000A6DB8D /* ObservationsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservationsTableViewController.swift; sourceTree = "<group>"; };
+		2747401426E5AC3200A6DB8D /* ObservationDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservationDetailViewController.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		27473FCF26E59B8A00A6DB8D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				27473FFB26E59CD400A6DB8D /* MapKit.framework in Frameworks */,
+				27473FF926E59C7C00A6DB8D /* CloudKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		27473FC926E59B8A00A6DB8D = {
+			isa = PBXGroup;
+			children = (
+				27473FD426E59B8A00A6DB8D /* FungiFinderFinal */,
+				27473FD326E59B8A00A6DB8D /* Products */,
+				27473FF726E59C7C00A6DB8D /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		27473FD326E59B8A00A6DB8D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				27473FD226E59B8A00A6DB8D /* FungiFinderFinal.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		27473FD426E59B8A00A6DB8D /* FungiFinderFinal */ = {
+			isa = PBXGroup;
+			children = (
+				27473FF526E59C5100A6DB8D /* Model */,
+				27473FF426E59C4E00A6DB8D /* CoreData */,
+				27473FEE26E59C1600A6DB8D /* Controllers */,
+				27473FED26E59C0400A6DB8D /* Views */,
+				27473FEC26E59BEF00A6DB8D /* Resources */,
+				27473FF626E59C7500A6DB8D /* FungiFinderFinal.entitlements */,
+			);
+			path = FungiFinderFinal;
+			sourceTree = "<group>";
+		};
+		27473FEC26E59BEF00A6DB8D /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				27473FD526E59B8A00A6DB8D /* AppDelegate.swift */,
+				27473FD726E59B8A00A6DB8D /* SceneDelegate.swift */,
+				27473FE126E59B8C00A6DB8D /* Assets.xcassets */,
+				27473FE626E59B8C00A6DB8D /* Info.plist */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		27473FED26E59C0400A6DB8D /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				27473FDB26E59B8A00A6DB8D /* Main.storyboard */,
+				27473FE326E59B8C00A6DB8D /* LaunchScreen.storyboard */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		27473FEE26E59C1600A6DB8D /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				27473FF026E59C2800A6DB8D /* ViewControllers */,
+				27473FEF26E59C2000A6DB8D /* ModelControllers */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		27473FEF26E59C2000A6DB8D /* ModelControllers */ = {
+			isa = PBXGroup;
+			children = (
+				2747400426E5A9F300A6DB8D /* MushroomController.swift */,
+				2747400626E5AB1E00A6DB8D /* ObservationController.swift */,
+			);
+			path = ModelControllers;
+			sourceTree = "<group>";
+		};
+		27473FF026E59C2800A6DB8D /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				2747400A26E5AB9400A6DB8D /* LandingViewController.swift */,
+				2747400826E5AB7B00A6DB8D /* HomeViewController.swift */,
+				27473FF326E59C3C00A6DB8D /* MapKit */,
+				27473FF226E59C3500A6DB8D /* MushroomID */,
+				27473FF126E59C2F00A6DB8D /* Observations */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		27473FF126E59C2F00A6DB8D /* Observations */ = {
+			isa = PBXGroup;
+			children = (
+				2747401226E5AC1000A6DB8D /* ObservationsTableViewController.swift */,
+				2747401426E5AC3200A6DB8D /* ObservationDetailViewController.swift */,
+			);
+			path = Observations;
+			sourceTree = "<group>";
+		};
+		27473FF226E59C3500A6DB8D /* MushroomID */ = {
+			isa = PBXGroup;
+			children = (
+				2747400E26E5ABCF00A6DB8D /* MushroomTableViewController.swift */,
+				2747401026E5ABEE00A6DB8D /* MushroomDetailViewController.swift */,
+			);
+			path = MushroomID;
+			sourceTree = "<group>";
+		};
+		27473FF326E59C3C00A6DB8D /* MapKit */ = {
+			isa = PBXGroup;
+			children = (
+				2747400C26E5ABB300A6DB8D /* MapViewController.swift */,
+			);
+			path = MapKit;
+			sourceTree = "<group>";
+		};
+		27473FF426E59C4E00A6DB8D /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				27473FDE26E59B8A00A6DB8D /* FungiFinderFinal.xcdatamodeld */,
+				27473FFE26E5A1A400A6DB8D /* CoreDataStack.swift */,
+				2747400026E5A22100A6DB8D /* Observation+Convenience.swift */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
+		27473FF526E59C5100A6DB8D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				27473FFC26E59D3400A6DB8D /* Mushroom.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		27473FF726E59C7C00A6DB8D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				27473FFA26E59CD400A6DB8D /* MapKit.framework */,
+				27473FF826E59C7C00A6DB8D /* CloudKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		27473FD126E59B8A00A6DB8D /* FungiFinderFinal */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 27473FE926E59B8C00A6DB8D /* Build configuration list for PBXNativeTarget "FungiFinderFinal" */;
+			buildPhases = (
+				27473FCE26E59B8A00A6DB8D /* Sources */,
+				27473FCF26E59B8A00A6DB8D /* Frameworks */,
+				27473FD026E59B8A00A6DB8D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FungiFinderFinal;
+			productName = FungiFinderFinal;
+			productReference = 27473FD226E59B8A00A6DB8D /* FungiFinderFinal.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		27473FCA26E59B8A00A6DB8D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1250;
+				LastUpgradeCheck = 1250;
+				TargetAttributes = {
+					27473FD126E59B8A00A6DB8D = {
+						CreatedOnToolsVersion = 12.5.1;
+					};
+				};
+			};
+			buildConfigurationList = 27473FCD26E59B8A00A6DB8D /* Build configuration list for PBXProject "FungiFinder" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 27473FC926E59B8A00A6DB8D;
+			productRefGroup = 27473FD326E59B8A00A6DB8D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				27473FD126E59B8A00A6DB8D /* FungiFinderFinal */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		27473FD026E59B8A00A6DB8D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				27473FE526E59B8C00A6DB8D /* LaunchScreen.storyboard in Resources */,
+				27473FE226E59B8C00A6DB8D /* Assets.xcassets in Resources */,
+				27473FDD26E59B8A00A6DB8D /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		27473FCE26E59B8A00A6DB8D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2747401526E5AC3200A6DB8D /* ObservationDetailViewController.swift in Sources */,
+				2747401326E5AC1000A6DB8D /* ObservationsTableViewController.swift in Sources */,
+				2747400D26E5ABB300A6DB8D /* MapViewController.swift in Sources */,
+				2747400126E5A22100A6DB8D /* Observation+Convenience.swift in Sources */,
+				27473FFF26E5A1A400A6DB8D /* CoreDataStack.swift in Sources */,
+				2747400526E5A9F300A6DB8D /* MushroomController.swift in Sources */,
+				27473FE026E59B8A00A6DB8D /* FungiFinderFinal.xcdatamodeld in Sources */,
+				2747401126E5ABEE00A6DB8D /* MushroomDetailViewController.swift in Sources */,
+				27473FD626E59B8A00A6DB8D /* AppDelegate.swift in Sources */,
+				2747400926E5AB7B00A6DB8D /* HomeViewController.swift in Sources */,
+				2747400F26E5ABCF00A6DB8D /* MushroomTableViewController.swift in Sources */,
+				27473FD826E59B8A00A6DB8D /* SceneDelegate.swift in Sources */,
+				2747400726E5AB1E00A6DB8D /* ObservationController.swift in Sources */,
+				2747400B26E5AB9400A6DB8D /* LandingViewController.swift in Sources */,
+				27473FFD26E59D3400A6DB8D /* Mushroom.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		27473FDB26E59B8A00A6DB8D /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				27473FDC26E59B8A00A6DB8D /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		27473FE326E59B8C00A6DB8D /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				27473FE426E59B8C00A6DB8D /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		27473FE726E59B8C00A6DB8D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		27473FE826E59B8C00A6DB8D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		27473FEA26E59B8C00A6DB8D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = FungiFinderFinal/FungiFinderFinal.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = L97V4TW6MB;
+				INFOPLIST_FILE = FungiFinderFinal/Resources/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.KyleWarren.FungiFinderFinal;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		27473FEB26E59B8C00A6DB8D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = FungiFinderFinal/FungiFinderFinal.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = L97V4TW6MB;
+				INFOPLIST_FILE = FungiFinderFinal/Resources/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.KyleWarren.FungiFinderFinal;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		27473FCD26E59B8A00A6DB8D /* Build configuration list for PBXProject "FungiFinder" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				27473FE726E59B8C00A6DB8D /* Debug */,
+				27473FE826E59B8C00A6DB8D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		27473FE926E59B8C00A6DB8D /* Build configuration list for PBXNativeTarget "FungiFinderFinal" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				27473FEA26E59B8C00A6DB8D /* Debug */,
+				27473FEB26E59B8C00A6DB8D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		27473FDE26E59B8A00A6DB8D /* FungiFinderFinal.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				27473FDF26E59B8A00A6DB8D /* FungiFinderFinal.xcdatamodel */,
+			);
+			currentVersion = 27473FDF26E59B8A00A6DB8D /* FungiFinderFinal.xcdatamodel */;
+			path = FungiFinderFinal.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 27473FCA26E59B8A00A6DB8D /* Project object */;
+}
