@@ -21,8 +21,8 @@ class ObservationController {
     
     //MARK: - CRUD
     
-    func createObservation(with name: String, date: Date, notes: String, reminder: Date, type: String, latitude: Double, longitude: Double) {
-        let observation = Observation(date: date, image: nil, latitude: latitude, longitude: longitude, name: name, notes: notes, reminder: reminder, type: type)
+    func createObservation(with name: String, date: Date, notes: String, reminder: Date, type: String, latitude: Double, longitude: Double, locationIsOn: Bool = true) {
+        let observation = Observation(date: date, image: nil, latitude: latitude, longitude: longitude, name: name, notes: notes, reminder: reminder, type: type, locationIsOn: locationIsOn)
         observations.append(observation)
         CoreDataStack.saveContext()
     }
@@ -33,7 +33,7 @@ class ObservationController {
 
     }
     
-    func updateObservation(_ observation: Observation, name: String, date: Date, notes: String, reminder: Date, type: String, latitude: Double, longitude: Double) {
+    func updateObservation(_ observation: Observation, name: String, date: Date, notes: String, reminder: Date, type: String, latitude: Double, longitude: Double, locationIsOn: Bool = true) {
         observation.name = name
         observation.date = date
         observation.notes = notes
@@ -41,6 +41,7 @@ class ObservationController {
         observation.type = type
         observation.latitude = latitude
         observation.longitude = longitude
+        observation.locationIsOn = locationIsOn
         
         CoreDataStack.saveContext()
     }

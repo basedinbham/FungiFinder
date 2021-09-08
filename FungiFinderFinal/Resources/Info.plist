@@ -2,6 +2,10 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>NSCameraUsageDescription</key>
+	<string>&quot;This app allows you to add photos to created Observations.  It needs access to your camera to take photos.&quot;</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>&quot;This app allows you to add photos to created Observations.  It needs access to your photo library to select photos.&quot;</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>“This app lets you keep track of mushroom locations. It needs access to the GPS coordinates for your location.”</string>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>

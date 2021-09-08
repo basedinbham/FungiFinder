@@ -7,8 +7,9 @@
 
 import UIKit
 import CoreLocation
+import MapKit
 
-class ObservationDetailViewController: UIViewController, CLLocationManagerDelegate {
+class ObservationDetailViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
     
     //MARK: - OUTLETS
     
@@ -19,10 +20,10 @@ class ObservationDetailViewController: UIViewController, CLLocationManagerDelega
     @IBOutlet weak var typeTextField: UITextField!
     @IBOutlet weak var latitudeLabel: UILabel!
     @IBOutlet weak var longitudeLabel: UILabel!
-    @IBOutlet weak var saveLocationButton: UIButton!
     @IBOutlet weak var saveLocationSwitch: UISwitch!
-    
-    
+    @IBOutlet weak var mapView: MKMapView!
+    @IBOutlet weak var selectImageButton: UIButton!
+    @IBOutlet weak var photoImageView: UIImageView!
     
     //MARK: - PROPERTIES
     var observation: Observation?
@@ -30,9 +31,8 @@ class ObservationDetailViewController: UIViewController, CLLocationManagerDelega
     // Gets location of device
     let manager = CLLocationManager()
     var saveLat: Double?
-    var saveLong: Double?
-    var switchLat: Double?
     var switchLong: Double?
+    let imagePicker = UIImagePickerController()
     
     //MARK: - LIFECYCLES
     override func viewDidLoad() {
@@ -41,16 +41,8 @@ class ObservationDetailViewController: UIViewController, CLLocationManagerDelega
         setupViews()
         self.hideKeyboardWhenTappedAround()
         
-//        manager.desiredAccuracy = kCLLocationAccuracyBest
-//        // set delegate for location
-//        manager.delegate = self
-//        // Request permission
-//        manager.requestWhenInUseAuthorization()
-//        // Fetch location
-//        manager.startUpdatingLocation()
     }
     
-
     //MARK: - ACTIONS
     @IBAction func saveButtonTapped(_ sender: Any) {
         guard let name = nameTextField.text, !name.isEmpty,
@@ -60,29 +52,40 @@ class ObservationDetailViewController: UIViewController, CLLocationManagerDelega
         let longitude = observation?.latitude
         
         if let observation = observation {
-            ObservationController.shared.updateObservation(observation, name: name, date: datePicker.date, notes: notes, reminder: reminderPicker.date, type: type, latitude: latitude ?? 0.0, longitude: longitude ?? 0.0)
+            ObservationController.shared.updateObservation(observation, name: name, date: datePicker.date, notes: notes, reminder: reminderPicker.date, type: type, latitude: latitude ?? 0.0, longitude: longitude ?? 0.0, locationIsOn: saveLocationSwitch.isOn)
         } else {
-            ObservationController.shared.createObservation(with: name, date: datePicker.date, notes: notes, reminder: reminderPicker.date, type: type, latitude: switchLat ?? 0.0, longitude: switchLong ?? 0.0)
+            ObservationController.shared.createObservation(with: name, date: datePicker.date, notes: notes, reminder: reminderPicker.date, type: type, latitude: latitude ?? 0.0, longitude: longitude ?? 0.0, locationIsOn: saveLocationSwitch.isOn)
         }
         navigationController?.popViewController(animated: true)
     }
     
-    //    @IBAction func saveLocationButtonTapped(_ sender: Any) {
-    //        manager.desiredAccuracy = kCLLocationAccuracyBest
-    //        // set delegate for location
-    //        manager.delegate = self
-    //        // Request permission
-    //        manager.requestWhenInUseAuthorization()
-    //        // Fetch location
-    //        manager.startUpdatingLocation()
-    //    }
     @IBAction func saveLocationSwitchTapped(_ sender: Any) {
         if saveLocationSwitch.isOn == true {
-            switchLat = saveLat
-            switchLong = saveLong
+            mapView.isHidden = false
+            observation?.locationIsOn = true
         } else if saveLocationSwitch.isOn == false {
+            mapView.isHidden = true
+            observation?.latitude = 0.0
+            observation?.longitude = 0.0
+            observation?.locationIsOn = false
             return
         }
+    }
+    
+    @IBAction func selectImageButtonTapped(_ sender: Any) {
+        let alert = UIAlertController(title: "Add a photo", message: nil, preferredStyle: .alert)
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+        let cameraAction = UIAlertAction(title: "Camera", style: .default) { (_) in
+            self.openCamera()
+        }
+        let photoLibraryAction = UIAlertAction(title: "Photo Library", style: .default) { (_) in
+            self.openGallery()
+        }
+        alert.addAction(cancelAction)
+        alert.addAction(cameraAction)
+        alert.addAction(photoLibraryAction)
+        
+        present(alert, animated: true)
     }
     
     //MARK: - PERMISSIONS
@@ -106,7 +109,6 @@ class ObservationDetailViewController: UIViewController, CLLocationManagerDelega
         }
         
         switch manager.accuracyAuthorization {
-        
         case .fullAccuracy:
             break
         case .reducedAccuracy:
@@ -137,7 +139,6 @@ class ObservationDetailViewController: UIViewController, CLLocationManagerDelega
         }
     }
     
-    
     //MARK: - HELPER METHODS
     func updateViews() {
         guard let observation = observation else { return }
@@ -148,35 +149,84 @@ class ObservationDetailViewController: UIViewController, CLLocationManagerDelega
         typeTextField.text = observation.type
         latitudeLabel.text = String(observation.latitude)
         longitudeLabel.text = String(observation.longitude)
-    }
-    
-    //MARK: - HELPER METHODS
-        func setupViews() {
-            // Set accuracy for location
-            manager.desiredAccuracy = kCLLocationAccuracyBest
-            // set delegate for location
-            manager.delegate = self
-            // Request permission
-            manager.requestWhenInUseAuthorization()
-            // Fetch location
-            manager.startUpdatingLocation()
+        // If save location switch is set to on, let LocationIsOn property equal true
+        saveLocationSwitch.isOn = observation.locationIsOn
+        // If location is set to off hide the mapView
+        mapView.isHidden = !observation.locationIsOn
+        // Convert data to UIImage
+        if let data = observation.image {
+            photoImageView.image = UIImage(data: data)
         }
+    }
+    //MARK: - HELPER METHODS
+    func setupViews() {
+        // Set accuracy for location
+        manager.desiredAccuracy = kCLLocationAccuracyBest
+        // set delegate for location
+        manager.delegate = self
+        // Request permission
+        manager.requestWhenInUseAuthorization()
+        // Fetch location
+        manager.startUpdatingLocation()
+        // Set delegate for mapView
+        mapView.delegate = self
+        //delegate declaration for properties: imagePicker
+        imagePicker.delegate = self
+    }
     
     // Delegate function; gets called when location is updated
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let location = locations.first {
             let userLocation = location.coordinate
-            //observation?.latitude = userLocation.latitude
-            //observation?.longitude = userLocation.longitude
-            saveLat = userLocation.latitude
-            saveLong = userLocation.longitude
+            
+            observation?.latitude = userLocation.latitude
+            observation?.longitude = userLocation.longitude
             
             manager.stopUpdatingLocation()
             
-            //render(location)
+            render(location)
         }
     }
     
+    // Zoom into map on location
+    func render(_ location: CLLocation) {
+        // If there is an Observation, display stored locaiton.
+        if let observation = observation {
+            let coordinate = CLLocationCoordinate2D(latitude: observation.latitude, longitude: observation.longitude)
+            // The width and height of a map region.
+            let span = MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1)
+            // Set maps region(view)
+            let region = MKCoordinateRegion(center: coordinate, span: span)
+            mapView.setRegion(region, animated: true)
+            // Creates annotation(pin)
+            let pin = MKPointAnnotation()
+            pin.coordinate = coordinate
+            mapView.addAnnotation(pin)
+            // If there isn't a current Observation, a new one is being created.  Display current locaiton.
+        } else {
+            let coordinate = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
+            
+            // The width and height of a map region.
+            let span = MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1)
+            // Set maps region(view)
+            let region = MKCoordinateRegion(center: coordinate, span: span)
+            mapView.setRegion(region, animated: true)
+            // Creates annotation(pin)
+            let pin = MKPointAnnotation()
+            pin.coordinate = coordinate
+            mapView.addAnnotation(pin)
+        }
+    }
+    // Set custom image for map pin
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        if annotation is MKUserLocation {
+            return nil
+        }
+        let annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: "customAnnotation")
+        annotationView.image = #imageLiteral(resourceName: "fungiPoint2")
+        annotationView.canShowCallout = true
+        return annotationView
+    }
     /*
      // MARK: - Navigation
      
@@ -200,3 +250,46 @@ extension UIViewController {
         view.endEditing(true)
     }
 }// End of Extension
+
+extension ObservationDetailViewController: UIImagePickerControllerDelegate & UINavigationControllerDelegate {
+    
+    func openCamera() {
+        if UIImagePickerController.isSourceTypeAvailable(.camera) {
+            imagePicker.sourceType = .camera
+            imagePicker.allowsEditing = false
+            self.present(imagePicker, animated: true)
+        } else {
+            //self.presentNoAccessAlert()
+        }
+    }
+    
+    func openGallery() {
+        if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
+            imagePicker.sourceType = .photoLibrary
+            imagePicker.allowsEditing = true
+            self.present(imagePicker, animated: true)
+        } else {
+            //self.presentNoAccessAlert()
+        }
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        if let editedImage = info[.editedImage] as? UIImage {
+            photoImageView.image = editedImage
+            
+            let jpegData = editedImage.jpegData(compressionQuality: 1.0)
+            observation?.image = jpegData
+            
+            selectImageButton.setTitle("", for: .normal)
+        } else if let pickedImage = info[.originalImage] as? UIImage {
+            photoImageView.image = pickedImage
+            
+            let jpegData = pickedImage.jpegData(compressionQuality: 1.0)
+            observation?.image = jpegData
+            selectImageButton.setTitle("", for: .normal)
+        }
+        picker.dismiss(animated: true)
+    }
+} // End of Extension
+
+
