@@ -31,7 +31,7 @@ class ObservationDetailViewController: UIViewController, CLLocationManagerDelega
     // Gets location of device
     let manager = CLLocationManager()
     var saveLat: Double?
-    var switchLong: Double?
+    var saveLong: Double?
     let imagePicker = UIImagePickerController()
     
     //MARK: - LIFECYCLES
@@ -48,8 +48,8 @@ class ObservationDetailViewController: UIViewController, CLLocationManagerDelega
         guard let name = nameTextField.text, !name.isEmpty,
               let notes = notesTextField.text, !notes.isEmpty,
               let type = typeTextField.text, !type.isEmpty else { return }
-        let latitude = observation?.latitude
-        let longitude = observation?.latitude
+        let latitude = saveLat
+        let longitude = saveLong
         
         if let observation = observation {
             ObservationController.shared.updateObservation(observation, name: name, date: datePicker.date, notes: notes, reminder: reminderPicker.date, type: type, latitude: latitude ?? 0.0, longitude: longitude ?? 0.0, locationIsOn: saveLocationSwitch.isOn)
@@ -93,8 +93,8 @@ class ObservationDetailViewController: UIViewController, CLLocationManagerDelega
         switch manager.authorizationStatus {
         // App first launched, hasn't determined
         case .notDetermined:
-            // For use when the app is open, & in the background
-            manager.requestAlwaysAuthorization()
+            // For use when the app is open
+            manager.requestWhenInUseAuthorization()
         case .restricted:
             break
         case .denied:
@@ -179,16 +179,20 @@ class ObservationDetailViewController: UIViewController, CLLocationManagerDelega
         if let location = locations.first {
             let userLocation = location.coordinate
             
-            observation?.latitude = userLocation.latitude
-            observation?.longitude = userLocation.longitude
+            saveLat = userLocation.latitude
+            saveLong = userLocation.longitude
             
             manager.stopUpdatingLocation()
             
             render(location)
         }
     }
-    
-    // Zoom into map on location
+    /**
+     
+     # Render map for use with MapKit & MapView
+     
+- Parameter location: Location must be of type CLLocation with **latitude**, & **longitude**.
+     */
     func render(_ location: CLLocation) {
         // If there is an Observation, display stored locaiton.
         if let observation = observation {
@@ -263,6 +267,7 @@ extension ObservationDetailViewController: UIImagePickerControllerDelegate & UIN
         }
     }
     
+    /// This is a description 
     func openGallery() {
         if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
             imagePicker.sourceType = .photoLibrary

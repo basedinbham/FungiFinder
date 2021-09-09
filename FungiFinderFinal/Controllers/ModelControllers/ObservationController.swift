@@ -21,6 +21,16 @@ class ObservationController {
     
     //MARK: - CRUD
     
+    /// <#Description#>
+    /// - Parameters:
+    ///   - name: Name of the observation.
+    ///   - date: Date the observation was saved.
+    ///   - notes: Notes saved for the observation.
+    ///   - reminder: Date set for a reminder.
+    ///   - type: Type of mushroom suspected.
+    ///   - latitude: Latitude location for observation.
+    ///   - longitude: Longitude location for observation.
+    ///   - locationIsOn: Bool for location status.
     func createObservation(with name: String, date: Date, notes: String, reminder: Date, type: String, latitude: Double, longitude: Double, locationIsOn: Bool = true) {
         let observation = Observation(date: date, image: nil, latitude: latitude, longitude: longitude, name: name, notes: notes, reminder: reminder, type: type, locationIsOn: locationIsOn)
         observations.append(observation)

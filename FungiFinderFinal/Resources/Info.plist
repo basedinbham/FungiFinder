@@ -8,8 +8,6 @@
 	<string>&quot;This app allows you to add photos to created Observations.  It needs access to your photo library to select photos.&quot;</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>“This app lets you keep track of mushroom locations. It needs access to the GPS coordinates for your location.”</string>
-	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-	<string>“This app lets you keep track of mushroom locations. It needs access to the GPS coordinates for your location.”</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleExecutable</key>

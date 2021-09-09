@@ -30,7 +30,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     override func viewDidAppear(_ animated: Bool) {
         setupViews()
         fetchObservations()
-
+        
     }
     
     //MARK: - TEST
@@ -38,20 +38,20 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     func fetchObservations() {
         ObservationController.shared.fetchOBservations()
         
-       self.observations = ObservationController.shared.observations
+        self.observations = ObservationController.shared.observations
     }
     
     
- 
-
-
+    
+    
+    
     //MARK: - PERMISSIONS
     func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
         switch manager.authorizationStatus {
         // App first launched, hasn't determined
         case .notDetermined:
-            // For use when the app is open, & in the background
-            manager.requestAlwaysAuthorization()
+            // For use when the app is open
+            manager.requestWhenInUseAuthorization()
         case .restricted:
             break
         case .denied:
@@ -110,23 +110,23 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         // Set delegate for mapView
         mapView.delegate = self
         // Allows reaction to touch on map (tap recognizer)
-//        let gestureRecognizer = UITapGestureRecognizer(target: self, action:#selector(handleTap))
-//        gestureRecognizer.delegate = self
-//        mapView.addGestureRecognizer(gestureRecognizer)
+        //        let gestureRecognizer = UITapGestureRecognizer(target: self, action:#selector(handleTap))
+        //        gestureRecognizer.delegate = self
+        //        mapView.addGestureRecognizer(gestureRecognizer)
     }
     // Handles the tap & gets location coordinates
-//    @objc func handleTap(gestureRecognizer: UITapGestureRecognizer) {
-//
-//        let location = gestureRecognizer.location(in: mapView)
-//        let coordinate = mapView.convert(location, toCoordinateFrom: mapView)
-//
-//        // Add annotation(pin):
-//        let annotation = MKPointAnnotation()
-//        annotation.coordinate = coordinate
-//        mapView.addAnnotation(annotation)
-        //annotation.title
-        //annotation.subtitle
-//    }
+    //    @objc func handleTap(gestureRecognizer: UITapGestureRecognizer) {
+    //
+    //        let location = gestureRecognizer.location(in: mapView)
+    //        let coordinate = mapView.convert(location, toCoordinateFrom: mapView)
+    //
+    //        // Add annotation(pin):
+    //        let annotation = MKPointAnnotation()
+    //        annotation.coordinate = coordinate
+    //        mapView.addAnnotation(annotation)
+    //annotation.title
+    //annotation.subtitle
+    //    }
     
     // Delegate function; gets called when location is updated
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
@@ -166,8 +166,50 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         let annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: "customAnnotation")
         annotationView.image = #imageLiteral(resourceName: "fungiPoint2")
         annotationView.canShowCallout = true
+        annotationView.calloutOffset = CGPoint(x: -5, y: 5)
+        annotationView.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
         return annotationView
     }
+    
+    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+        if control == view.rightCalloutAccessoryView {
+            guard let observations = observations else { return }
+            for o in observations {
+                let testLocation = CLLocationCoordinate2D(latitude: o.latitude, longitude: o.longitude)
+                if testLocation.latitude == view.annotation!.coordinate.latitude && testLocation.longitude == view.annotation!.coordinate.longitude {
+                    performSegue(withIdentifier: "toObsVC", sender: view)
+                    break
+                }
+            }
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+
+        let selectedObservation = sender as! Observation
+        
+        let detailModel = ObservationDetailViewController()
+        detailModel.observation = selectedObservation
+
+        let detailVC = segue.destination as? ObservationDetailViewController
+       // detailVC.model = detailModel
+
+    }
+    
+    //    func mapView(
+    //      _ mapView: MKMapView,
+    //      annotationView view: MKAnnotationView,
+    //      calloutAccessoryControlTapped control: UIControl
+    //    ) {
+    //      guard let artwork = view.annotation as? Artwork else {
+    //        return
+    //      }
+    //
+    //      let launchOptions = [
+    //        MKLaunchOptionsDirectionsModeKey: MKLaunchOptionsDirectionsModeDriving
+    //      ]
+    //      artwork.mapItem?.openInMaps(launchOptions: launchOptions)
+    //    }
     
     /*
      // MARK: - Navigation
