@@ -33,6 +33,8 @@ class ObservationDetailViewController: UIViewController, CLLocationManagerDelega
     var saveLat: Double?
     var saveLong: Double?
     let imagePicker = UIImagePickerController()
+    var observationImage: UIImage?
+
     
     //MARK: - LIFECYCLES
     override func viewDidLoad() {
@@ -41,6 +43,11 @@ class ObservationDetailViewController: UIViewController, CLLocationManagerDelega
         setupViews()
         self.hideKeyboardWhenTappedAround()
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        setupViews()
     }
     
     //MARK: - ACTIONS
@@ -52,9 +59,9 @@ class ObservationDetailViewController: UIViewController, CLLocationManagerDelega
         let longitude = saveLong
         
         if let observation = observation {
-            ObservationController.shared.updateObservation(observation, name: name, date: datePicker.date, notes: notes, reminder: reminderPicker.date, type: type, latitude: latitude ?? 0.0, longitude: longitude ?? 0.0, locationIsOn: saveLocationSwitch.isOn)
+            ObservationController.shared.updateObservation(observation, name: name, date: datePicker.date, image: observationImage, notes: notes, reminder: reminderPicker.date, type: type, latitude: latitude ?? 0.0, longitude: longitude ?? 0.0, locationIsOn: saveLocationSwitch.isOn)
         } else {
-            ObservationController.shared.createObservation(with: name, date: datePicker.date, notes: notes, reminder: reminderPicker.date, type: type, latitude: latitude ?? 0.0, longitude: longitude ?? 0.0, locationIsOn: saveLocationSwitch.isOn)
+            ObservationController.shared.createObservation(with: name, image: observationImage, date: datePicker.date, notes: notes, reminder: reminderPicker.date, type: type, latitude: latitude ?? 0.0, longitude: longitude ?? 0.0, locationIsOn: saveLocationSwitch.isOn)
         }
         navigationController?.popViewController(animated: true)
     }
@@ -282,15 +289,16 @@ extension ObservationDetailViewController: UIImagePickerControllerDelegate & UIN
         if let editedImage = info[.editedImage] as? UIImage {
             photoImageView.image = editedImage
             
-            let jpegData = editedImage.jpegData(compressionQuality: 1.0)
-            observation?.image = jpegData
-            
+           // let jpegData = editedImage.jpegData(compressionQuality: 1.0)
+            //observation?.image = jpegData
+            observationImage = editedImage
             selectImageButton.setTitle("", for: .normal)
         } else if let pickedImage = info[.originalImage] as? UIImage {
             photoImageView.image = pickedImage
             
-            let jpegData = pickedImage.jpegData(compressionQuality: 1.0)
-            observation?.image = jpegData
+            //let jpegData = pickedImage.jpegData(compressionQuality: 1.0)
+            //observation?.image = jpegData
+            observationImage = pickedImage
             selectImageButton.setTitle("", for: .normal)
         }
         picker.dismiss(animated: true)

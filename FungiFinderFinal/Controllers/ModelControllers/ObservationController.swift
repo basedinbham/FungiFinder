@@ -6,6 +6,7 @@
 //
 
 import CoreData
+import UIKit
 
 class ObservationController {
     
@@ -31,8 +32,8 @@ class ObservationController {
     ///   - latitude: Latitude location for observation.
     ///   - longitude: Longitude location for observation.
     ///   - locationIsOn: Bool for location status.
-    func createObservation(with name: String, date: Date, notes: String, reminder: Date, type: String, latitude: Double, longitude: Double, locationIsOn: Bool = true) {
-        let observation = Observation(date: date, image: nil, latitude: latitude, longitude: longitude, name: name, notes: notes, reminder: reminder, type: type, locationIsOn: locationIsOn)
+    func createObservation(with name: String, image: UIImage?, date: Date, notes: String, reminder: Date, type: String, latitude: Double, longitude: Double, locationIsOn: Bool = true) {
+        let observation = Observation(date: date, image: image, latitude: latitude, longitude: longitude, name: name, notes: notes, reminder: reminder, type: type, locationIsOn: locationIsOn)
         observations.append(observation)
         CoreDataStack.saveContext()
     }
@@ -43,9 +44,10 @@ class ObservationController {
 
     }
     
-    func updateObservation(_ observation: Observation, name: String, date: Date, notes: String, reminder: Date, type: String, latitude: Double, longitude: Double, locationIsOn: Bool = true) {
+    func updateObservation(_ observation: Observation, name: String, date: Date, image: UIImage?, notes: String, reminder: Date, type: String, latitude: Double, longitude: Double, locationIsOn: Bool = true) {
         observation.name = name
         observation.date = date
+        observation.image = image?.jpegData(compressionQuality: 1.0)
         observation.notes = notes
         observation.reminder = reminder
         observation.type = type
