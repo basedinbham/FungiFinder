@@ -34,17 +34,13 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         
     }
     
-    //MARK: - TEST
+    //MARK: - FETCH
     
     func fetchObservations() {
         ObservationController.shared.fetchOBservations()
         
         self.observations = ObservationController.shared.observations
     }
-    
-    
-    
-    
     
     //MARK: - PERMISSIONS
     func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
@@ -189,27 +185,16 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         }
     }
     
+    //MARK: - NAVIGATION
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
         if segue.identifier == "toObsVC",
            let destination = segue.destination as? ObservationDetailViewController {
             destination.observation = self.currentlySelectedObservation
         }
-
-
-
     }
     
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
+
     
 }// End of Class
 

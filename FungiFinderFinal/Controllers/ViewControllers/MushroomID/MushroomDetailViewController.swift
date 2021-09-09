@@ -16,6 +16,8 @@ class MushroomDetailViewController: UIViewController {
     @IBOutlet weak var howEdibleLabel: UILabel!
     @IBOutlet weak var seasonLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
+    @IBOutlet weak var subDescriptionLabel: UILabel!
+    @IBOutlet weak var citationLabel: UILabel!
     
     //MARK: - PROPERTIES
     var mushroom: Mushroom? {
@@ -42,6 +44,8 @@ class MushroomDetailViewController: UIViewController {
         howEdibleLabel?.text = mushroom.howEdible
         seasonLabel?.text = mushroom.season
         descriptionLabel?.text = mushroom.shroomDescription
+        subDescriptionLabel?.text = mushroom.shroomSubDescription
+        citationLabel?.text = mushroom.citation
         
 //
 //        if let image = UIImage(data:mushroom.image!) {
