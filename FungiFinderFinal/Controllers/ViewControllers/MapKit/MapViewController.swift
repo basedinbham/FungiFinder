@@ -18,6 +18,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     // Gets location of device
     let manager = CLLocationManager()
     var observations: [Observation]?
+    var currentlySelectedObservation: Observation?
     
     //MARK: - LIFECYCLES
     
@@ -173,10 +174,14 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
         if control == view.rightCalloutAccessoryView {
+            // Cross-match locaiton for selected Annotation point with observation location
             guard let observations = observations else { return }
             for o in observations {
                 let testLocation = CLLocationCoordinate2D(latitude: o.latitude, longitude: o.longitude)
+                // If the annotation & observation have the same location run code below
                 if testLocation.latitude == view.annotation!.coordinate.latitude && testLocation.longitude == view.annotation!.coordinate.longitude {
+                    // segue to observation detail VC
+                    self.currentlySelectedObservation = o
                     performSegue(withIdentifier: "toObsVC", sender: view)
                     break
                 }
@@ -185,31 +190,16 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
+        if segue.identifier == "toObsVC",
+           let destination = segue.destination as? ObservationDetailViewController {
+            destination.observation = self.currentlySelectedObservation
+        }
 
-        let selectedObservation = sender as! Observation
-        
-        let detailModel = ObservationDetailViewController()
-        detailModel.observation = selectedObservation
 
-        let detailVC = segue.destination as? ObservationDetailViewController
-       // detailVC.model = detailModel
 
     }
     
-    //    func mapView(
-    //      _ mapView: MKMapView,
-    //      annotationView view: MKAnnotationView,
-    //      calloutAccessoryControlTapped control: UIControl
-    //    ) {
-    //      guard let artwork = view.annotation as? Artwork else {
-    //        return
-    //      }
-    //
-    //      let launchOptions = [
-    //        MKLaunchOptionsDirectionsModeKey: MKLaunchOptionsDirectionsModeDriving
-    //      ]
-    //      artwork.mapItem?.openInMaps(launchOptions: launchOptions)
-    //    }
     
     /*
      // MARK: - Navigation
