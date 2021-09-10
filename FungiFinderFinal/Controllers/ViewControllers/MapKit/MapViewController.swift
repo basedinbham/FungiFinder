@@ -9,7 +9,7 @@ import UIKit
 import MapKit
 import CoreLocation
 
-class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate, UIGestureRecognizerDelegate {
+class MapViewController: UIViewController {
     
     //MARK: - OUTLETS
     @IBOutlet private var mapView: MKMapView!
@@ -125,6 +125,21 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     //annotation.subtitle
     //    }
     
+    
+    
+    //MARK: - NAVIGATION
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
+        if segue.identifier == "toObsVC",
+           let destination = segue.destination as? ObservationDetailViewController {
+            destination.observation = self.currentlySelectedObservation
+        }
+    }
+}// End of Class
+
+//MARK: - DELEGATE EXTENIONS
+
+extension MapViewController: MKMapViewDelegate, CLLocationManagerDelegate, UIGestureRecognizerDelegate {
     // Delegate function; gets called when location is updated
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let location = locations.first {
@@ -184,18 +199,4 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
             }
         }
     }
-    
-    //MARK: - NAVIGATION
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        super.prepare(for: segue, sender: sender)
-        if segue.identifier == "toObsVC",
-           let destination = segue.destination as? ObservationDetailViewController {
-            destination.observation = self.currentlySelectedObservation
-        }
-    }
-    
-
-    
-}// End of Class
-
-
+}
