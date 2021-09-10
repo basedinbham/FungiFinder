@@ -9,17 +9,15 @@ import UIKit
 import CoreLocation
 import MapKit
 
-class ObservationDetailViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
+class ObservationDetailViewController: UIViewController, UITextViewDelegate {
     
     //MARK: - OUTLETS
     
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var datePicker: UIDatePicker!
-    @IBOutlet weak var notesTextField: UITextField!
+    @IBOutlet weak var notesTextField: UITextView!
     @IBOutlet weak var reminderPicker: UIDatePicker!
     @IBOutlet weak var typeTextField: UITextField!
-    @IBOutlet weak var latitudeLabel: UILabel!
-    @IBOutlet weak var longitudeLabel: UILabel!
     @IBOutlet weak var saveLocationSwitch: UISwitch!
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var selectImageButton: UIButton!
@@ -34,7 +32,7 @@ class ObservationDetailViewController: UIViewController, CLLocationManagerDelega
     var saveLong: Double?
     let imagePicker = UIImagePickerController()
     var observationImage: UIImage?
-
+    
     
     //MARK: - LIFECYCLES
     override func viewDidLoad() {
@@ -154,8 +152,6 @@ class ObservationDetailViewController: UIViewController, CLLocationManagerDelega
         notesTextField.text = observation.notes
         reminderPicker.date = observation.reminder ?? Date()
         typeTextField.text = observation.type
-        latitudeLabel.text = String(observation.latitude)
-        longitudeLabel.text = String(observation.longitude)
         // If save location switch is set to on, let LocationIsOn property equal true
         saveLocationSwitch.isOn = observation.locationIsOn
         // If location is set to off hide the mapView
@@ -163,9 +159,14 @@ class ObservationDetailViewController: UIViewController, CLLocationManagerDelega
         // Convert data to UIImage
         if let data = observation.image {
             photoImageView.image = UIImage(data: data)
-        }
+            selectImageButton.setTitle("", for: .normal)
+                
+            }
+        notesTextField.textColor = .lightGray
+        notesTextField.text = "Place observation notes here..."
+        notesTextField.backgroundColor = .white
     }
-    //MARK: - HELPER METHODS
+    
     func setupViews() {
         // Set accuracy for location
         manager.desiredAccuracy = kCLLocationAccuracyBest
@@ -179,7 +180,45 @@ class ObservationDetailViewController: UIViewController, CLLocationManagerDelega
         mapView.delegate = self
         //delegate declaration for properties: imagePicker
         imagePicker.delegate = self
+        notesTextField.delegate = self
+        notesTextField.layer.borderColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
+        notesTextField.layer.borderWidth = 1.0
+        
     }
+    
+    
+    func textViewDidBeginEditing (_ textView: UITextView) {
+        if notesTextField.textColor == .lightGray && notesTextField.isFirstResponder {
+            notesTextField.text = ""
+            notesTextField.textColor = .black
+ 
+        }
+    }
+    
+    func textViewDidEndEditing (_ textView: UITextView) {
+        if notesTextField.text.isEmpty || notesTextField.text == "" {
+            notesTextField.textColor = .lightGray
+            notesTextField.text = "Place observation notes here..."
+        }
+    }
+    
+}// End of Class
+
+extension UIViewController {
+    func hideKeyboardWhenTappedAround() {
+        let tap = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+    }
+    
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
+    }
+}// End of Extension
+
+//MARK: - DELEGATE EXTENSIONS
+
+extension ObservationDetailViewController: CLLocationManagerDelegate, MKMapViewDelegate {
     
     // Delegate function; gets called when location is updated
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
@@ -198,7 +237,7 @@ class ObservationDetailViewController: UIViewController, CLLocationManagerDelega
      
      # Render map for use with MapKit & MapView
      
-- Parameter location: Location must be of type CLLocation with **latitude**, & **longitude**.
+     - Parameter location: Location must be of type CLLocation with **latitude**, & **longitude**.
      */
     func render(_ location: CLLocation) {
         // If there is an Observation, display stored locaiton.
@@ -228,6 +267,7 @@ class ObservationDetailViewController: UIViewController, CLLocationManagerDelega
             mapView.addAnnotation(pin)
         }
     }
+    
     // Set custom image for map pin
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         if annotation is MKUserLocation {
@@ -238,29 +278,7 @@ class ObservationDetailViewController: UIViewController, CLLocationManagerDelega
         annotationView.canShowCallout = true
         return annotationView
     }
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
-    
-}// End of Class
-
-extension UIViewController {
-    func hideKeyboardWhenTappedAround() {
-        let tap = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
-        tap.cancelsTouchesInView = false
-        view.addGestureRecognizer(tap)
-    }
-    
-    @objc func dismissKeyboard() {
-        view.endEditing(true)
-    }
-}// End of Extension
+}
 
 extension ObservationDetailViewController: UIImagePickerControllerDelegate & UINavigationControllerDelegate {
     
@@ -289,7 +307,7 @@ extension ObservationDetailViewController: UIImagePickerControllerDelegate & UIN
         if let editedImage = info[.editedImage] as? UIImage {
             photoImageView.image = editedImage
             
-           // let jpegData = editedImage.jpegData(compressionQuality: 1.0)
+            // let jpegData = editedImage.jpegData(compressionQuality: 1.0)
             //observation?.image = jpegData
             observationImage = editedImage
             selectImageButton.setTitle("", for: .normal)
