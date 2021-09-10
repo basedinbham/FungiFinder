@@ -9,7 +9,7 @@ import UIKit
 import CoreLocation
 import MapKit
 
-class ObservationDetailViewController: UIViewController {
+class ObservationDetailViewController: UIViewController, UITextViewDelegate {
     
     //MARK: - OUTLETS
     
@@ -159,10 +159,12 @@ class ObservationDetailViewController: UIViewController {
         // Convert data to UIImage
         if let data = observation.image {
             photoImageView.image = UIImage(data: data)
-            
-            notesTextField.textColor = .lightGray
-            notesTextField.text = "Place observation notes here..."
-        }
+            selectImageButton.setTitle("", for: .normal)
+                
+            }
+        notesTextField.textColor = .lightGray
+        notesTextField.text = "Place observation notes here..."
+        notesTextField.backgroundColor = .white
     }
     
     func setupViews() {
@@ -178,27 +180,25 @@ class ObservationDetailViewController: UIViewController {
         mapView.delegate = self
         //delegate declaration for properties: imagePicker
         imagePicker.delegate = self
-        notesTextDidEndEditing(textView: notesTextField)
-        notesTextViewDidBeginEditing(textView: notesTextField)
+        notesTextField.delegate = self
+        notesTextField.layer.borderColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
+        notesTextField.layer.borderWidth = 1.0
         
     }
     
-    func notesTextViewDidBeginEditing (textView: UITextView) {
+    
+    func textViewDidBeginEditing (_ textView: UITextView) {
         if notesTextField.textColor == .lightGray && notesTextField.isFirstResponder {
             notesTextField.text = ""
             notesTextField.textColor = .black
-            notesTextField.layer.borderColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
-            notesTextField.layer.borderWidth = 1.0
  
         }
     }
     
-    func notesTextDidEndEditing (textView: UITextView) {
+    func textViewDidEndEditing (_ textView: UITextView) {
         if notesTextField.text.isEmpty || notesTextField.text == "" {
             notesTextField.textColor = .lightGray
             notesTextField.text = "Place observation notes here..."
-            notesTextField.layer.borderColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
-            notesTextField.layer.borderWidth = 1.0
         }
     }
     
