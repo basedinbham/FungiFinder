@@ -8,7 +8,15 @@
 import UIKit
 
 class HomeViewController: UIViewController, UNUserNotificationCenterDelegate {
-
+    
+    //MARK: - OUTLETS
+    @IBOutlet weak var mushroomListButton: UIButton!
+    @IBOutlet weak var observationsButton: UIButton!
+    @IBOutlet weak var shroomMapButton: UIButton!
+    
+    
+    
+    //MARK: - LIFECYCLES
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.navigationBar.isHidden = true

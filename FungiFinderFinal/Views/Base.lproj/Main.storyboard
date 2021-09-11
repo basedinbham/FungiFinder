@@ -17,47 +17,65 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ff1" translatesAutoresizingMaskIntoConstraints="NO" id="fGT-MU-s3q">
-                                <rect key="frame" x="20" y="168" width="335" height="210"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bgnd6" translatesAutoresizingMaskIntoConstraints="NO" id="bIr-Ve-GOH">
+                                <rect key="frame" x="0.0" y="-50" width="375" height="862"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LLE-CA-RqR">
-                                <rect key="frame" x="98" y="486" width="52" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Decline"/>
-                            </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.90000000000000002" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ff1" translatesAutoresizingMaskIntoConstraints="NO" id="fGT-MU-s3q">
+                                <rect key="frame" x="20" y="127" width="335" height="508"/>
+                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Disclaimer! Placeholder text" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qju-68-Gpd">
-                                <rect key="frame" x="91.333333333333329" y="388" width="192.33333333333337" height="19"/>
+                                <rect key="frame" x="91.333333333333329" y="386.66666666666669" width="192.33333333333337" height="20.333333333333314"/>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="97q-mS-GRw">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="97q-mS-GRw">
                                 <rect key="frame" x="266" y="486" width="49" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Accept"/>
+                                <color key="backgroundColor" red="0.1201273575" green="0.42358961699999997" blue="0.36653852460000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Accept">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <connections>
                                     <segue destination="8WZ-hy-Tgx" kind="show" id="GHE-ck-TeS"/>
                                 </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LLE-CA-RqR">
+                                <rect key="frame" x="98" y="486" width="52" height="30"/>
+                                <color key="backgroundColor" systemColor="systemRedColor"/>
+                                <state key="normal" title="Decline">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="fGd-LL-Rzl"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="Qju-68-Gpd" firstAttribute="centerX" secondItem="fGd-LL-Rzl" secondAttribute="centerX" id="22g-Jh-JMm"/>
-                            <constraint firstItem="Qju-68-Gpd" firstAttribute="width" secondItem="5Dj-RH-AcK" secondAttribute="width" multiplier="0.512077" id="9Xb-0u-Co9"/>
-                            <constraint firstItem="fGd-LL-Rzl" firstAttribute="trailing" secondItem="fGT-MU-s3q" secondAttribute="trailing" constant="20" id="BI8-Jp-9Hm"/>
-                            <constraint firstItem="Qju-68-Gpd" firstAttribute="top" secondItem="fGd-LL-Rzl" secondAttribute="top" constant="300" id="F6m-hN-BGR"/>
-                            <constraint firstItem="fGT-MU-s3q" firstAttribute="top" secondItem="fGd-LL-Rzl" secondAttribute="top" constant="80" id="ds6-Wx-Yiz"/>
-                            <constraint firstItem="Qju-68-Gpd" firstAttribute="height" secondItem="5Dj-RH-AcK" secondAttribute="height" multiplier="0.0234375" id="eF0-5i-ULw"/>
-                            <constraint firstItem="fGd-LL-Rzl" firstAttribute="bottom" secondItem="fGT-MU-s3q" secondAttribute="bottom" constant="400" id="eI0-dZ-4cj"/>
-                            <constraint firstItem="fGT-MU-s3q" firstAttribute="leading" secondItem="fGd-LL-Rzl" secondAttribute="leading" constant="20" id="iLO-zS-MYd"/>
+                            <constraint firstItem="LLE-CA-RqR" firstAttribute="leading" secondItem="fGd-LL-Rzl" secondAttribute="leading" constant="98" id="09S-yQ-ntu"/>
+                            <constraint firstAttribute="bottom" secondItem="bIr-Ve-GOH" secondAttribute="bottom" id="1Si-nm-8b8"/>
+                            <constraint firstItem="bIr-Ve-GOH" firstAttribute="trailing" secondItem="5Dj-RH-AcK" secondAttribute="trailing" id="4gn-54-e5L"/>
+                            <constraint firstItem="Qju-68-Gpd" firstAttribute="leading" secondItem="fGd-LL-Rzl" secondAttribute="leading" constant="91.329999999999998" id="5Zu-5j-M2Q"/>
+                            <constraint firstItem="fGd-LL-Rzl" firstAttribute="trailing" secondItem="Qju-68-Gpd" secondAttribute="trailing" constant="91.329999999999998" id="BPd-as-Vbh"/>
+                            <constraint firstItem="fGd-LL-Rzl" firstAttribute="trailing" secondItem="97q-mS-GRw" secondAttribute="trailing" constant="60" id="KID-Hs-r3b"/>
+                            <constraint firstItem="97q-mS-GRw" firstAttribute="top" secondItem="Qju-68-Gpd" secondAttribute="bottom" constant="79" id="MtE-fs-Uxg"/>
+                            <constraint firstItem="97q-mS-GRw" firstAttribute="leading" secondItem="LLE-CA-RqR" secondAttribute="trailing" constant="116" id="VYE-Jv-xN4"/>
+                            <constraint firstItem="fGd-LL-Rzl" firstAttribute="trailing" secondItem="fGT-MU-s3q" secondAttribute="trailing" constant="20" id="XoI-zN-yKp"/>
+                            <constraint firstItem="bIr-Ve-GOH" firstAttribute="leading" secondItem="fGd-LL-Rzl" secondAttribute="leading" id="caQ-8R-ORu"/>
+                            <constraint firstItem="fGd-LL-Rzl" firstAttribute="bottom" secondItem="97q-mS-GRw" secondAttribute="bottom" constant="262" id="dHe-AW-2L8"/>
+                            <constraint firstItem="fGT-MU-s3q" firstAttribute="leading" secondItem="fGd-LL-Rzl" secondAttribute="leading" constant="20" id="j7I-en-I9B"/>
+                            <constraint firstItem="bIr-Ve-GOH" firstAttribute="top" secondItem="5Dj-RH-AcK" secondAttribute="top" constant="-50" id="m9h-eI-TTw"/>
+                            <constraint firstItem="fGT-MU-s3q" firstAttribute="top" secondItem="fGd-LL-Rzl" secondAttribute="top" constant="39" id="nVc-RQ-Xi1"/>
+                            <constraint firstItem="LLE-CA-RqR" firstAttribute="top" secondItem="Qju-68-Gpd" secondAttribute="bottom" constant="79" id="qAw-aD-WII"/>
+                            <constraint firstItem="fGd-LL-Rzl" firstAttribute="bottom" secondItem="fGT-MU-s3q" secondAttribute="bottom" constant="143" id="rll-kv-A5N"/>
+                            <constraint firstItem="LLE-CA-RqR" firstAttribute="top" secondItem="Qju-68-Gpd" secondAttribute="bottom" constant="79" id="yiR-6T-oWU"/>
+                            <constraint firstItem="fGd-LL-Rzl" firstAttribute="bottom" secondItem="LLE-CA-RqR" secondAttribute="bottom" constant="262" id="zIh-bQ-93C"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="eAl-KX-LIH"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KC6-5M-pch" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="467" y="35"/>
+            <point key="canvasLocation" x="466.39999999999998" y="34.729064039408868"/>
         </scene>
         <!--Home View Controller-->
         <scene sceneID="l5S-rl-e12">
@@ -67,48 +85,65 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background1" translatesAutoresizingMaskIntoConstraints="NO" id="N3u-H9-5sJ">
-                                <rect key="frame" x="0.0" y="88" width="375" height="190"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bgnd6" translatesAutoresizingMaskIntoConstraints="NO" id="N3u-H9-5sJ">
+                                <rect key="frame" x="0.0" y="38" width="375" height="774"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LZH-5q-ZQY">
-                                <rect key="frame" x="53" y="526" width="63" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Map Test"/>
-                                <connections>
-                                    <segue destination="R3p-fG-6ql" kind="show" id="MDf-6p-kwo"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2ig-2M-2fp">
-                                <rect key="frame" x="33" y="433" width="103" height="30"/>
+                                <rect key="frame" x="40" y="606" width="138" height="37"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Cell Mushroom"/>
+                                <color key="backgroundColor" red="0.63318734217171713" green="0.47347641294038523" blue="0.053427167567691329" alpha="0.84705882349999995" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
+                                <state key="normal" title="Mushroom List">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <connections>
                                     <segue destination="G79-ME-eal" kind="show" identifier="" id="waC-GY-HWp"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IlQ-ww-7sQ">
-                                <rect key="frame" x="244" y="433" width="91" height="30"/>
+                                <rect key="frame" x="53" y="661" width="112" height="38"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Observations"/>
+                                <color key="backgroundColor" red="0.63318734219999995" green="0.47347641289999998" blue="0.053427167570000003" alpha="0.84705882349999995" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
+                                <state key="normal" title="Observations">
+                                    <color key="titleColor" systemColor="labelColor"/>
+                                </state>
                                 <connections>
                                     <segue destination="w0v-Vz-OTQ" kind="show" id="9i6-Ax-T6N"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LZH-5q-ZQY">
+                                <rect key="frame" x="56" y="715" width="107" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.63318734219999995" green="0.47347641289999998" blue="0.053427167570000003" alpha="0.84705882349999995" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
+                                <state key="normal" title="Shroom Map">
+                                    <color key="titleColor" systemColor="labelColor"/>
+                                </state>
+                                <connections>
+                                    <segue destination="R3p-fG-6ql" kind="show" id="MDf-6p-kwo"/>
                                 </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="GW6-2x-dMe"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="GW6-2x-dMe" firstAttribute="bottom" secondItem="N3u-H9-5sJ" secondAttribute="bottom" constant="500" id="C3m-se-hgd"/>
-                            <constraint firstItem="N3u-H9-5sJ" firstAttribute="top" secondItem="GW6-2x-dMe" secondAttribute="top" id="Dp1-uT-YKi"/>
-                            <constraint firstItem="N3u-H9-5sJ" firstAttribute="leading" secondItem="GW6-2x-dMe" secondAttribute="leading" id="GI2-RU-oFU"/>
-                            <constraint firstItem="GW6-2x-dMe" firstAttribute="trailing" secondItem="N3u-H9-5sJ" secondAttribute="trailing" id="RTM-hR-DoW"/>
+                            <constraint firstAttribute="trailing" secondItem="N3u-H9-5sJ" secondAttribute="trailing" id="5fk-AE-MmP"/>
+                            <constraint firstItem="N3u-H9-5sJ" firstAttribute="leading" secondItem="GW6-2x-dMe" secondAttribute="leading" id="9du-cx-bLB"/>
+                            <constraint firstItem="N3u-H9-5sJ" firstAttribute="top" secondItem="GW6-2x-dMe" secondAttribute="top" constant="-50" id="YdT-vH-L38"/>
+                            <constraint firstAttribute="bottom" secondItem="N3u-H9-5sJ" secondAttribute="bottom" id="hRL-6Q-ldm"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="jlO-7u-z2D"/>
+                    <connections>
+                        <outlet property="mushroomListButton" destination="2ig-2M-2fp" id="yTe-S1-R7s"/>
+                        <outlet property="observationsButton" destination="IlQ-ww-7sQ" id="KMQ-RM-aZ7"/>
+                        <outlet property="shroomMapButton" destination="LZH-5q-ZQY" id="fJo-C7-PCO"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AFc-29-Bz1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1159" y="35"/>
+            <point key="canvasLocation" x="1157.5999999999999" y="34.729064039408868"/>
         </scene>
         <!--Observations Table View Controller-->
         <scene sceneID="Pfg-u5-frI">
@@ -979,13 +1014,16 @@
         <segue reference="9RW-JM-38L"/>
     </inferredMetricsTieBreakers>
     <resources>
-        <image name="background1" width="4032" height="3024"/>
+        <image name="bgnd6" width="1023" height="629"/>
         <image name="ff1" width="612" height="792"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
