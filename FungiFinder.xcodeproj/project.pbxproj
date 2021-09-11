@@ -177,8 +177,8 @@
 			isa = PBXGroup;
 			children = (
 				2747400E26E5ABCF00A6DB8D /* MushroomTableViewController.swift */,
-				2747401026E5ABEE00A6DB8D /* MushroomDetailViewController.swift */,
 				27475CBA26EC3195007685C9 /* MushroomCollectionViewController.swift */,
+				2747401026E5ABEE00A6DB8D /* MushroomDetailViewController.swift */,
 			);
 			path = MushroomID;
 			sourceTree = "<group>";

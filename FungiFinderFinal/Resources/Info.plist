@@ -2,12 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>NSCameraUsageDescription</key>
-	<string>&quot;This app allows you to add photos to created Observations.  It needs access to your camera to take photos.&quot;</string>
-	<key>NSPhotoLibraryUsageDescription</key>
-	<string>&quot;This app allows you to add photos to created Observations.  It needs access to your photo library to select photos.&quot;</string>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>“This app lets you keep track of mushroom locations. It needs access to the GPS coordinates for your location.”</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleExecutable</key>
@@ -28,6 +22,12 @@
 	<true/>
 	<key>MKDirectionsApplicationSupportedModes</key>
 	<array/>
+	<key>NSCameraUsageDescription</key>
+	<string>"This app allows you to add photos to created Observations.  It needs access to your camera to take photos."</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>“This app lets you keep track of mushroom locations. It needs access to the GPS coordinates for your location.”</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>"This app allows you to add photos to created Observations.  It needs access to your photo library to select photos."</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
@@ -64,8 +64,6 @@
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
-		<string>UIInterfaceOrientationLandscapeLeft</string>
-		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
 	<key>UISupportedInterfaceOrientations~ipad</key>
 	<array>
