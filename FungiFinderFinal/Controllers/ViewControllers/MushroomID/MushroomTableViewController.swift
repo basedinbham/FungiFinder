@@ -25,6 +25,7 @@ class MushroomTableViewController: UITableViewController {
 
         let mushroom = MushroomController.mushrooms[indexPath.row]
         cell.textLabel?.text = mushroom.name
+        cell.detailTextLabel?.text = mushroom.nickname
 
         return cell
     }
