@@ -101,7 +101,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IlQ-ww-7sQ">
-                                <rect key="frame" x="53" y="661" width="112" height="38"/>
+                                <rect key="frame" x="47" y="661" width="124" height="38"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.63318734219999995" green="0.47347641289999998" blue="0.053427167570000003" alpha="0.84705882349999995" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
@@ -112,8 +112,12 @@
                                     <segue destination="w0v-Vz-OTQ" kind="show" id="9i6-Ax-T6N"/>
                                 </connections>
                             </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ffFinalBackdrop" translatesAutoresizingMaskIntoConstraints="NO" id="sFZ-eR-9xF">
+                                <rect key="frame" x="67" y="117" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LZH-5q-ZQY">
-                                <rect key="frame" x="56" y="715" width="107" height="34"/>
+                                <rect key="frame" x="50" y="715" width="118" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.63318734219999995" green="0.47347641289999998" blue="0.053427167570000003" alpha="0.84705882349999995" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
@@ -1016,6 +1020,7 @@
     <resources>
         <image name="bgnd6" width="1023" height="629"/>
         <image name="ff1" width="612" height="792"/>
+        <image name="ffFinalBackdrop" width="612" height="792"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
