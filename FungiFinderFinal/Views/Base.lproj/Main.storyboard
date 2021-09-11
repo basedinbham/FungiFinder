@@ -5,6 +5,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -66,7 +67,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background1" translatesAutoresizingMaskIntoConstraints="NO" id="N3u-H9-5sJ">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background1" translatesAutoresizingMaskIntoConstraints="NO" id="N3u-H9-5sJ">
                                 <rect key="frame" x="0.0" y="88" width="414" height="274"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GUA-21-ATd">
@@ -74,7 +75,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Mushrooms"/>
                                 <connections>
-                                    <segue destination="2Ff-bt-n8k" kind="show" id="KLy-qv-lAv"/>
+                                    <segue destination="2Ff-bt-n8k" kind="show" identifier="" id="KLy-qv-lAv"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IlQ-ww-7sQ">
@@ -91,6 +92,14 @@
                                 <state key="normal" title="Map Test"/>
                                 <connections>
                                     <segue destination="R3p-fG-6ql" kind="show" id="MDf-6p-kwo"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2ig-2M-2fp">
+                                <rect key="frame" x="267" y="526" width="103" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Cell Mushroom"/>
+                                <connections>
+                                    <segue destination="G79-ME-eal" kind="show" identifier="" id="waC-GY-HWp"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -146,7 +155,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="k7d-Iu-qCQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1867" y="35"/>
+            <point key="canvasLocation" x="1893" y="-42"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="s0q-vJ-3oz">
@@ -373,6 +382,107 @@
             </objects>
             <point key="canvasLocation" x="-284" y="35"/>
         </scene>
+        <!--Mushroom Collection View Controller-->
+        <scene sceneID="C3o-37-nXh">
+            <objects>
+                <collectionViewController id="G79-ME-eal" customClass="MushroomCollectionViewController" customModule="FungiFinderFinal" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="h0A-Gr-fdw">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.97211915250000003" green="0.96968179939999999" blue="0.95207470660000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="0.0" id="GeY-P1-cgR">
+                            <size key="itemSize" width="180" height="180"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="10" minY="10" maxX="10" maxY="10"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="mushroomCell" id="4et-dl-iUn" customClass="MushroomCollectionViewCell" customModule="FungiFinderFinal" customModuleProvider="target">
+                                <rect key="frame" x="10" y="10" width="180" height="205"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="K4b-GA-7n9">
+                                    <rect key="frame" x="0.0" y="0.0" width="180" height="205"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="LYs-TT-Nkf">
+                                            <rect key="frame" x="0.0" y="0.0" width="180" height="170"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="180" id="9ha-gd-qqM"/>
+                                                <constraint firstAttribute="height" constant="180" id="NRO-dz-s1P"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(mushroom name)" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XmE-a7-qzw">
+                                            <rect key="frame" x="0.0" y="169" width="180" height="18"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(mushroom nick)" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BUb-Mb-xe9" userLabel="Mushroom nickname">
+                                            <rect key="frame" x="0.0" y="187" width="180" height="18"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="LYs-TT-Nkf" secondAttribute="trailing" id="0YG-SM-mlP"/>
+                                        <constraint firstAttribute="bottom" secondItem="XmE-a7-qzw" secondAttribute="bottom" constant="18" id="6Ql-bE-Xke"/>
+                                        <constraint firstItem="XmE-a7-qzw" firstAttribute="leading" secondItem="K4b-GA-7n9" secondAttribute="leading" id="9fD-Ui-CZ1"/>
+                                        <constraint firstItem="BUb-Mb-xe9" firstAttribute="leading" secondItem="K4b-GA-7n9" secondAttribute="leading" id="Dby-b6-wt3"/>
+                                        <constraint firstAttribute="trailing" secondItem="XmE-a7-qzw" secondAttribute="trailing" id="S9p-zZ-Zaj"/>
+                                        <constraint firstAttribute="trailing" secondItem="BUb-Mb-xe9" secondAttribute="trailing" id="T45-pi-fqL"/>
+                                        <constraint firstAttribute="trailing" secondItem="XmE-a7-qzw" secondAttribute="trailing" id="XrO-kW-8mp"/>
+                                        <constraint firstItem="LYs-TT-Nkf" firstAttribute="leading" secondItem="K4b-GA-7n9" secondAttribute="leading" id="dL4-1e-Fki"/>
+                                        <constraint firstAttribute="bottom" secondItem="BUb-Mb-xe9" secondAttribute="bottom" id="dQS-XT-UIe"/>
+                                        <constraint firstItem="LYs-TT-Nkf" firstAttribute="top" secondItem="K4b-GA-7n9" secondAttribute="top" id="gMV-Vt-K7z"/>
+                                        <constraint firstItem="XmE-a7-qzw" firstAttribute="leading" secondItem="K4b-GA-7n9" secondAttribute="leading" id="hxb-pD-DEt"/>
+                                        <constraint firstAttribute="bottom" secondItem="LYs-TT-Nkf" secondAttribute="bottom" constant="35" id="pZs-og-hMe"/>
+                                    </constraints>
+                                </collectionViewCellContentView>
+                                <size key="customSize" width="180" height="205"/>
+                                <connections>
+                                    <outlet property="mushroomNameLabel" destination="XmE-a7-qzw" id="cHH-zq-9Hz"/>
+                                    <outlet property="mushroomNicknameLabel" destination="BUb-Mb-xe9" id="GKq-a9-0QM"/>
+                                    <outlet property="shroomImageView" destination="LYs-TT-Nkf" id="Zdq-Pb-q34"/>
+                                </connections>
+                            </collectionViewCell>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="0lc-bp-pNs">
+                                <rect key="frame" x="224" y="22.5" width="180" height="180"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="KW6-xU-mbg">
+                                    <rect key="frame" x="0.0" y="0.0" width="180" height="180"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </collectionViewCellContentView>
+                                <size key="customSize" width="180" height="180"/>
+                            </collectionViewCell>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Ut2-7u-5M7">
+                                <rect key="frame" x="10" y="225" width="180" height="180"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="RbT-Fz-lcl">
+                                    <rect key="frame" x="0.0" y="0.0" width="180" height="180"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </collectionViewCellContentView>
+                            </collectionViewCell>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="OPG-m0-tc3">
+                                <rect key="frame" x="190" y="225" width="180" height="180"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="qM9-5C-Qnr">
+                                    <rect key="frame" x="0.0" y="0.0" width="180" height="180"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </collectionViewCellContentView>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="G79-ME-eal" id="Q6O-NK-2jT"/>
+                            <outlet property="delegate" destination="G79-ME-eal" id="UeD-K7-ZND"/>
+                        </connections>
+                    </collectionView>
+                    <navigationItem key="navigationItem" id="w7F-An-RFj"/>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9IP-Xf-VXD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="414" y="731"/>
+        </scene>
         <!--Mushroom Table View Controller-->
         <scene sceneID="pcI-Dd-YyW">
             <objects>
@@ -382,12 +492,28 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="mushroomCell" id="UXV-cO-ZUr">
-                                <rect key="frame" x="0.0" y="24.5" width="414" height="43.5"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="mushroomCell" textLabel="sdt-b3-ltU" detailTextLabel="5cb-Pc-CSR" rowHeight="61" style="IBUITableViewCellStyleSubtitle" id="UXV-cO-ZUr">
+                                <rect key="frame" x="0.0" y="24.5" width="414" height="61"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="UXV-cO-ZUr" id="gGM-KT-n3S">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="61"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" id="sdt-b3-ltU">
+                                            <rect key="frame" x="20" y="9" width="35" height="21.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="5cb-Pc-CSR">
+                                            <rect key="frame" x="20" y="33.5" width="50" height="17"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
                                 </tableViewCellContentView>
                                 <connections>
                                     <segue destination="Ni9-HB-HYH" kind="show" identifier="toDetailVC" id="kVy-Ph-OC8"/>
@@ -403,7 +529,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UaC-pG-yif" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-284.05797101449275" y="764.73214285714278"/>
+            <point key="canvasLocation" x="1157.9710144927537" y="730.58035714285711"/>
         </scene>
         <!--Map View Controller-->
         <scene sceneID="4Lx-qm-lcC">
@@ -429,11 +555,12 @@
                     <navigationItem key="navigationItem" id="gQo-LT-c8M"/>
                     <connections>
                         <outlet property="mapView" destination="XRg-ba-17b" id="dBf-gy-i1K"/>
+                        <segue destination="gKq-2F-ekE" kind="show" identifier="toObsVC" id="9RW-JM-38L"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jhN-wp-LRQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-284" y="1465"/>
+            <point key="canvasLocation" x="1158" y="-617"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="JaZ-wD-HzD">
@@ -512,7 +639,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2hQ-ov-ydm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1123" y="610"/>
+            <point key="canvasLocation" x="3867" y="-380"/>
         </scene>
         <!--Mushroom Detail View Controller-->
         <scene sceneID="mfa-X8-GYX">
@@ -564,19 +691,19 @@
                                                 </subviews>
                                             </stackView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(shroomDescription)" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yXj-TE-dAj">
-                                                <rect key="frame" x="8.5" y="494" width="397" height="17"/>
+                                                <rect key="frame" x="8.5" y="486" width="397" height="17"/>
                                                 <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="14"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(shroomSubDescription)" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hob-gL-qcP">
-                                                <rect key="frame" x="8" y="519" width="398" height="17"/>
+                                                <rect key="frame" x="8" y="511" width="398" height="17"/>
                                                 <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="14"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="240" text="(citation)" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tC8-Id-QOx">
-                                                <rect key="frame" x="8" y="544" width="398" height="1056"/>
+                                                <rect key="frame" x="8" y="536" width="398" height="1064"/>
                                                 <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="14"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -598,7 +725,7 @@
                                             <constraint firstItem="hob-gL-qcP" firstAttribute="leading" secondItem="Xsl-qr-fWw" secondAttribute="leading" constant="8" id="mTS-dp-HBt"/>
                                             <constraint firstItem="tC8-Id-QOx" firstAttribute="leading" secondItem="Xsl-qr-fWw" secondAttribute="leading" constant="8" id="niE-Og-Emj"/>
                                             <constraint firstItem="yXj-TE-dAj" firstAttribute="centerX" secondItem="0b1-tW-Fe1" secondAttribute="centerX" id="oMi-Zf-5rr"/>
-                                            <constraint firstItem="yXj-TE-dAj" firstAttribute="top" secondItem="0b1-tW-Fe1" secondAttribute="bottom" constant="20" id="qw8-IN-dco"/>
+                                            <constraint firstItem="yXj-TE-dAj" firstAttribute="top" secondItem="0b1-tW-Fe1" secondAttribute="bottom" constant="12" id="qw8-IN-dco"/>
                                             <constraint firstItem="0b1-tW-Fe1" firstAttribute="top" secondItem="NJP-2b-Dmk" secondAttribute="bottom" constant="20" id="s3m-Oz-Smg"/>
                                             <constraint firstAttribute="trailing" secondItem="tC8-Id-QOx" secondAttribute="trailing" constant="8" id="ykB-cB-imK"/>
                                         </constraints>
@@ -635,12 +762,11 @@
                         <outlet property="nicknameLabel" destination="tCv-dg-tMl" id="muQ-a4-8ES"/>
                         <outlet property="seasonLabel" destination="bHn-rC-F5N" id="VjV-JT-Ipd"/>
                         <outlet property="subDescriptionLabel" destination="hob-gL-qcP" id="82H-Py-Csy"/>
-                        <segue destination="gKq-2F-ekE" kind="show" identifier="toObsVC" id="nmK-N2-dsh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d9Z-oN-0Pl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1215.9420289855072" y="1066.7410714285713"/>
+            <point key="canvasLocation" x="1894" y="933"/>
         </scene>
         <!--Observation Detail View Controller-->
         <scene sceneID="JYp-2N-boh">
@@ -736,9 +862,6 @@
                                             </textView>
                                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6Xy-nc-bv2" userLabel="SaveLocationSwitch">
                                                 <rect key="frame" x="134.5" y="564" width="51" height="31"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="31" id="DKM-OP-J91"/>
-                                                </constraints>
                                                 <connections>
                                                     <action selector="saveLocationSwitchTapped:" destination="mrO-qs-6gE" eventType="valueChanged" id="fub-ec-3Eh"/>
                                                     <action selector="saveLocationSwitchTapped:" destination="gKq-2F-ekE" eventType="valueChanged" id="ge1-NT-gnv"/>
@@ -857,11 +980,11 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lRa-sP-KWr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2747.826086956522" y="34.821428571428569"/>
+            <point key="canvasLocation" x="2654" y="-42"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="ifl-eE-Pdb"/>
+        <segue reference="9RW-JM-38L"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="background1" width="4032" height="3024"/>
