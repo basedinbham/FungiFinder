@@ -41,7 +41,6 @@ class ObservationController {
     func fetchOBservations() {
         let observations = (try? CoreDataStack.context.fetch(fetchRequest)) ?? []
         self.observations = observations
-
     }
     
     func updateObservation(_ observation: Observation, name: String, date: Date, image: UIImage?, notes: String, reminder: Date, type: String, latitude: Double, longitude: Double, locationIsOn: Bool = true) {

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="8ea-EF-3Gf">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
@@ -16,29 +16,29 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ff1" translatesAutoresizingMaskIntoConstraints="NO" id="ogP-Zv-awo">
-                                <rect key="frame" x="20" y="124" width="374" height="658"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="FungiBackALTcolor" translatesAutoresizingMaskIntoConstraints="NO" id="ogP-Zv-awo">
+                                <rect key="frame" x="20" y="202" width="374" height="373"/>
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="ukW-zB-9BG"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" systemColor="labelColor"/>
                         <constraints>
-                            <constraint firstItem="ogP-Zv-awo" firstAttribute="top" secondItem="ukW-zB-9BG" secondAttribute="top" constant="80" id="BXZ-Lg-FA7"/>
-                            <constraint firstItem="ukW-zB-9BG" firstAttribute="trailing" secondItem="ogP-Zv-awo" secondAttribute="trailing" constant="20" id="IEQ-Bs-Qyk"/>
-                            <constraint firstItem="ogP-Zv-awo" firstAttribute="leading" secondItem="ukW-zB-9BG" secondAttribute="leading" constant="20" id="TeB-MZ-knc"/>
-                            <constraint firstItem="ukW-zB-9BG" firstAttribute="bottom" secondItem="ogP-Zv-awo" secondAttribute="bottom" constant="80" id="qlg-C3-s7u"/>
+                            <constraint firstItem="ukW-zB-9BG" firstAttribute="bottom" secondItem="ogP-Zv-awo" secondAttribute="bottom" constant="287" id="6yF-AU-Eb0"/>
+                            <constraint firstItem="ukW-zB-9BG" firstAttribute="trailing" secondItem="ogP-Zv-awo" secondAttribute="trailing" constant="20" id="dS6-p0-fJX"/>
+                            <constraint firstItem="ogP-Zv-awo" firstAttribute="leading" secondItem="ukW-zB-9BG" secondAttribute="leading" constant="20" id="fBu-k9-G5D"/>
+                            <constraint firstItem="ogP-Zv-awo" firstAttribute="top" secondItem="ukW-zB-9BG" secondAttribute="top" constant="158" id="i3G-AZ-18C"/>
                         </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mld-Mt-rVz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="53" y="375"/>
+            <point key="canvasLocation" x="52.173913043478265" y="375"/>
         </scene>
     </scenes>
     <resources>
-        <image name="ff1" width="612" height="792"/>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        <image name="FungiBackALTcolor" width="600" height="600"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
     </resources>
 </document>

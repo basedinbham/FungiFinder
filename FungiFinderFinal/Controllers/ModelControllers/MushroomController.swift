@@ -60,5 +60,4 @@ class MushroomController {
         let mushroomsSorted = mushrooms.sorted(by: { $0.name < $1.name })
         return mushroomsSorted
     }
-    
 } // End of Class

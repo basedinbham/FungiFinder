@@ -9,6 +9,9 @@ import UIKit
 
 class ObservationCollectionViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     
+    //MARK: - PROPERTIES
+    let observationSorted = ObservationController.shared.observations.sorted(by: { $0.date ?? Date() > $1.date ?? Date() })
+    
     //MARK: - LIFECYCLES
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,7 +29,6 @@ class ObservationCollectionViewController: UICollectionViewController, UICollect
     @IBAction func deleteButtonTapped(_ sender: Any) {
     }
     
-    
     // MARK: UICollectionViewDataSource
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -41,7 +43,7 @@ class ObservationCollectionViewController: UICollectionViewController, UICollect
         cell.contentView.layer.cornerRadius = 8.0
         cell.contentView.clipsToBounds = true
         
-        let observation = ObservationController.shared.observations[indexPath.row]
+        let observation = ObservationController.shared.observations.sorted(by: { $0.date ?? Date() > $1.date ?? Date() } )[indexPath.row]
         
         cell.displayImageFor(observation: observation)
         cell.displayNameFor(observation: observation)
@@ -67,20 +69,8 @@ class ObservationCollectionViewController: UICollectionViewController, UICollect
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let destinationVC = storyboard?.instantiateViewController(withIdentifier: "ObservationDetailViewController") as? ObservationDetailViewController
-        destinationVC?.observation = ObservationController.shared.observations[indexPath.row]
-        //guard let destinationVC = destinationVC else { return }
+        destinationVC?.observation = ObservationController.shared.observations.sorted(by: { $0.date ?? Date() > $1.date ?? Date() } )[indexPath.row]
         self.navigationController?.pushViewController(destinationVC!, animated: true)
         
     }
-    
-    //MARK: - NAVIGATION
-    
-    
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        guard let selectedItem = sender? as? ObservationDetailViewController {
-//
-//        }
-//        // Pass the selected object to the new view controller.
-//    }
-    
-}// End of Class
+} // End of Class

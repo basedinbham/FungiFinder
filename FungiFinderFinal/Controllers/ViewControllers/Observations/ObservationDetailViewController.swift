@@ -284,7 +284,7 @@ extension ObservationDetailViewController: CLLocationManagerDelegate, MKMapViewD
 }
 
 extension ObservationDetailViewController: UIImagePickerControllerDelegate & UINavigationControllerDelegate {
-    
+    /// Opens users gallery for photo selection
     func openCamera() {
         if UIImagePickerController.isSourceTypeAvailable(.camera) {
             imagePicker.sourceType = .camera
@@ -295,7 +295,6 @@ extension ObservationDetailViewController: UIImagePickerControllerDelegate & UIN
         }
     }
     
-    /// This is a description 
     func openGallery() {
         if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
             imagePicker.sourceType = .photoLibrary
