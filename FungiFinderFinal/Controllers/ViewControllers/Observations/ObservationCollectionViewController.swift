@@ -30,7 +30,6 @@ class ObservationCollectionViewController: UICollectionViewController, UICollect
     }
     
     // MARK: UICollectionViewDataSource
-    
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return ObservationController.shared.observations.count
     }
