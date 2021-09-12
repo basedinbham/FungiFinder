@@ -67,15 +67,4 @@ class MushroomCollectionViewController: UICollectionViewController, UICollection
 //        self.performSegue(withIdentifier: "toDetailVC", sender: selectedData)
 //    }
 //
-    
-    //MARK: - NAVIGATION
-    
-    
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        guard let selectedItem = sender? as? ObservationDetailViewController {
-//
-//        }
-//        // Pass the selected object to the new view controller.
-//    }
-    
 }// End of Class
