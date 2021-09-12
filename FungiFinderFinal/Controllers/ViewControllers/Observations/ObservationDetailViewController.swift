@@ -46,6 +46,7 @@ class ObservationDetailViewController: UIViewController, UITextViewDelegate {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         setupViews()
+ 
     }
     
     //MARK: - ACTIONS
@@ -161,16 +162,6 @@ class ObservationDetailViewController: UIViewController, UITextViewDelegate {
             photoImageView.image = UIImage(data: data)
             selectImageButton.setTitle("", for: .normal)
             }
-        notesTextField.textColor = .lightGray
-        notesTextField.text = "Place observation notes here..."
-        notesTextField.backgroundColor = .white
-        notesTextField.layer.borderColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
-        notesTextField.layer.borderWidth = 1.0
-        notesTextField.layer.cornerRadius = 8.0
-        notesTextField.clipsToBounds = true
-        
-        mapView.layer.cornerRadius = 8.0
-        mapView.clipsToBounds = true
     }
     
     func setupViews() {
@@ -188,6 +179,16 @@ class ObservationDetailViewController: UIViewController, UITextViewDelegate {
         imagePicker.delegate = self
         notesTextField.delegate = self
 
+        notesTextField.textColor = .lightGray
+        notesTextField.text = "Place observation notes here..."
+        notesTextField.backgroundColor = .white
+        notesTextField.layer.borderColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
+        notesTextField.layer.borderWidth = 1.0
+        notesTextField.layer.cornerRadius = 8.0
+        notesTextField.clipsToBounds = true
+        
+        mapView.layer.cornerRadius = 8.0
+        mapView.clipsToBounds = true
     }
     
     func textViewDidBeginEditing (_ textView: UITextView) {

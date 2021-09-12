@@ -30,6 +30,8 @@
 		2747401526E5AC3200A6DB8D /* ObservationDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2747401426E5AC3200A6DB8D /* ObservationDetailViewController.swift */; };
 		27475CB926EC3156007685C9 /* MushroomCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27475CB826EC3156007685C9 /* MushroomCollectionViewCell.swift */; };
 		27475CBB26EC3195007685C9 /* MushroomCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27475CBA26EC3195007685C9 /* MushroomCollectionViewController.swift */; };
+		27475CBD26ED563D007685C9 /* ObservationCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27475CBC26ED563D007685C9 /* ObservationCollectionViewController.swift */; };
+		27475CBF26ED5664007685C9 /* ObservationCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27475CBE26ED5664007685C9 /* ObservationCollectionView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -59,6 +61,8 @@
 		2747401426E5AC3200A6DB8D /* ObservationDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservationDetailViewController.swift; sourceTree = "<group>"; };
 		27475CB826EC3156007685C9 /* MushroomCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MushroomCollectionViewCell.swift; sourceTree = "<group>"; };
 		27475CBA26EC3195007685C9 /* MushroomCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MushroomCollectionViewController.swift; sourceTree = "<group>"; };
+		27475CBC26ED563D007685C9 /* ObservationCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservationCollectionViewController.swift; sourceTree = "<group>"; };
+		27475CBE26ED5664007685C9 /* ObservationCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservationCollectionView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -168,6 +172,7 @@
 			isa = PBXGroup;
 			children = (
 				2747401226E5AC1000A6DB8D /* ObservationsTableViewController.swift */,
+				27475CBC26ED563D007685C9 /* ObservationCollectionViewController.swift */,
 				2747401426E5AC3200A6DB8D /* ObservationDetailViewController.swift */,
 			);
 			path = Observations;
@@ -222,6 +227,7 @@
 			isa = PBXGroup;
 			children = (
 				27475CB826EC3156007685C9 /* MushroomCollectionViewCell.swift */,
+				27475CBE26ED5664007685C9 /* ObservationCollectionView.swift */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -309,10 +315,12 @@
 				2747400926E5AB7B00A6DB8D /* HomeViewController.swift in Sources */,
 				2747400F26E5ABCF00A6DB8D /* MushroomTableViewController.swift in Sources */,
 				27475CBB26EC3195007685C9 /* MushroomCollectionViewController.swift in Sources */,
+				27475CBF26ED5664007685C9 /* ObservationCollectionView.swift in Sources */,
 				27473FD826E59B8A00A6DB8D /* SceneDelegate.swift in Sources */,
 				2747400726E5AB1E00A6DB8D /* ObservationController.swift in Sources */,
 				2747400B26E5AB9400A6DB8D /* LandingViewController.swift in Sources */,
 				27475CB926EC3156007685C9 /* MushroomCollectionViewCell.swift in Sources */,
+				27475CBD26ED563D007685C9 /* ObservationCollectionViewController.swift in Sources */,
 				27473FFD26E59D3400A6DB8D /* Mushroom.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
