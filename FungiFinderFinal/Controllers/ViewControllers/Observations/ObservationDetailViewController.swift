@@ -69,7 +69,7 @@ class ObservationDetailViewController: UIViewController, UITextViewDelegate {
         if saveLocationSwitch.isOn == true && manager.authorizationStatus == .authorizedWhenInUse {
             mapView.isHidden = false
             observation?.locationIsOn = true
-        } else if saveLocationSwitch.isOn == false ||  manager.authorizationStatus == .denied || manager.authorizationStatus == .restricted {
+        } else if saveLocationSwitch.isOn == false ||  saveLocationSwitch.isOn == true && manager.authorizationStatus == .denied || manager.authorizationStatus == .restricted {
             mapView.isHidden = true
             observation?.latitude = 0.0
             observation?.longitude = 0.0
