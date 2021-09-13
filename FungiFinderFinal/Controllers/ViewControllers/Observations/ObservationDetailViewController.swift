@@ -9,7 +9,7 @@ import UIKit
 import CoreLocation
 import MapKit
 
-class ObservationDetailViewController: UIViewController, UITextViewDelegate {
+class ObservationDetailViewController: UIViewController, UITextViewDelegate, UNUserNotificationCenterDelegate {
     
     //MARK: - OUTLETS
     
@@ -97,6 +97,26 @@ class ObservationDetailViewController: UIViewController, UITextViewDelegate {
     }
     
     //MARK: - PERMISSIONS
+    
+    func inquireNotifcationPermission() {
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { granted, error in
+            // If yes
+            if granted {
+                print("Permission for notifications was granted by user")
+                UNUserNotificationCenter.current().delegate = self
+            }
+            // If there's an error
+            if let error = error {
+                print("There was an error with the notification permissions \(error.localizedDescription)")
+            }
+            
+            // If not granted
+            if !granted {
+                print("Notification access was denied")
+            }
+        }
+    }
+    
     func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) -> Bool {
         var hasPermission = false
         switch manager.authorizationStatus {
@@ -168,8 +188,12 @@ class ObservationDetailViewController: UIViewController, UITextViewDelegate {
             photoImageView.image = UIImage(data: data)
             selectImageButton.setTitle("", for: .normal)
         }
+        if observation.longitude == 0.0 {
+            mapView.isHidden = true
+            observation.locationIsOn = false
+            saveLocationSwitch.isOn = false
+        }
     }
-    
     func setupViews() {
         // Set accuracy for location
         manager.desiredAccuracy = kCLLocationAccuracyBest
@@ -195,6 +219,8 @@ class ObservationDetailViewController: UIViewController, UITextViewDelegate {
         
         mapView.layer.cornerRadius = 8.0
         mapView.clipsToBounds = true
+        
+        inquireNotifcationPermission()
     }
     
     func textViewDidBeginEditing (_ textView: UITextView) {

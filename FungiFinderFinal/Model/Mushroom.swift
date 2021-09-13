@@ -21,8 +21,10 @@ class Mushroom {
     let shroomDescription: String
     let shroomSubDescription: String?
     let citation: String
+    let cC: String?
+    let hyperLink: String?
     
-    init(name: String, nickname: String, image: UIImage, hymeniumType: String, capShape: String, whichGills: String, stipeCharacter: String, sporePrintColor: String, howEdible: String, season: String, shroomDescription: String, shroomSubDescription: String?, citation: String) {
+    init(name: String, nickname: String, image: UIImage, hymeniumType: String, capShape: String, whichGills: String, stipeCharacter: String, sporePrintColor: String, howEdible: String, season: String, shroomDescription: String, shroomSubDescription: String?, citation: String, cC: String?, hyperLink: String?) {
         self.name = name
         self.nickname = nickname
         self.image = image
@@ -36,5 +38,7 @@ class Mushroom {
         self.shroomDescription = shroomDescription
         self.shroomSubDescription = shroomSubDescription
         self.citation = citation
+        self.cC = cC
+        self.hyperLink = hyperLink
     }
 }// End of Class
