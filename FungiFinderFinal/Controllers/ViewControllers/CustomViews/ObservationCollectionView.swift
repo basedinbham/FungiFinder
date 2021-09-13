@@ -23,7 +23,9 @@ class ObservationCollectionViewCell: UICollectionViewCell {
     func displayImageFor(observation: Observation) {
         if let data = observation.image {
             observationImageView.image = UIImage(data: data)
-            }
+        } else {
+            observationImageView.image = nil
+        }
         observationImageView.contentMode = .scaleAspectFill
     }
 }// End of Class

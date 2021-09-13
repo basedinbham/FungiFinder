@@ -9,7 +9,7 @@ import UIKit
 import CoreLocation
 import MapKit
 
-class ObservationDetailViewController: UIViewController, UITextViewDelegate {
+class ObservationDetailViewController: UIViewController, UITextViewDelegate, UNUserNotificationCenterDelegate {
     
     //MARK: - OUTLETS
     
@@ -46,14 +46,14 @@ class ObservationDetailViewController: UIViewController, UITextViewDelegate {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         setupViews()
- 
+        
     }
     
     //MARK: - ACTIONS
     @IBAction func saveButtonTapped(_ sender: Any) {
         guard let name = nameTextField.text, !name.isEmpty,
               let notes = notesTextField.text, !notes.isEmpty,
-              let type = typeTextField.text, !type.isEmpty else { return }
+              let type = typeTextField.text, !type.isEmpty else { presentRequiredTextAlert(); return }
         let latitude = saveLat
         let longitude = saveLong
         
@@ -66,14 +66,16 @@ class ObservationDetailViewController: UIViewController, UITextViewDelegate {
     }
     
     @IBAction func saveLocationSwitchTapped(_ sender: Any) {
-        if saveLocationSwitch.isOn == true {
+        if saveLocationSwitch.isOn == true && manager.authorizationStatus == .authorizedWhenInUse {
             mapView.isHidden = false
             observation?.locationIsOn = true
-        } else if saveLocationSwitch.isOn == false {
+        } else if saveLocationSwitch.isOn == false ||  saveLocationSwitch.isOn == true && manager.authorizationStatus == .denied || manager.authorizationStatus == .restricted {
             mapView.isHidden = true
             observation?.latitude = 0.0
             observation?.longitude = 0.0
             observation?.locationIsOn = false
+            saveLocationSwitch.isOn = false
+            presentRequiredPermissions()
             return
         }
     }
@@ -95,7 +97,28 @@ class ObservationDetailViewController: UIViewController, UITextViewDelegate {
     }
     
     //MARK: - PERMISSIONS
-    func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
+    
+    func inquireNotifcationPermission() {
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { granted, error in
+            // If yes
+            if granted {
+                print("Permission for notifications was granted by user")
+                UNUserNotificationCenter.current().delegate = self
+            }
+            // If there's an error
+            if let error = error {
+                print("There was an error with the notification permissions \(error.localizedDescription)")
+            }
+            
+            // If not granted
+            if !granted {
+                print("Notification access was denied")
+            }
+        }
+    }
+    
+    func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) -> Bool {
+        var hasPermission = false
         switch manager.authorizationStatus {
         // App first launched, hasn't determined
         case .notDetermined:
@@ -106,9 +129,11 @@ class ObservationDetailViewController: UIViewController, UITextViewDelegate {
         case .denied:
             break
         case .authorizedAlways:
+            hasPermission = true
             break
         // For use when the app is open
         case .authorizedWhenInUse:
+            hasPermission = true
             break
         @unknown default:
             break
@@ -124,6 +149,7 @@ class ObservationDetailViewController: UIViewController, UITextViewDelegate {
         }
         // This will update us along the way, as the user has our app
         manager.startUpdatingLocation()
+        return hasPermission
     }
     
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
@@ -161,9 +187,13 @@ class ObservationDetailViewController: UIViewController, UITextViewDelegate {
         if let data = observation.image {
             photoImageView.image = UIImage(data: data)
             selectImageButton.setTitle("", for: .normal)
-            }
+        }
+        if observation.longitude == 0.0 {
+            mapView.isHidden = true
+            observation.locationIsOn = false
+            saveLocationSwitch.isOn = false
+        }
     }
-    
     func setupViews() {
         // Set accuracy for location
         manager.desiredAccuracy = kCLLocationAccuracyBest
@@ -178,7 +208,7 @@ class ObservationDetailViewController: UIViewController, UITextViewDelegate {
         //delegate declaration for properties: imagePicker
         imagePicker.delegate = self
         notesTextField.delegate = self
-
+        
         notesTextField.textColor = .lightGray
         notesTextField.text = "Place observation notes here..."
         notesTextField.backgroundColor = .white
@@ -189,6 +219,8 @@ class ObservationDetailViewController: UIViewController, UITextViewDelegate {
         
         mapView.layer.cornerRadius = 8.0
         mapView.clipsToBounds = true
+        
+        inquireNotifcationPermission()
     }
     
     func textViewDidBeginEditing (_ textView: UITextView) {
@@ -205,6 +237,38 @@ class ObservationDetailViewController: UIViewController, UITextViewDelegate {
         }
     }
     
+    // Access to camera, or photo gallery
+    func presentNoAccessAlert() {
+        let alert = UIAlertController(title: "No Access", message: "Please allow access to use these features", preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "Back", style: .default)
+        alert.addAction(okAction)
+        self.present(alert, animated: true)
+    }
+    
+    // Required text to save an Observation
+    func presentRequiredTextAlert() {
+        let alert = UIAlertController(title: "Missing Fields", message: "Observations require a name, & type. These fields cannot be empty.", preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .default)
+        alert.addAction(okAction)
+        self.present(alert, animated: true)
+    }
+    
+    // Required location persmission to access certain map based features
+    func presentRequiredPermissions() {
+        if manager.authorizationStatus == .denied || manager.authorizationStatus == .restricted {
+            let alert = UIAlertController(title: "Location Permission Required", message: "Map features require access to Location Services. Please allow access to your location to use these features.", preferredStyle: .alert)
+            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+            let settingsAction = UIAlertAction(title: "Settings", style: .default) { (cAlertAction) in
+                //Redirect to Settings app
+                UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!)
+            }
+            alert.addAction(cancelAction)
+            alert.addAction(settingsAction)
+            self.present(alert, animated: true)
+        } else {
+            return
+        }
+    }
 }// End of Class
 
 extension UIViewController {
@@ -291,7 +355,7 @@ extension ObservationDetailViewController: UIImagePickerControllerDelegate & UIN
             imagePicker.allowsEditing = false
             self.present(imagePicker, animated: true)
         } else {
-            //self.presentNoAccessAlert()
+            self.presentNoAccessAlert()
         }
     }
     
@@ -301,7 +365,7 @@ extension ObservationDetailViewController: UIImagePickerControllerDelegate & UIN
             imagePicker.allowsEditing = true
             self.present(imagePicker, animated: true)
         } else {
-            //self.presentNoAccessAlert()
+            self.presentNoAccessAlert()
         }
     }
     

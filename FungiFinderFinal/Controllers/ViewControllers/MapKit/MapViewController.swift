@@ -43,7 +43,8 @@ class MapViewController: UIViewController {
     }
     
     //MARK: - PERMISSIONS
-    func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
+    func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) -> Bool {
+        var hasPermission = false
         switch manager.authorizationStatus {
         // App first launched, hasn't determined
         case .notDetermined:
@@ -54,9 +55,11 @@ class MapViewController: UIViewController {
         case .denied:
             break
         case .authorizedAlways:
+            hasPermission = true
             break
         // For use when the app is open
         case .authorizedWhenInUse:
+            hasPermission = true
             break
         @unknown default:
             break
@@ -73,6 +76,7 @@ class MapViewController: UIViewController {
         }
         // This will update us along the way, as the user has our app
         manager.startUpdatingLocation()
+        return hasPermission
     }
     
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
@@ -106,10 +110,28 @@ class MapViewController: UIViewController {
         manager.startUpdatingLocation()
         // Set delegate for mapView
         mapView.delegate = self
+        presentRequiredPermissions()
         // Allows reaction to touch on map (tap recognizer)
         //        let gestureRecognizer = UITapGestureRecognizer(target: self, action:#selector(handleTap))
         //        gestureRecognizer.delegate = self
         //        mapView.addGestureRecognizer(gestureRecognizer)
+    }
+    
+    // Required location persmission to access certain map based features
+    func presentRequiredPermissions() {
+        if manager.authorizationStatus == .denied || manager.authorizationStatus == .restricted {
+            let alert = UIAlertController(title: "Location Permission Required", message: "Map features require access to Location Services. Please allow access to your location to use these features.", preferredStyle: .alert)
+            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+            let settingsAction = UIAlertAction(title: "Settings", style: .default) { (cAlertAction) in
+                //Redirect to Settings app
+                UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!)
+            }
+            alert.addAction(cancelAction)
+            alert.addAction(settingsAction)
+            self.present(alert, animated: true)
+        } else {
+            return
+        }
     }
     // Handles the tap & gets location coordinates
     //    @objc func handleTap(gestureRecognizer: UITapGestureRecognizer) {

@@ -23,4 +23,6 @@ class MushroomCollectionViewCell: UICollectionViewCell {
         shroomImageView.image = mushroom.image
         shroomImageView.contentMode = .scaleAspectFill
     }
+    
+
 }// End of Class
