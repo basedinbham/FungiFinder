@@ -9,7 +9,7 @@ import UIKit
 
 class MushroomDetailViewController: UIViewController {
     
-    //MARK: - LABELS
+    //MARK: - OUTLETS
     @IBOutlet weak var mushroomImage: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var nicknameLabel: UILabel!
