@@ -48,7 +48,7 @@ class MushroomDetailViewController: UIViewController {
         descriptionLabel?.text = mushroom.shroomDescription
         subDescriptionLabel?.text = mushroom.shroomSubDescription
         citationLabel?.text = mushroom.citation
-        //cCTextView?.text = mushroom
+        cCTextView?.text = mushroom.cC
 
         }
     
