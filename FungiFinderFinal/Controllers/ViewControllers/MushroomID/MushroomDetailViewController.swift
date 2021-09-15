@@ -9,7 +9,7 @@ import UIKit
 
 class MushroomDetailViewController: UIViewController {
     
-    //MARK: - LABELS
+    //MARK: - OUTLETS
     @IBOutlet weak var mushroomImage: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var nicknameLabel: UILabel!
@@ -48,7 +48,7 @@ class MushroomDetailViewController: UIViewController {
         descriptionLabel?.text = mushroom.shroomDescription
         subDescriptionLabel?.text = mushroom.shroomSubDescription
         citationLabel?.text = mushroom.citation
-        //cCTextView?.text = mushroom
+        cCTextView?.text = mushroom.cC
 
         }
     
