@@ -25,10 +25,6 @@ class ObservationCollectionViewController: UICollectionViewController, UICollect
         collectionView.reloadData()
     }
     
-    //MARK: - ACTIONS
-    @IBAction func deleteButtonTapped(_ sender: Any) {
-    }
-    
     // MARK: UICollectionViewDataSource
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return ObservationController.shared.observations.count
