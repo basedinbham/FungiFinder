@@ -96,6 +96,13 @@ class ObservationDetailViewController: UIViewController, UITextViewDelegate, UNU
         present(alert, animated: true)
     }
     
+    @IBAction func deleteButtonTapped(_ sender: Any) {
+        guard let observation = observation else { return }
+        ObservationController.shared.deleteObservation(observation: observation)
+        navigationController?.popViewController(animated: true)
+    }
+    
+    
     //MARK: - PERMISSIONS
     
     func inquireNotifcationPermission() {
