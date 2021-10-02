@@ -105,25 +105,6 @@ class ObservationDetailViewController: UIViewController, UITextViewDelegate, UNU
     
     //MARK: - PERMISSIONS
     
-    func inquireNotifcationPermission() {
-        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { granted, error in
-            // If yes
-            if granted {
-                print("Permission for notifications was granted by user")
-                UNUserNotificationCenter.current().delegate = self
-            }
-            // If there's an error
-            if let error = error {
-                print("There was an error with the notification permissions \(error.localizedDescription)")
-            }
-            
-            // If not granted
-            if !granted {
-                print("Notification access was denied")
-            }
-        }
-    }
-    
     func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) -> Bool {
         var hasPermission = false
         switch manager.authorizationStatus {
@@ -227,7 +208,6 @@ class ObservationDetailViewController: UIViewController, UITextViewDelegate, UNU
         mapView.layer.cornerRadius = 8.0
         mapView.clipsToBounds = true
         
-        inquireNotifcationPermission()
     }
     
     func textViewDidBeginEditing (_ textView: UITextView) {
