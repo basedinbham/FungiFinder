@@ -33,7 +33,6 @@ class ObservationDetailViewController: UIViewController, UITextViewDelegate, UNU
     let imagePicker = UIImagePickerController()
     var observationImage: UIImage?
     
-    
     //MARK: - LIFECYCLES
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -359,16 +358,12 @@ extension ObservationDetailViewController: UIImagePickerControllerDelegate & UIN
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let editedImage = info[.editedImage] as? UIImage {
             photoImageView.image = editedImage
-            
-            // let jpegData = editedImage.jpegData(compressionQuality: 1.0)
-            //observation?.image = jpegData
+
             observationImage = editedImage
             selectImageButton.setTitle("", for: .normal)
         } else if let pickedImage = info[.originalImage] as? UIImage {
             photoImageView.image = pickedImage
             
-            //let jpegData = pickedImage.jpegData(compressionQuality: 1.0)
-            //observation?.image = jpegData
             observationImage = pickedImage
             selectImageButton.setTitle("", for: .normal)
         }

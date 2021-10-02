@@ -40,6 +40,7 @@ class NotificationManager: ObservableObject {
         let content = UNMutableNotificationContent()
         content.title = observation.name ?? "Name not found"
         content.body = "Check on your mushrooms!"
+        content.sound = .default
         // Notifications content categoryIdentifier set to ident. used when UNNotifCat was instantiated
         content.categoryIdentifier = "Observation Category"
         // 3 Abstract class that triggers delivery of notif. We check if reminderType of task is time based with valid time interval. Next, we create time-interval based notif trigger using UNTimeIntNotifTrigger. We use this type of trigger to schedule timers. Constructor also takes in boolean parameter (repeats) this determines whether the notification needs to resched after being delivered.
@@ -51,7 +52,8 @@ class NotificationManager: ObservableObject {
             
             // 3 After trigger definition, next step is to create notif request. We create new request using UNNotifReq and specify an identifier, content, & trigger. Each task has a unique identifier. We pass that as notif identifier
             if let trigger = trigger {
-                let request = UNNotificationRequest(identifier: "\(String(describing: observation.id))", content: content, trigger: trigger)
+                guard let identifier = observation.id?.uuidString else { return }
+                let request = UNNotificationRequest(identifier: identifier, content: content, trigger: trigger)
                 
                 // 4 Schedule notif by adding request to UNUserNotifCenter. Completion handler as error object that indicates if problem occurs when scheduling notif
                 UNUserNotificationCenter.current().add(request) { error in
@@ -68,5 +70,4 @@ class NotificationManager: ObservableObject {
       UNUserNotificationCenter.current()
         .removePendingNotificationRequests(withIdentifiers: ["\(String(describing: observation.id))"])
     }
-    
 } // End of Class

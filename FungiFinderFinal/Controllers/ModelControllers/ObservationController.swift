@@ -68,4 +68,4 @@ class ObservationController {
             NotificationManager.shared.removeScheduledNotification(observation: observation)
         }
     }
-}// End of Class
+} // End of Class

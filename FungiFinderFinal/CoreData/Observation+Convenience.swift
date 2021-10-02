@@ -28,4 +28,4 @@ extension Observation: MKAnnotation {
     public var coordinate: CLLocationCoordinate2D {
         return CLLocationCoordinate2D(latitude: latitude as Double, longitude: longitude as Double)
     }
-}// End of Extension
+} // End of Extension

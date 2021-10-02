@@ -49,4 +49,4 @@ class Mushroom {
         self.wiki = wiki
         self.wikiCc = wikiCc
     }
-}// End of Class
+} // End of Class

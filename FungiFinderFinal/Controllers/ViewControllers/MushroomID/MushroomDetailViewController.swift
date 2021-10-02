@@ -102,8 +102,6 @@ class MushroomDetailViewController: UIViewController {
         citationTextView?.font = UIFont.systemFont(ofSize: 14)
         
     }
-
-
 } // End of Class
 
 
