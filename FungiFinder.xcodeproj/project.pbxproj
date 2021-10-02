@@ -32,6 +32,7 @@
 		27475CBB26EC3195007685C9 /* MushroomCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27475CBA26EC3195007685C9 /* MushroomCollectionViewController.swift */; };
 		27475CBD26ED563D007685C9 /* ObservationCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27475CBC26ED563D007685C9 /* ObservationCollectionViewController.swift */; };
 		27475CBF26ED5664007685C9 /* ObservationCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27475CBE26ED5664007685C9 /* ObservationCollectionView.swift */; };
+		277C2B3F2708E89700D4B6EB /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 277C2B3E2708E89700D4B6EB /* NotificationManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -63,6 +64,7 @@
 		27475CBA26EC3195007685C9 /* MushroomCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MushroomCollectionViewController.swift; sourceTree = "<group>"; };
 		27475CBC26ED563D007685C9 /* ObservationCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservationCollectionViewController.swift; sourceTree = "<group>"; };
 		27475CBE26ED5664007685C9 /* ObservationCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservationCollectionView.swift; sourceTree = "<group>"; };
+		277C2B3E2708E89700D4B6EB /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,12 +80,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		27332F6B26E7E1FB0032CBD0 /* Extension */ = {
+		27332F6B26E7E1FB0032CBD0 /* Helpers+Extensions */ = {
 			isa = PBXGroup;
 			children = (
 				27332F6C26E7E2110032CBD0 /* DateAsString.swift */,
+				277C2B3E2708E89700D4B6EB /* NotificationManager.swift */,
 			);
-			path = Extension;
+			path = "Helpers+Extensions";
 			sourceTree = "<group>";
 		};
 		27473FC926E59B8A00A6DB8D = {
@@ -110,7 +113,7 @@
 				27473FF426E59C4E00A6DB8D /* CoreData */,
 				27473FEE26E59C1600A6DB8D /* Controllers */,
 				27473FED26E59C0400A6DB8D /* Views */,
-				27332F6B26E7E1FB0032CBD0 /* Extension */,
+				27332F6B26E7E1FB0032CBD0 /* Helpers+Extensions */,
 				27473FEC26E59BEF00A6DB8D /* Resources */,
 				27473FF626E59C7500A6DB8D /* FungiFinderFinal.entitlements */,
 			);
@@ -320,6 +323,7 @@
 				2747400726E5AB1E00A6DB8D /* ObservationController.swift in Sources */,
 				2747400B26E5AB9400A6DB8D /* LandingViewController.swift in Sources */,
 				27475CB926EC3156007685C9 /* MushroomCollectionViewCell.swift in Sources */,
+				277C2B3F2708E89700D4B6EB /* NotificationManager.swift in Sources */,
 				27475CBD26ED563D007685C9 /* ObservationCollectionViewController.swift in Sources */,
 				27473FFD26E59D3400A6DB8D /* Mushroom.swift in Sources */,
 			);

@@ -36,6 +36,7 @@ class ObservationController {
         let observation = Observation(date: date, image: image, latitude: latitude, longitude: longitude, name: name, notes: notes, reminder: reminder, type: type, locationIsOn: locationIsOn)
         observations.append(observation)
         CoreDataStack.saveContext()
+        NotificationManager.shared.scheduleNotification(observation: observation)
     }
     
     func fetchOBservations() {
@@ -53,6 +54,8 @@ class ObservationController {
         observation.latitude = latitude
         observation.longitude = longitude
         observation.locationIsOn = locationIsOn
+        NotificationManager.shared.removeScheduledNotification(observation: observation)
+        NotificationManager.shared.scheduleNotification(observation: observation)
         
         CoreDataStack.saveContext()
     }
@@ -62,6 +65,7 @@ class ObservationController {
             observations.remove(at: index)
             CoreDataStack.context.delete(observation)
             CoreDataStack.saveContext()
+            NotificationManager.shared.removeScheduledNotification(observation: observation)
         }
     }
 }// End of Class
