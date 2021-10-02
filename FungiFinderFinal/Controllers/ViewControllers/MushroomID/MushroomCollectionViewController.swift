@@ -61,10 +61,4 @@ class MushroomCollectionViewController: UICollectionViewController, UICollection
         self.navigationController?.pushViewController(destinationVC!, animated: true)
 
     }
-    
-//    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//        let selectedData = mushroom[indexPath.item]
-//        self.performSegue(withIdentifier: "toDetailVC", sender: selectedData)
-//    }
-//
-}// End of Class
+} // End of Class

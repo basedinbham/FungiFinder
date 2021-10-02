@@ -111,10 +111,6 @@ class MapViewController: UIViewController {
         // Set delegate for mapView
         mapView.delegate = self
         presentRequiredPermissions()
-        // Allows reaction to touch on map (tap recognizer)
-        //        let gestureRecognizer = UITapGestureRecognizer(target: self, action:#selector(handleTap))
-        //        gestureRecognizer.delegate = self
-        //        mapView.addGestureRecognizer(gestureRecognizer)
     }
     
     // Required location persmission to access certain map based features
@@ -133,19 +129,6 @@ class MapViewController: UIViewController {
             return
         }
     }
-    // Handles the tap & gets location coordinates
-    //    @objc func handleTap(gestureRecognizer: UITapGestureRecognizer) {
-    //
-    //        let location = gestureRecognizer.location(in: mapView)
-    //        let coordinate = mapView.convert(location, toCoordinateFrom: mapView)
-    //
-    //        // Add annotation(pin):
-    //        let annotation = MKPointAnnotation()
-    //        annotation.coordinate = coordinate
-    //        mapView.addAnnotation(annotation)
-    //annotation.title
-    //annotation.subtitle
-    //    }
     
     //MARK: - NAVIGATION
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

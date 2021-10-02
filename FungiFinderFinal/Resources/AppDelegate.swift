@@ -84,7 +84,4 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
         
         completionHandler([.sound, .banner])
     }
-    
-    
-
 } // End of Extension
