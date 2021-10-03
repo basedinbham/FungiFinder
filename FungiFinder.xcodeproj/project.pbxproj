@@ -33,11 +33,12 @@
 		27475CBD26ED563D007685C9 /* ObservationCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27475CBC26ED563D007685C9 /* ObservationCollectionViewController.swift */; };
 		27475CBF26ED5664007685C9 /* ObservationCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27475CBE26ED5664007685C9 /* ObservationCollectionView.swift */; };
 		277C2B3F2708E89700D4B6EB /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 277C2B3E2708E89700D4B6EB /* NotificationManager.swift */; };
+		277C2B61270A58F400D4B6EB /* Onboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 277C2B60270A58F400D4B6EB /* Onboard.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		27332F6C26E7E2110032CBD0 /* DateAsString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateAsString.swift; sourceTree = "<group>"; };
-		27473FD226E59B8A00A6DB8D /* FungiFinderFinal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FungiFinderFinal.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		27473FD226E59B8A00A6DB8D /* Fungi Finder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Fungi Finder.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		27473FD526E59B8A00A6DB8D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		27473FD726E59B8A00A6DB8D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		27473FDC26E59B8A00A6DB8D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -65,6 +66,7 @@
 		27475CBC26ED563D007685C9 /* ObservationCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservationCollectionViewController.swift; sourceTree = "<group>"; };
 		27475CBE26ED5664007685C9 /* ObservationCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservationCollectionView.swift; sourceTree = "<group>"; };
 		277C2B3E2708E89700D4B6EB /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
+		277C2B60270A58F400D4B6EB /* Onboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Onboard.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,7 +103,7 @@
 		27473FD326E59B8A00A6DB8D /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				27473FD226E59B8A00A6DB8D /* FungiFinderFinal.app */,
+				27473FD226E59B8A00A6DB8D /* Fungi Finder.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -134,6 +136,7 @@
 		27473FED26E59C0400A6DB8D /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				277C2B60270A58F400D4B6EB /* Onboard.storyboard */,
 				27473FDB26E59B8A00A6DB8D /* Main.storyboard */,
 				27473FE326E59B8C00A6DB8D /* LaunchScreen.storyboard */,
 			);
@@ -238,9 +241,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		27473FD126E59B8A00A6DB8D /* FungiFinderFinal */ = {
+		27473FD126E59B8A00A6DB8D /* Fungi Finder */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 27473FE926E59B8C00A6DB8D /* Build configuration list for PBXNativeTarget "FungiFinderFinal" */;
+			buildConfigurationList = 27473FE926E59B8C00A6DB8D /* Build configuration list for PBXNativeTarget "Fungi Finder" */;
 			buildPhases = (
 				27473FCE26E59B8A00A6DB8D /* Sources */,
 				27473FCF26E59B8A00A6DB8D /* Frameworks */,
@@ -250,9 +253,9 @@
 			);
 			dependencies = (
 			);
-			name = FungiFinderFinal;
+			name = "Fungi Finder";
 			productName = FungiFinderFinal;
-			productReference = 27473FD226E59B8A00A6DB8D /* FungiFinderFinal.app */;
+			productReference = 27473FD226E59B8A00A6DB8D /* Fungi Finder.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -282,7 +285,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				27473FD126E59B8A00A6DB8D /* FungiFinderFinal */,
+				27473FD126E59B8A00A6DB8D /* Fungi Finder */,
 			);
 		};
 /* End PBXProject section */
@@ -295,6 +298,7 @@
 				27473FE526E59B8C00A6DB8D /* LaunchScreen.storyboard in Resources */,
 				27473FE226E59B8C00A6DB8D /* Assets.xcassets in Resources */,
 				27473FDD26E59B8A00A6DB8D /* Main.storyboard in Resources */,
+				277C2B61270A58F400D4B6EB /* Onboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -519,7 +523,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		27473FE926E59B8C00A6DB8D /* Build configuration list for PBXNativeTarget "FungiFinderFinal" */ = {
+		27473FE926E59B8C00A6DB8D /* Build configuration list for PBXNativeTarget "Fungi Finder" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				27473FEA26E59B8C00A6DB8D /* Debug */,

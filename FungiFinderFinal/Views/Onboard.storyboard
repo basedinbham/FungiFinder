@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Onboard-->
+        <scene sceneID="KSf-ua-YFx">
+            <objects>
+                <viewController title="Onboard" id="pL4-FI-v9O" customClass="LandingViewController" customModule="Fungi_Finder" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="mpe-vg-hzt">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bgnd6" translatesAutoresizingMaskIntoConstraints="NO" id="3F7-dm-h3Z">
+                                <rect key="frame" x="0.0" y="-50" width="414" height="946"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.89999997615814209" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="ff1" translatesAutoresizingMaskIntoConstraints="NO" id="qgb-SK-M5J">
+                                <rect key="frame" x="0.0" y="127" width="414" height="612"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6M2-NB-Ksc">
+                                <rect key="frame" x="151.5" y="609" width="111" height="30"/>
+                                <color key="backgroundColor" red="0.1201273575" green="0.42358961699999997" blue="0.36653852460000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="I Understand">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                            </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" scrollEnabled="NO" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="WK9-I2-P6b">
+                                <rect key="frame" x="8" y="492.5" width="398" height="116.5"/>
+                                <string key="text">Disclaimer! Never eat any mushroom without the help of a professional. Some mushrooms may be tasty, but plenty can be deadly. While Fungi Finder can be used as a supplimental source for educational identificaiton, judgement should never be decided based on one source alone. </string>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="sJh-kT-QEj"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="6M2-NB-Ksc" firstAttribute="top" secondItem="WK9-I2-P6b" secondAttribute="bottom" id="5ln-pU-8as"/>
+                            <constraint firstItem="WK9-I2-P6b" firstAttribute="leading" secondItem="sJh-kT-QEj" secondAttribute="leading" constant="8" id="5vZ-GR-hJK"/>
+                            <constraint firstItem="sJh-kT-QEj" firstAttribute="trailing" secondItem="qgb-SK-M5J" secondAttribute="trailing" id="6u0-iG-xTf"/>
+                            <constraint firstItem="6M2-NB-Ksc" firstAttribute="centerX" secondItem="3F7-dm-h3Z" secondAttribute="centerX" id="9wX-I8-Bhh"/>
+                            <constraint firstItem="qgb-SK-M5J" firstAttribute="top" secondItem="sJh-kT-QEj" secondAttribute="top" constant="39" id="J4f-md-inb"/>
+                            <constraint firstItem="qgb-SK-M5J" firstAttribute="leading" secondItem="sJh-kT-QEj" secondAttribute="leading" id="MXp-8N-EvE"/>
+                            <constraint firstItem="WK9-I2-P6b" firstAttribute="width" secondItem="qgb-SK-M5J" secondAttribute="width" id="OsO-y5-XuF"/>
+                            <constraint firstItem="3F7-dm-h3Z" firstAttribute="leading" secondItem="sJh-kT-QEj" secondAttribute="leading" id="Tlx-Tz-YCw"/>
+                            <constraint firstItem="sJh-kT-QEj" firstAttribute="bottom" secondItem="qgb-SK-M5J" secondAttribute="bottom" constant="143" id="VK3-wA-lOn"/>
+                            <constraint firstItem="sJh-kT-QEj" firstAttribute="trailing" secondItem="WK9-I2-P6b" secondAttribute="trailing" constant="8" id="XSk-G5-pAk"/>
+                            <constraint firstItem="3F7-dm-h3Z" firstAttribute="trailing" secondItem="mpe-vg-hzt" secondAttribute="trailing" id="Xf6-xR-xNQ"/>
+                            <constraint firstAttribute="bottom" secondItem="3F7-dm-h3Z" secondAttribute="bottom" id="Yin-mJ-H1S"/>
+                            <constraint firstItem="WK9-I2-P6b" firstAttribute="bottom" secondItem="qgb-SK-M5J" secondAttribute="bottom" constant="-110" id="mN4-M2-U2h"/>
+                            <constraint firstItem="6M2-NB-Ksc" firstAttribute="width" secondItem="qgb-SK-M5J" secondAttribute="width" multiplier="0.278075" id="mcP-Bq-u7e"/>
+                            <constraint firstItem="3F7-dm-h3Z" firstAttribute="top" secondItem="mpe-vg-hzt" secondAttribute="top" constant="-50" id="sse-E5-gn0"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="sCc-Eo-48L"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OCh-9s-ex3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2003" y="84"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="bgnd6" width="1023" height="629"/>
+        <image name="ff1" width="612" height="792"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
