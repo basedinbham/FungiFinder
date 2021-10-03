@@ -27,7 +27,9 @@
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IlQ-ww-7sQ">
+
                                 <rect key="frame" x="40" y="714" width="134.33333333333334" height="34"/>
+
                                 <color key="backgroundColor" red="0.63318734219999995" green="0.47347641289999998" blue="0.053427167570000003" alpha="0.84705882349999995" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
                                 <state key="normal" title="Observations">
@@ -38,7 +40,9 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2ig-2M-2fp">
+
                                 <rect key="frame" x="34.666666666666657" y="662" width="145" height="34"/>
+
                                 <color key="backgroundColor" red="0.63318734217171713" green="0.47347641294038523" blue="0.053427167567691329" alpha="0.84705882349999995" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
                                 <state key="normal" title="Mushroom List">
@@ -63,6 +67,7 @@
                         <viewLayoutGuide key="safeArea" id="GW6-2x-dMe"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                          
                             <constraint firstItem="sFZ-eR-9xF" firstAttribute="width" secondItem="GW6-2x-dMe" secondAttribute="width" multiplier="0.355072" id="1d0-du-IK0"/>
                             <constraint firstItem="GW6-2x-dMe" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="LZH-5q-ZQY" secondAttribute="trailing" id="4oD-U4-Nja"/>
                             <constraint firstItem="GW6-2x-dMe" firstAttribute="bottom" secondItem="LZH-5q-ZQY" secondAttribute="bottom" constant="62" id="ASL-8u-2dw"/>
@@ -72,15 +77,21 @@
                             <constraint firstItem="IlQ-ww-7sQ" firstAttribute="top" secondItem="2ig-2M-2fp" secondAttribute="bottom" constant="18" id="FUM-yW-dQE"/>
                             <constraint firstItem="2ig-2M-2fp" firstAttribute="top" secondItem="sFZ-eR-9xF" secondAttribute="bottom" constant="8" id="OGf-bk-dYW"/>
                             <constraint firstItem="N3u-H9-5sJ" firstAttribute="leading" secondItem="GW6-2x-dMe" secondAttribute="leading" id="W8v-qQ-cZO"/>
+
                             <constraint firstItem="N3u-H9-5sJ" firstAttribute="top" secondItem="GW6-2x-dMe" secondAttribute="top" constant="-50" id="YdT-vH-L38"/>
                             <constraint firstItem="LZH-5q-ZQY" firstAttribute="top" secondItem="IlQ-ww-7sQ" secondAttribute="bottom" constant="18" id="aVi-K0-PpJ"/>
+                            <constraint firstItem="GW6-2x-dMe" firstAttribute="trailing" secondItem="2ig-2M-2fp" secondAttribute="trailing" constant="249.33333333333331" id="dh1-tW-w2Z"/>
                             <constraint firstAttribute="bottom" secondItem="N3u-H9-5sJ" secondAttribute="bottom" id="hRL-6Q-ldm"/>
                             <constraint firstItem="N3u-H9-5sJ" firstAttribute="centerX" secondItem="jRz-Nl-OCK" secondAttribute="centerX" id="hzY-8Y-z2P"/>
                             <constraint firstItem="sFZ-eR-9xF" firstAttribute="leading" secondItem="GW6-2x-dMe" secondAttribute="leading" constant="32" id="jRk-5W-o9T"/>
                             <constraint firstItem="IlQ-ww-7sQ" firstAttribute="centerX" secondItem="LZH-5q-ZQY" secondAttribute="centerX" id="nAw-Ve-kzq"/>
                             <constraint firstItem="LZH-5q-ZQY" firstAttribute="leading" secondItem="GW6-2x-dMe" secondAttribute="leading" constant="44.999999999999993" id="ovG-UX-KjI"/>
                             <constraint firstItem="GW6-2x-dMe" firstAttribute="trailing" secondItem="sFZ-eR-9xF" secondAttribute="trailing" constant="235" id="uEl-2V-aUn"/>
+
                             <constraint firstItem="LZH-5q-ZQY" firstAttribute="width" secondItem="N3u-H9-5sJ" secondAttribute="width" multiplier="0.3" id="wdm-C9-AqK"/>
+                            <constraint firstItem="N3u-H9-5sJ" firstAttribute="centerX" secondItem="jRz-Nl-OCK" secondAttribute="centerX" id="xsh-uB-9Z9"/>
+                            <constraint firstItem="2ig-2M-2fp" firstAttribute="leading" secondItem="GW6-2x-dMe" secondAttribute="leading" constant="19.666666666666671" id="zGh-MC-tdI"/>
+                            <constraint firstItem="sFZ-eR-9xF" firstAttribute="leading" secondItem="GW6-2x-dMe" secondAttribute="leading" constant="32" id="zhS-RQ-xrn"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="jlO-7u-z2D"/>
