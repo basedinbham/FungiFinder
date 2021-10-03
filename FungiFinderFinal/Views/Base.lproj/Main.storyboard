@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="2Ht-rx-y85">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="sAc-YW-xxt">
     <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
@@ -9,78 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Landing View Controller-->
-        <scene sceneID="BqK-iL-gJy">
-            <objects>
-                <viewController id="eOb-gM-aq6" customClass="LandingViewController" customModule="FungiFinderFinal" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="5Dj-RH-AcK">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bgnd6" translatesAutoresizingMaskIntoConstraints="NO" id="bIr-Ve-GOH">
-                                <rect key="frame" x="0.0" y="-50" width="414" height="946"/>
-                            </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.90000000000000002" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ff1" translatesAutoresizingMaskIntoConstraints="NO" id="fGT-MU-s3q">
-                                <rect key="frame" x="20" y="127" width="374" height="592"/>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Disclaimer! Placeholder text" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qju-68-Gpd">
-                                <rect key="frame" x="91.333333333333329" y="499.66666666666669" width="231.33333333333337" height="20.333333333333314"/>
-                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="97q-mS-GRw">
-                                <rect key="frame" x="266" y="570" width="49" height="30"/>
-                                <color key="backgroundColor" red="0.1201273575" green="0.42358961699999997" blue="0.36653852460000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal" title="Accept">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <segue destination="8WZ-hy-Tgx" kind="show" id="GHE-ck-TeS"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LLE-CA-RqR">
-                                <rect key="frame" x="98" y="570" width="52" height="30"/>
-                                <color key="backgroundColor" systemColor="systemRedColor"/>
-                                <state key="normal" title="Decline">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                            </button>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="fGd-LL-Rzl"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="LLE-CA-RqR" firstAttribute="leading" secondItem="fGd-LL-Rzl" secondAttribute="leading" constant="98" id="09S-yQ-ntu"/>
-                            <constraint firstAttribute="bottom" secondItem="bIr-Ve-GOH" secondAttribute="bottom" id="1Si-nm-8b8"/>
-                            <constraint firstItem="bIr-Ve-GOH" firstAttribute="trailing" secondItem="5Dj-RH-AcK" secondAttribute="trailing" id="4gn-54-e5L"/>
-                            <constraint firstItem="Qju-68-Gpd" firstAttribute="leading" secondItem="fGd-LL-Rzl" secondAttribute="leading" constant="91.329999999999998" id="5Zu-5j-M2Q"/>
-                            <constraint firstItem="fGd-LL-Rzl" firstAttribute="trailing" secondItem="Qju-68-Gpd" secondAttribute="trailing" constant="91.329999999999998" id="BPd-as-Vbh"/>
-                            <constraint firstItem="fGd-LL-Rzl" firstAttribute="trailing" secondItem="97q-mS-GRw" secondAttribute="trailing" constant="60" id="KID-Hs-r3b"/>
-                            <constraint firstItem="97q-mS-GRw" firstAttribute="top" secondItem="Qju-68-Gpd" secondAttribute="bottom" constant="50" id="MtE-fs-Uxg"/>
-                            <constraint firstItem="97q-mS-GRw" firstAttribute="leading" secondItem="LLE-CA-RqR" secondAttribute="trailing" constant="116" id="VYE-Jv-xN4"/>
-                            <constraint firstItem="fGd-LL-Rzl" firstAttribute="trailing" secondItem="fGT-MU-s3q" secondAttribute="trailing" constant="20" id="XoI-zN-yKp"/>
-                            <constraint firstItem="bIr-Ve-GOH" firstAttribute="leading" secondItem="fGd-LL-Rzl" secondAttribute="leading" id="caQ-8R-ORu"/>
-                            <constraint firstItem="fGd-LL-Rzl" firstAttribute="bottom" secondItem="97q-mS-GRw" secondAttribute="bottom" constant="262" id="dHe-AW-2L8"/>
-                            <constraint firstItem="fGT-MU-s3q" firstAttribute="leading" secondItem="fGd-LL-Rzl" secondAttribute="leading" constant="20" id="j7I-en-I9B"/>
-                            <constraint firstItem="bIr-Ve-GOH" firstAttribute="top" secondItem="5Dj-RH-AcK" secondAttribute="top" constant="-50" id="m9h-eI-TTw"/>
-                            <constraint firstItem="fGT-MU-s3q" firstAttribute="top" secondItem="fGd-LL-Rzl" secondAttribute="top" constant="39" id="nVc-RQ-Xi1"/>
-                            <constraint firstItem="LLE-CA-RqR" firstAttribute="top" secondItem="Qju-68-Gpd" secondAttribute="bottom" constant="50" id="qAw-aD-WII"/>
-                            <constraint firstItem="fGd-LL-Rzl" firstAttribute="bottom" secondItem="fGT-MU-s3q" secondAttribute="bottom" constant="143" id="rll-kv-A5N"/>
-                            <constraint firstItem="LLE-CA-RqR" firstAttribute="top" secondItem="Qju-68-Gpd" secondAttribute="bottom" constant="50" id="yiR-6T-oWU"/>
-                            <constraint firstItem="fGd-LL-Rzl" firstAttribute="bottom" secondItem="LLE-CA-RqR" secondAttribute="bottom" constant="262" id="zIh-bQ-93C"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" id="eAl-KX-LIH"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="KC6-5M-pch" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="466.39999999999998" y="34.729064039408868"/>
-        </scene>
         <!--Home View Controller-->
         <scene sceneID="l5S-rl-e12">
             <objects>
-                <viewController id="8WZ-hy-Tgx" customClass="HomeViewController" customModule="FungiFinderFinal" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="8WZ-hy-Tgx" customClass="HomeViewController" customModule="Fungi_Finder" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="jRz-Nl-OCK">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -96,7 +28,7 @@
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IlQ-ww-7sQ">
 
-                                <rect key="frame" x="40.000000000000028" y="714" width="469.66666666666674" height="34"/>
+                                <rect key="frame" x="40" y="714" width="134.33333333333334" height="34"/>
 
                                 <color key="backgroundColor" red="0.63318734219999995" green="0.47347641289999998" blue="0.053427167570000003" alpha="0.84705882349999995" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
@@ -109,7 +41,7 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2ig-2M-2fp">
 
-                                <rect key="frame" x="6.6666666666666856" y="662" width="536.33333333333326" height="34"/>
+                                <rect key="frame" x="34.666666666666657" y="662" width="145" height="34"/>
 
                                 <color key="backgroundColor" red="0.63318734217171713" green="0.47347641294038523" blue="0.053427167567691329" alpha="0.84705882349999995" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
@@ -171,30 +103,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AFc-29-Bz1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1156.521739130435" y="34.151785714285715"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="AXY-GZ-dZE">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="2Ht-rx-y85" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="wfY-6k-OX2">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="eOb-gM-aq6" kind="relationship" relationship="rootViewController" id="SW7-tf-r1Z"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="879-t8-NR4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-284" y="35"/>
+            <point key="canvasLocation" x="2066.666666666667" y="34.151785714285715"/>
         </scene>
         <!--Mushroom Collection View Controller-->
         <scene sceneID="C3o-37-nXh">
             <objects>
-                <collectionViewController id="G79-ME-eal" customClass="MushroomCollectionViewController" customModule="FungiFinderFinal" customModuleProvider="target" sceneMemberID="viewController">
+                <collectionViewController id="G79-ME-eal" customClass="MushroomCollectionViewController" customModule="Fungi_Finder" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="h0A-Gr-fdw">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -206,7 +120,7 @@
                             <inset key="sectionInset" minX="10" minY="10" maxX="10" maxY="10"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="mushroomCell" id="4et-dl-iUn" customClass="MushroomCollectionViewCell" customModule="FungiFinderFinal" customModuleProvider="target">
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="mushroomCell" id="4et-dl-iUn" customClass="MushroomCollectionViewCell" customModule="Fungi_Finder" customModuleProvider="target">
                                 <rect key="frame" x="10" y="10" width="180" height="205"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="K4b-GA-7n9">
@@ -273,7 +187,7 @@
         <!--Map View Controller-->
         <scene sceneID="4Lx-qm-lcC">
             <objects>
-                <viewController id="R3p-fG-6ql" customClass="MapViewController" customModule="FungiFinderFinal" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="R3p-fG-6ql" customClass="MapViewController" customModule="Fungi_Finder" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="TtL-2T-R4F">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -304,7 +218,7 @@
         <!--Mushroom Detail View Controller-->
         <scene sceneID="mfa-X8-GYX">
             <objects>
-                <viewController storyboardIdentifier="MushroomDetailViewController" id="Ni9-HB-HYH" customClass="MushroomDetailViewController" customModule="FungiFinderFinal" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MushroomDetailViewController" id="Ni9-HB-HYH" customClass="MushroomDetailViewController" customModule="Fungi_Finder" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="msx-tL-noQ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="1500"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -501,7 +415,7 @@
         <!--Observation Detail View Controller-->
         <scene sceneID="JYp-2N-boh">
             <objects>
-                <viewController storyboardIdentifier="ObservationDetailViewController" id="gKq-2F-ekE" customClass="ObservationDetailViewController" customModule="FungiFinderFinal" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ObservationDetailViewController" id="gKq-2F-ekE" customClass="ObservationDetailViewController" customModule="Fungi_Finder" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="2YZ-Vx-VXH">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="900"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -718,12 +632,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lRa-sP-KWr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2708.6956521739135" y="-42.1875"/>
+            <point key="canvasLocation" x="3618.840579710145" y="-42.1875"/>
         </scene>
         <!--Observation Collection View Controller-->
         <scene sceneID="2x9-J6-vjb">
             <objects>
-                <collectionViewController id="g8V-xk-e2H" customClass="ObservationCollectionViewController" customModule="FungiFinderFinal" customModuleProvider="target" sceneMemberID="viewController">
+                <collectionViewController id="g8V-xk-e2H" customClass="ObservationCollectionViewController" customModule="Fungi_Finder" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="n77-tG-qLf">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -735,7 +649,7 @@
                             <inset key="sectionInset" minX="10" minY="10" maxX="10" maxY="10"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="observationCell" id="XPo-hc-He1" customClass="ObservationCollectionViewCell" customModule="FungiFinderFinal" customModuleProvider="target">
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="observationCell" id="XPo-hc-He1" customClass="ObservationCollectionViewCell" customModule="Fungi_Finder" customModuleProvider="target">
                                 <rect key="frame" x="10" y="10" width="180" height="205"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="ACZ-cl-5qU">
@@ -803,7 +717,25 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zpb-ZW-Hex" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1948" y="-43"/>
+            <point key="canvasLocation" x="2857.971014492754" y="-43.526785714285715"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="hdX-4s-LRN">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="sAc-YW-xxt" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="izH-7d-aV4">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="8WZ-hy-Tgx" kind="relationship" relationship="rootViewController" destinationCreationSelector="toMain" id="MSq-oG-F9D"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TA4-UF-iCg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1362" y="34"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
@@ -812,15 +744,11 @@
     <resources>
         <image name="FinalBackdrop" width="544" height="260"/>
         <image name="bgnd6" width="1023" height="629"/>
-        <image name="ff1" width="612" height="792"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemRedColor">
-            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
