@@ -212,6 +212,10 @@ class ObservationDetailViewController: UIViewController, UITextViewDelegate, UNU
             mapView.isHidden = false
         }
         
+        if saveLocationSwitch.isOn && manager.authorizationStatus == .notDetermined {
+            saveLocationSwitch.isOn = false
+        }
+        
         NotificationManager.shared.requestAuthorization { granted in
         }
     }
