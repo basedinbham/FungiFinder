@@ -48,7 +48,10 @@ class MushroomDetailViewController: UIViewController {
         seasonLabel?.text = mushroom.season
         descriptionLabel?.text = mushroom.shroomDescription
         subDescriptionLabel?.text = mushroom.shroomSubDescription
+
+
     }
+
     
     func textLink() {
         let creativeCommons = "https://creativecommons.org/licenses/by/3.0/?ref=ccsearch&atype=rich"
