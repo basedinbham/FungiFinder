@@ -13,7 +13,7 @@ class MushroomCollectionViewController: UICollectionViewController, UICollection
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.navigationBar.isHidden = false
-        
+ 
     }
     
     // MARK: UICollectionViewDataSource

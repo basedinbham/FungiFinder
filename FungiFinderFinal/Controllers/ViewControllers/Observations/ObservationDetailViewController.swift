@@ -65,6 +65,8 @@ class ObservationDetailViewController: UIViewController, UITextViewDelegate, UNU
     }
     
     @IBAction func saveLocationSwitchTapped(_ sender: Any) {
+        // Request permission
+        manager.requestWhenInUseAuthorization()
         if saveLocationSwitch.isOn == true && manager.authorizationStatus == .authorizedWhenInUse {
             mapView.isHidden = false
             observation?.locationIsOn = true
@@ -186,8 +188,6 @@ class ObservationDetailViewController: UIViewController, UITextViewDelegate, UNU
         manager.desiredAccuracy = kCLLocationAccuracyBest
         // set delegate for location
         manager.delegate = self
-        // Request permission
-        manager.requestWhenInUseAuthorization()
         // Fetch location
         manager.startUpdatingLocation()
         // Set delegate for mapView
@@ -196,9 +196,8 @@ class ObservationDetailViewController: UIViewController, UITextViewDelegate, UNU
         imagePicker.delegate = self
         notesTextField.delegate = self
         
-        notesTextField.textColor = .lightGray
-        notesTextField.text = "Place observation notes here..."
-        notesTextField.backgroundColor = .white
+        notesTextField.textColor = .label
+        notesTextField.backgroundColor = .systemBackground
         notesTextField.layer.borderColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
         notesTextField.layer.borderWidth = 1.0
         notesTextField.layer.cornerRadius = 8.0
@@ -207,12 +206,20 @@ class ObservationDetailViewController: UIViewController, UITextViewDelegate, UNU
         mapView.layer.cornerRadius = 8.0
         mapView.clipsToBounds = true
         
+        if saveLocationSwitch.isOn == false {
+            mapView.isHidden = true
+        } else {
+            mapView.isHidden = false
+        }
+        
+        NotificationManager.shared.requestAuthorization { granted in
+        }
     }
     
     func textViewDidBeginEditing (_ textView: UITextView) {
-        if notesTextField.textColor == .lightGray && notesTextField.isFirstResponder {
+        if notesTextField.textColor == .label && notesTextField.isFirstResponder {
             notesTextField.text = ""
-            notesTextField.textColor = .black
+            notesTextField.textColor = .label
         }
     }
     

@@ -38,7 +38,7 @@ class ObservationCollectionViewController: UICollectionViewController, UICollect
         cell.contentView.layer.cornerRadius = 8.0
         cell.contentView.clipsToBounds = true
         
-        let observation = ObservationController.shared.observations.sorted(by: { $0.date ?? Date() > $1.date ?? Date() } )[indexPath.row]
+        let observation = ObservationController.shared.observations[indexPath.row]
         
         cell.displayImageFor(observation: observation)
         cell.displayNameFor(observation: observation)
@@ -64,7 +64,7 @@ class ObservationCollectionViewController: UICollectionViewController, UICollect
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let destinationVC = storyboard?.instantiateViewController(withIdentifier: "ObservationDetailViewController") as? ObservationDetailViewController
-        destinationVC?.observation = ObservationController.shared.observations.sorted(by: { $0.date ?? Date() > $1.date ?? Date() } )[indexPath.row]
+        destinationVC?.observation = ObservationController.shared.observations[indexPath.row]
         self.navigationController?.pushViewController(destinationVC!, animated: true)
         
     }

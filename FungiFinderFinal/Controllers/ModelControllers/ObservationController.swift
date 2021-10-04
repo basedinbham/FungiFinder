@@ -41,13 +41,18 @@ class ObservationController {
     
     func fetchOBservations() {
         let observations = (try? CoreDataStack.context.fetch(fetchRequest)) ?? []
-        self.observations = observations
+        let observationSorted = observations.sorted(by: { $0.date ?? Date() > $1.date ?? Date() } )
+        self.observations = observationSorted
     }
     
     func updateObservation(_ observation: Observation, name: String, date: Date, image: UIImage?, notes: String, reminder: Date, type: String, latitude: Double, longitude: Double, locationIsOn: Bool = true) {
         observation.name = name
         observation.date = date
+        if observation.image != nil {
+            observation.image = observation.image
+        } else {
         observation.image = image?.jpegData(compressionQuality: 1.0)
+        }
         observation.notes = notes
         observation.reminder = reminder
         observation.type = type

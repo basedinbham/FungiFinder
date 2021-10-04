@@ -48,7 +48,6 @@ class MushroomDetailViewController: UIViewController {
         seasonLabel?.text = mushroom.season
         descriptionLabel?.text = mushroom.shroomDescription
         subDescriptionLabel?.text = mushroom.shroomSubDescription
-        
     }
     
     func textLink() {
@@ -73,9 +72,9 @@ class MushroomDetailViewController: UIViewController {
             .foregroundColor: UIColor.blue,
             .underlineStyle: NSUnderlineStyle.single.rawValue
         ]
-        
-        cCTextView?.font = UIFont.systemFont(ofSize: 9)
-        
+        cCTextView?.font = UIFont.systemFont(ofSize: 10)
+        cCTextView?.textColor = .label
+        cCTextView?.isScrollEnabled = false
     }
     
     func textLinkWiki() {
@@ -100,7 +99,7 @@ class MushroomDetailViewController: UIViewController {
             .underlineStyle: NSUnderlineStyle.single.rawValue
         ]
         citationTextView?.font = UIFont.systemFont(ofSize: 14)
-        
+        citationTextView?.textColor = .label
     }
 } // End of Class
 

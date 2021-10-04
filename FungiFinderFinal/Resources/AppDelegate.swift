@@ -24,7 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }else{
             UserDefaults.standard.set(true, forKey: "hasAlreadyLaunched")
         }
-        
+
         return true
     }
     
