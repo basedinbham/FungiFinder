@@ -500,7 +500,7 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
-                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" horizontalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="6Xy-nc-bv2" userLabel="SaveLocationSwitch">
+                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" horizontalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6Xy-nc-bv2" userLabel="SaveLocationSwitch">
                                                 <rect key="frame" x="165" y="564" width="51" height="31"/>
                                                 <connections>
                                                     <action selector="saveLocationSwitchTapped:" destination="gKq-2F-ekE" eventType="valueChanged" id="ge1-NT-gnv"/>
