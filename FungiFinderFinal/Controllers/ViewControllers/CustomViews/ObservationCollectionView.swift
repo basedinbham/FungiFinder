@@ -28,4 +28,4 @@ class ObservationCollectionViewCell: UICollectionViewCell {
         }
         observationImageView.contentMode = .scaleAspectFill
     }
-} // End of Class
+}// End of Class
