@@ -72,6 +72,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 fatalError("Unresolved error \(error), \(error.userInfo)")
             }
         })
+        
+        let options = NSPersistentCloudKitContainerSchemaInitializationOptions()
+        try? container.initializeCloudKitSchema(options: options)
+        
         return container
     }()
     
