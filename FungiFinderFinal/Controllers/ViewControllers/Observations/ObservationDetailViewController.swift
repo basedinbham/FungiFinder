@@ -202,6 +202,9 @@ class ObservationDetailViewController: UIViewController, UITextViewDelegate, UNU
         notesTextField.layer.borderWidth = 1.0
         notesTextField.layer.cornerRadius = 8.0
         notesTextField.clipsToBounds = true
+        if notesTextField.text.isEmpty {
+            notesTextField.text = "Place observation notes here..."
+        }
         
         mapView.layer.cornerRadius = 8.0
         mapView.clipsToBounds = true
@@ -221,7 +224,7 @@ class ObservationDetailViewController: UIViewController, UITextViewDelegate, UNU
     }
     
     func textViewDidBeginEditing (_ textView: UITextView) {
-        if notesTextField.textColor == .label && notesTextField.isFirstResponder {
+        if notesTextField.textColor == .label && notesTextField.isFirstResponder && notesTextField.text == "Place observation notes here..."{
             notesTextField.text = ""
             notesTextField.textColor = .label
         }

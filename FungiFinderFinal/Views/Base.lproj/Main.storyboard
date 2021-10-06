@@ -580,7 +580,7 @@
                                         </constraints>
                                     </view>
                                 </subviews>
-                                <color key="backgroundColor" red="0.97211915250000003" green="0.96968179939999999" blue="0.95207470660000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstItem="WRL-6e-CPt" firstAttribute="height" secondItem="3V5-NL-j2b" secondAttribute="height" multiplier="1.13314" priority="250" id="G3L-Tg-Z64"/>
                                     <constraint firstAttribute="bottom" secondItem="WRL-6e-CPt" secondAttribute="bottom" id="IeI-Lo-zLf"/>
