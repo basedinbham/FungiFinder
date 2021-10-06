@@ -28,8 +28,8 @@ class MushroomCollectionViewController: UIViewController, UICollectionViewDelega
         mushroomCollectionView.delegate = self
         mushroomCollectionView.dataSource = self
         resultsArray = MushroomController.mushrooms
-
-
+        hideKeyboardWhenTappedAround()
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {

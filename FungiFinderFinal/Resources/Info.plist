@@ -15,19 +15,19 @@
 	<key>CFBundlePackageType</key>
 	<string>$(PRODUCT_BUNDLE_PACKAGE_TYPE)</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.0</string>
+	<string>$(MARKETING_VERSION)</string>
 	<key>CFBundleVersion</key>
-	<string>1</string>
+	<string>$(CURRENT_PROJECT_VERSION)</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>MKDirectionsApplicationSupportedModes</key>
 	<array/>
 	<key>NSCameraUsageDescription</key>
-	<string>&quot;This app allows you to add photos to created Observations.  It needs access to your camera to take photos.&quot;</string>
+	<string>"This app allows you to add photos to created Observations.  It needs access to your camera to take photos."</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>“This app lets you keep track of mushroom locations. It needs access to the GPS coordinates for your location.”</string>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string>&quot;This app allows you to add photos to created Observations.  It needs access to your photo library to select photos.&quot;</string>
+	<string>"This app allows you to add photos to created Observations.  It needs access to your photo library to select photos."</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
