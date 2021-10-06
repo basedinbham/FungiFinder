@@ -50,3 +50,13 @@ class Mushroom {
         self.wikiCc = wikiCc
     }
 } // End of Class
+
+extension Mushroom: SearchableRecord {
+    func matches(searchTerm: String) -> Bool {
+        if name.lowercased().contains(searchTerm.lowercased()) || nickname.lowercased().contains(searchTerm.lowercased()) {
+            return true
+        } else {
+            return false
+        }
+    }
+} // End of Extension
