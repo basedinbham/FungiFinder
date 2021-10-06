@@ -32,6 +32,7 @@
 		27475CBD26ED563D007685C9 /* ObservationCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27475CBC26ED563D007685C9 /* ObservationCollectionViewController.swift */; };
 		27475CBF26ED5664007685C9 /* ObservationCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27475CBE26ED5664007685C9 /* ObservationCollectionView.swift */; };
 		277C2B3F2708E89700D4B6EB /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 277C2B3E2708E89700D4B6EB /* NotificationManager.swift */; };
+		27D710F5270D30EA002A154C /* SearchableResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D710F4270D30EA002A154C /* SearchableResults.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -63,6 +64,7 @@
 		27475CBC26ED563D007685C9 /* ObservationCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservationCollectionViewController.swift; sourceTree = "<group>"; };
 		27475CBE26ED5664007685C9 /* ObservationCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservationCollectionView.swift; sourceTree = "<group>"; };
 		277C2B3E2708E89700D4B6EB /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
+		27D710F4270D30EA002A154C /* SearchableResults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchableResults.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -210,6 +212,7 @@
 			isa = PBXGroup;
 			children = (
 				27473FFC26E59D3400A6DB8D /* Mushroom.swift */,
+				27D710F4270D30EA002A154C /* SearchableResults.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -309,6 +312,7 @@
 				27473FFF26E5A1A400A6DB8D /* CoreDataStack.swift in Sources */,
 				2747400526E5A9F300A6DB8D /* MushroomController.swift in Sources */,
 				27332F6D26E7E2110032CBD0 /* DateAsString.swift in Sources */,
+				27D710F5270D30EA002A154C /* SearchableResults.swift in Sources */,
 				27473FE026E59B8A00A6DB8D /* FungiFinderFinal.xcdatamodeld in Sources */,
 				2747401126E5ABEE00A6DB8D /* MushroomDetailViewController.swift in Sources */,
 				27473FD626E59B8A00A6DB8D /* AppDelegate.swift in Sources */,

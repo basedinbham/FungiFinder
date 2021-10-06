@@ -45,7 +45,7 @@
                                     <color key="titleColor" systemColor="labelColor"/>
                                 </state>
                                 <connections>
-                                    <segue destination="G79-ME-eal" kind="show" identifier="" id="waC-GY-HWp"/>
+                                    <segue destination="VX9-cj-UyO" kind="show" id="VA8-wc-Sea"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LZH-5q-ZQY">
@@ -95,83 +95,104 @@
             <point key="canvasLocation" x="2066.666666666667" y="34.151785714285715"/>
         </scene>
         <!--Mushroom Collection View Controller-->
-        <scene sceneID="C3o-37-nXh">
+        <scene sceneID="o1p-dO-7Xf">
             <objects>
-                <collectionViewController id="G79-ME-eal" customClass="MushroomCollectionViewController" customModule="Fungi_Finder" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="h0A-Gr-fdw">
+                <viewController id="VX9-cj-UyO" customClass="MushroomCollectionViewController" customModule="Fungi_Finder" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="IRC-gP-LUI">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="0.0" id="GeY-P1-cgR">
-                            <size key="itemSize" width="180" height="180"/>
-                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                            <inset key="sectionInset" minX="10" minY="10" maxX="10" maxY="10"/>
-                        </collectionViewFlowLayout>
-                        <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="mushroomCell" id="4et-dl-iUn" customClass="MushroomCollectionViewCell" customModule="Fungi_Finder" customModuleProvider="target">
-                                <rect key="frame" x="10" y="10" width="180" height="205"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="K4b-GA-7n9">
-                                    <rect key="frame" x="0.0" y="0.0" width="180" height="205"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="LYs-TT-Nkf">
-                                            <rect key="frame" x="0.0" y="0.0" width="180" height="170"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="180" id="9ha-gd-qqM"/>
-                                                <constraint firstAttribute="height" constant="180" id="NRO-dz-s1P"/>
-                                            </constraints>
-                                        </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(mushroom name)" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XmE-a7-qzw">
-                                            <rect key="frame" x="0.0" y="170" width="180" height="17"/>
-                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(mushroom nick)" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BUb-Mb-xe9" userLabel="Mushroom nickname">
-                                            <rect key="frame" x="0.0" y="188" width="180" height="17"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
-                                    <constraints>
-                                        <constraint firstAttribute="trailing" secondItem="LYs-TT-Nkf" secondAttribute="trailing" id="0YG-SM-mlP"/>
-                                        <constraint firstAttribute="bottom" secondItem="XmE-a7-qzw" secondAttribute="bottom" constant="18" id="6Ql-bE-Xke"/>
-                                        <constraint firstItem="XmE-a7-qzw" firstAttribute="leading" secondItem="K4b-GA-7n9" secondAttribute="leading" id="9fD-Ui-CZ1"/>
-                                        <constraint firstItem="BUb-Mb-xe9" firstAttribute="leading" secondItem="K4b-GA-7n9" secondAttribute="leading" id="Dby-b6-wt3"/>
-                                        <constraint firstAttribute="trailing" secondItem="XmE-a7-qzw" secondAttribute="trailing" id="S9p-zZ-Zaj"/>
-                                        <constraint firstAttribute="trailing" secondItem="BUb-Mb-xe9" secondAttribute="trailing" id="T45-pi-fqL"/>
-                                        <constraint firstAttribute="trailing" secondItem="XmE-a7-qzw" secondAttribute="trailing" id="XrO-kW-8mp"/>
-                                        <constraint firstItem="LYs-TT-Nkf" firstAttribute="leading" secondItem="K4b-GA-7n9" secondAttribute="leading" id="dL4-1e-Fki"/>
-                                        <constraint firstAttribute="bottom" secondItem="BUb-Mb-xe9" secondAttribute="bottom" id="dQS-XT-UIe"/>
-                                        <constraint firstItem="LYs-TT-Nkf" firstAttribute="top" secondItem="K4b-GA-7n9" secondAttribute="top" id="gMV-Vt-K7z"/>
-                                        <constraint firstItem="XmE-a7-qzw" firstAttribute="leading" secondItem="K4b-GA-7n9" secondAttribute="leading" id="hxb-pD-DEt"/>
-                                        <constraint firstAttribute="bottom" secondItem="LYs-TT-Nkf" secondAttribute="bottom" constant="35" id="pZs-og-hMe"/>
-                                    </constraints>
-                                </collectionViewCellContentView>
-                                <size key="customSize" width="180" height="205"/>
+                        <subviews>
+                            <searchBar contentMode="redraw" placeholder="Mushroom name..." translatesAutoresizingMaskIntoConstraints="NO" id="mtc-W6-IVF">
+                                <rect key="frame" x="0.0" y="88" width="414" height="51"/>
+                                <textInputTraits key="textInputTraits"/>
                                 <connections>
-                                    <outlet property="mushroomNameLabel" destination="XmE-a7-qzw" id="cHH-zq-9Hz"/>
-                                    <outlet property="mushroomNicknameLabel" destination="BUb-Mb-xe9" id="GKq-a9-0QM"/>
-                                    <outlet property="shroomImageView" destination="LYs-TT-Nkf" id="Zdq-Pb-q34"/>
+                                    <outlet property="delegate" destination="VX9-cj-UyO" id="pFk-zx-3dY"/>
                                 </connections>
-                            </collectionViewCell>
-                        </cells>
-                        <connections>
-                            <outlet property="dataSource" destination="G79-ME-eal" id="Q6O-NK-2jT"/>
-                            <outlet property="delegate" destination="G79-ME-eal" id="UeD-K7-ZND"/>
-                        </connections>
-                    </collectionView>
-                    <navigationItem key="navigationItem" id="w7F-An-RFj"/>
+                            </searchBar>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="O8o-tf-loG">
+                                <rect key="frame" x="0.0" y="139" width="414" height="723"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="0.0" id="rr6-Sf-Zc0">
+                                    <size key="itemSize" width="180" height="180"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="10" minY="10" maxX="10" maxY="10"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="mushroomCell" id="4et-dl-iUn" customClass="MushroomCollectionViewCell" customModule="Fungi_Finder" customModuleProvider="target">
+                                        <rect key="frame" x="10" y="10" width="180" height="205"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="K4b-GA-7n9">
+                                            <rect key="frame" x="0.0" y="0.0" width="180" height="205"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="LYs-TT-Nkf">
+                                                    <rect key="frame" x="0.0" y="0.0" width="180" height="170"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="180" id="9ha-gd-qqM"/>
+                                                        <constraint firstAttribute="height" constant="180" id="NRO-dz-s1P"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(mushroom name)" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XmE-a7-qzw">
+                                                    <rect key="frame" x="0.0" y="170" width="180" height="17"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(mushroom nick)" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BUb-Mb-xe9" userLabel="Mushroom nickname">
+                                                    <rect key="frame" x="0.0" y="188" width="180" height="17"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="LYs-TT-Nkf" secondAttribute="trailing" id="0YG-SM-mlP"/>
+                                                <constraint firstAttribute="bottom" secondItem="XmE-a7-qzw" secondAttribute="bottom" constant="18" id="6Ql-bE-Xke"/>
+                                                <constraint firstItem="XmE-a7-qzw" firstAttribute="leading" secondItem="K4b-GA-7n9" secondAttribute="leading" id="9fD-Ui-CZ1"/>
+                                                <constraint firstItem="BUb-Mb-xe9" firstAttribute="leading" secondItem="K4b-GA-7n9" secondAttribute="leading" id="Dby-b6-wt3"/>
+                                                <constraint firstAttribute="trailing" secondItem="XmE-a7-qzw" secondAttribute="trailing" id="S9p-zZ-Zaj"/>
+                                                <constraint firstAttribute="trailing" secondItem="BUb-Mb-xe9" secondAttribute="trailing" id="T45-pi-fqL"/>
+                                                <constraint firstAttribute="trailing" secondItem="XmE-a7-qzw" secondAttribute="trailing" id="XrO-kW-8mp"/>
+                                                <constraint firstItem="LYs-TT-Nkf" firstAttribute="leading" secondItem="K4b-GA-7n9" secondAttribute="leading" id="dL4-1e-Fki"/>
+                                                <constraint firstAttribute="bottom" secondItem="BUb-Mb-xe9" secondAttribute="bottom" id="dQS-XT-UIe"/>
+                                                <constraint firstItem="LYs-TT-Nkf" firstAttribute="top" secondItem="K4b-GA-7n9" secondAttribute="top" id="gMV-Vt-K7z"/>
+                                                <constraint firstItem="XmE-a7-qzw" firstAttribute="leading" secondItem="K4b-GA-7n9" secondAttribute="leading" id="hxb-pD-DEt"/>
+                                                <constraint firstAttribute="bottom" secondItem="LYs-TT-Nkf" secondAttribute="bottom" constant="35" id="pZs-og-hMe"/>
+                                            </constraints>
+                                        </collectionViewCellContentView>
+                                        <size key="customSize" width="180" height="205"/>
+                                        <connections>
+                                            <outlet property="mushroomNameLabel" destination="XmE-a7-qzw" id="cHH-zq-9Hz"/>
+                                            <outlet property="mushroomNicknameLabel" destination="BUb-Mb-xe9" id="GKq-a9-0QM"/>
+                                            <outlet property="shroomImageView" destination="LYs-TT-Nkf" id="Zdq-Pb-q34"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="FUJ-t9-sy1"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="mtc-W6-IVF" firstAttribute="top" secondItem="FUJ-t9-sy1" secondAttribute="top" id="390-lE-vlE"/>
+                            <constraint firstItem="O8o-tf-loG" firstAttribute="leading" secondItem="FUJ-t9-sy1" secondAttribute="leading" id="Zfz-0s-Fju"/>
+                            <constraint firstItem="mtc-W6-IVF" firstAttribute="trailing" secondItem="FUJ-t9-sy1" secondAttribute="trailing" id="cS2-qa-T5R"/>
+                            <constraint firstItem="FUJ-t9-sy1" firstAttribute="trailing" secondItem="O8o-tf-loG" secondAttribute="trailing" id="cnr-zi-zq5"/>
+                            <constraint firstItem="mtc-W6-IVF" firstAttribute="leading" secondItem="FUJ-t9-sy1" secondAttribute="leading" id="h6d-nF-3n6"/>
+                            <constraint firstItem="FUJ-t9-sy1" firstAttribute="bottom" secondItem="O8o-tf-loG" secondAttribute="bottom" id="yvh-Gq-kRk"/>
+                            <constraint firstItem="O8o-tf-loG" firstAttribute="top" secondItem="mtc-W6-IVF" secondAttribute="bottom" id="zF8-3n-bDc"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="qtQ-36-hAj"/>
                     <connections>
-                        <segue destination="Ni9-HB-HYH" kind="show" identifier="toDetailVC" id="OSo-eg-f83"/>
+                        <outlet property="mushroomCollectionView" destination="O8o-tf-loG" id="oJU-ri-jTf"/>
+                        <outlet property="searchBar" destination="mtc-W6-IVF" id="U53-dl-SlD"/>
+                        <segue destination="Ni9-HB-HYH" kind="show" identifier="toDetailVC" id="PdT-zd-E5z"/>
                     </connections>
-                </collectionViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="9IP-Xf-VXD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nWZ-NA-8ap" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="311" y="777"/>
+            <point key="canvasLocation" x="386" y="777"/>
         </scene>
         <!--Map View Controller-->
         <scene sceneID="4Lx-qm-lcC">
