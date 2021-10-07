@@ -89,7 +89,6 @@ extension MushroomCollectionViewController: UISearchBarDelegate {
         if !searchText.isEmpty {
             resultsArray = MushroomController.mushrooms.filter { $0.matches(searchTerm: searchText) }
             mushroomCollectionView.reloadData()
-            print(resultsArray.count)
         } else {
             resultsArray = MushroomController.mushrooms
             mushroomCollectionView.reloadData()
