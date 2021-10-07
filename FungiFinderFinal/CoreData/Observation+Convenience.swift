@@ -29,3 +29,13 @@ extension Observation: MKAnnotation {
         return CLLocationCoordinate2D(latitude: latitude as Double, longitude: longitude as Double)
     }
 } // End of Extension
+
+extension Observation: SearchableRecord {
+    func matches(searchTerm: String) -> Bool {
+        if ((name!.lowercased().contains(searchTerm.lowercased())) ) {
+            return true
+        } else {
+            return false
+        }
+    }
+}

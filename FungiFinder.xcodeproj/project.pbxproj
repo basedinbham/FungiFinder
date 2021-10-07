@@ -23,9 +23,7 @@
 		2747400726E5AB1E00A6DB8D /* ObservationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2747400626E5AB1E00A6DB8D /* ObservationController.swift */; };
 		2747400926E5AB7B00A6DB8D /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2747400826E5AB7B00A6DB8D /* HomeViewController.swift */; };
 		2747400D26E5ABB300A6DB8D /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2747400C26E5ABB300A6DB8D /* MapViewController.swift */; };
-		2747400F26E5ABCF00A6DB8D /* MushroomTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2747400E26E5ABCF00A6DB8D /* MushroomTableViewController.swift */; };
 		2747401126E5ABEE00A6DB8D /* MushroomDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2747401026E5ABEE00A6DB8D /* MushroomDetailViewController.swift */; };
-		2747401326E5AC1000A6DB8D /* ObservationsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2747401226E5AC1000A6DB8D /* ObservationsTableViewController.swift */; };
 		2747401526E5AC3200A6DB8D /* ObservationDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2747401426E5AC3200A6DB8D /* ObservationDetailViewController.swift */; };
 		27475CB926EC3156007685C9 /* MushroomCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27475CB826EC3156007685C9 /* MushroomCollectionViewCell.swift */; };
 		27475CBB26EC3195007685C9 /* MushroomCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27475CBA26EC3195007685C9 /* MushroomCollectionViewController.swift */; };
@@ -55,9 +53,7 @@
 		2747400626E5AB1E00A6DB8D /* ObservationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservationController.swift; sourceTree = "<group>"; };
 		2747400826E5AB7B00A6DB8D /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		2747400C26E5ABB300A6DB8D /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
-		2747400E26E5ABCF00A6DB8D /* MushroomTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MushroomTableViewController.swift; sourceTree = "<group>"; };
 		2747401026E5ABEE00A6DB8D /* MushroomDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MushroomDetailViewController.swift; sourceTree = "<group>"; };
-		2747401226E5AC1000A6DB8D /* ObservationsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservationsTableViewController.swift; sourceTree = "<group>"; };
 		2747401426E5AC3200A6DB8D /* ObservationDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservationDetailViewController.swift; sourceTree = "<group>"; };
 		27475CB826EC3156007685C9 /* MushroomCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MushroomCollectionViewCell.swift; sourceTree = "<group>"; };
 		27475CBA26EC3195007685C9 /* MushroomCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MushroomCollectionViewController.swift; sourceTree = "<group>"; };
@@ -173,7 +169,6 @@
 		27473FF126E59C2F00A6DB8D /* Observations */ = {
 			isa = PBXGroup;
 			children = (
-				2747401226E5AC1000A6DB8D /* ObservationsTableViewController.swift */,
 				27475CBC26ED563D007685C9 /* ObservationCollectionViewController.swift */,
 				2747401426E5AC3200A6DB8D /* ObservationDetailViewController.swift */,
 			);
@@ -183,7 +178,6 @@
 		27473FF226E59C3500A6DB8D /* MushroomID */ = {
 			isa = PBXGroup;
 			children = (
-				2747400E26E5ABCF00A6DB8D /* MushroomTableViewController.swift */,
 				27475CBA26EC3195007685C9 /* MushroomCollectionViewController.swift */,
 				2747401026E5ABEE00A6DB8D /* MushroomDetailViewController.swift */,
 			);
@@ -306,7 +300,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				2747401526E5AC3200A6DB8D /* ObservationDetailViewController.swift in Sources */,
-				2747401326E5AC1000A6DB8D /* ObservationsTableViewController.swift in Sources */,
 				2747400D26E5ABB300A6DB8D /* MapViewController.swift in Sources */,
 				2747400126E5A22100A6DB8D /* Observation+Convenience.swift in Sources */,
 				27473FFF26E5A1A400A6DB8D /* CoreDataStack.swift in Sources */,
@@ -317,7 +310,6 @@
 				2747401126E5ABEE00A6DB8D /* MushroomDetailViewController.swift in Sources */,
 				27473FD626E59B8A00A6DB8D /* AppDelegate.swift in Sources */,
 				2747400926E5AB7B00A6DB8D /* HomeViewController.swift in Sources */,
-				2747400F26E5ABCF00A6DB8D /* MushroomTableViewController.swift in Sources */,
 				27475CBB26EC3195007685C9 /* MushroomCollectionViewController.swift in Sources */,
 				27475CBF26ED5664007685C9 /* ObservationCollectionView.swift in Sources */,
 				27473FD826E59B8A00A6DB8D /* SceneDelegate.swift in Sources */,
@@ -474,14 +466,14 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = FungiFinderFinal/FungiFinderFinal.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.1;
+				CURRENT_PROJECT_VERSION = 1.1.1;
 				DEVELOPMENT_TEAM = L97V4TW6MB;
 				INFOPLIST_FILE = FungiFinderFinal/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1;
+				MARKETING_VERSION = 1.1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.KyleWarren.FungiFinderFinal;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -496,14 +488,14 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = FungiFinderFinal/FungiFinderFinal.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.1;
+				CURRENT_PROJECT_VERSION = 1.1.1;
 				DEVELOPMENT_TEAM = L97V4TW6MB;
 				INFOPLIST_FILE = FungiFinderFinal/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1;
+				MARKETING_VERSION = 1.1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.KyleWarren.FungiFinderFinal;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;

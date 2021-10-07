@@ -36,7 +36,7 @@
                                     <color key="titleColor" systemColor="labelColor"/>
                                 </state>
                                 <connections>
-                                    <segue destination="g8V-xk-e2H" kind="show" id="WJa-2x-G1N"/>
+                                    <segue destination="Wui-FC-Xh6" kind="show" id="rYn-5X-dis"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2ig-2M-2fp">
@@ -666,76 +666,19 @@
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                             <inset key="sectionInset" minX="10" minY="10" maxX="10" maxY="10"/>
                         </collectionViewFlowLayout>
-                        <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="observationCell" id="XPo-hc-He1" customClass="ObservationCollectionViewCell" customModule="Fungi_Finder" customModuleProvider="target">
-                                <rect key="frame" x="10" y="10" width="180" height="205"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="ACZ-cl-5qU">
-                                    <rect key="frame" x="0.0" y="0.0" width="180" height="205"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <subviews>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="a6b-ZL-KyI">
-                                            <rect key="frame" x="0.0" y="0.0" width="180" height="170"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="180" id="aLc-BX-Eep"/>
-                                                <constraint firstAttribute="width" constant="180" id="zvC-oi-pYE"/>
-                                            </constraints>
-                                        </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(obs name)" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QXe-hW-rGy">
-                                            <rect key="frame" x="0.0" y="170" width="180" height="17"/>
-                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(date)" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xVi-uT-pOD" userLabel="Mushroom nickname">
-                                            <rect key="frame" x="0.0" y="188" width="180" height="17"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
-                                    <constraints>
-                                        <constraint firstItem="a6b-ZL-KyI" firstAttribute="top" secondItem="ACZ-cl-5qU" secondAttribute="top" id="9Lv-za-SmH"/>
-                                        <constraint firstAttribute="trailing" secondItem="a6b-ZL-KyI" secondAttribute="trailing" id="DcN-ix-5xE"/>
-                                        <constraint firstAttribute="bottom" secondItem="xVi-uT-pOD" secondAttribute="bottom" id="Euf-Zi-7FI"/>
-                                        <constraint firstItem="xVi-uT-pOD" firstAttribute="leading" secondItem="ACZ-cl-5qU" secondAttribute="leading" id="GXY-hP-kgv"/>
-                                        <constraint firstAttribute="trailing" secondItem="QXe-hW-rGy" secondAttribute="trailing" id="LHl-xA-jAO"/>
-                                        <constraint firstAttribute="trailing" secondItem="xVi-uT-pOD" secondAttribute="trailing" id="Ubo-xb-UfX"/>
-                                        <constraint firstAttribute="bottom" secondItem="QXe-hW-rGy" secondAttribute="bottom" constant="18" id="Xlu-7v-qoJ"/>
-                                        <constraint firstItem="a6b-ZL-KyI" firstAttribute="leading" secondItem="ACZ-cl-5qU" secondAttribute="leading" id="cHO-23-EcX"/>
-                                        <constraint firstAttribute="trailing" secondItem="QXe-hW-rGy" secondAttribute="trailing" id="dR1-JR-9qA"/>
-                                        <constraint firstAttribute="bottom" secondItem="a6b-ZL-KyI" secondAttribute="bottom" constant="35" id="k4x-IW-awU"/>
-                                        <constraint firstItem="QXe-hW-rGy" firstAttribute="leading" secondItem="ACZ-cl-5qU" secondAttribute="leading" id="vGP-kG-BRZ"/>
-                                        <constraint firstItem="QXe-hW-rGy" firstAttribute="leading" secondItem="ACZ-cl-5qU" secondAttribute="leading" id="wDt-7x-XXe"/>
-                                    </constraints>
-                                </collectionViewCellContentView>
-                                <size key="customSize" width="180" height="205"/>
-                                <connections>
-                                    <outlet property="dateLabel" destination="xVi-uT-pOD" id="7HJ-2Y-exq"/>
-                                    <outlet property="observationImageView" destination="a6b-ZL-KyI" id="hUA-Ho-krd"/>
-                                    <outlet property="observationNameLabel" destination="QXe-hW-rGy" id="262-XM-pOx"/>
-                                </connections>
-                            </collectionViewCell>
-                        </cells>
+                        <cells/>
                         <connections>
                             <outlet property="dataSource" destination="g8V-xk-e2H" id="Waz-bX-6e2"/>
                             <outlet property="delegate" destination="g8V-xk-e2H" id="XYn-7E-CCL"/>
                         </connections>
                     </collectionView>
                     <navigationItem key="navigationItem" id="mzV-JS-UIl">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="BSC-t2-iKk">
-                            <connections>
-                                <segue destination="gKq-2F-ekE" kind="show" id="X82-O9-1eY"/>
-                            </connections>
-                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="BSC-t2-iKk"/>
                     </navigationItem>
-                    <connections>
-                        <segue destination="gKq-2F-ekE" kind="show" id="3eB-NM-L6R"/>
-                    </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zpb-ZW-Hex" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2857.971014492754" y="-43.526785714285715"/>
+            <point key="canvasLocation" x="4410" y="-285"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="hdX-4s-LRN">
@@ -755,9 +698,115 @@
             </objects>
             <point key="canvasLocation" x="1362" y="34"/>
         </scene>
+        <!--Observation Collection View Controller-->
+        <scene sceneID="yp5-jm-NmZ">
+            <objects>
+                <viewController id="Wui-FC-Xh6" customClass="ObservationCollectionViewController" customModule="Fungi_Finder" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="rDP-4F-DgR">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <searchBar contentMode="redraw" placeholder="Observation name..." translatesAutoresizingMaskIntoConstraints="NO" id="jfR-cN-KuV">
+                                <rect key="frame" x="0.0" y="88" width="414" height="51"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="Wui-FC-Xh6" id="ine-Py-D5S"/>
+                                </connections>
+                            </searchBar>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="08E-Q2-Pxd">
+                                <rect key="frame" x="0.0" y="139" width="414" height="723"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="0.0" id="kdu-u0-HfN">
+                                    <size key="itemSize" width="180" height="180"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="10" minY="10" maxX="10" maxY="10"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="observationCell" id="XPo-hc-He1" customClass="ObservationCollectionViewCell" customModule="Fungi_Finder" customModuleProvider="target">
+                                        <rect key="frame" x="10" y="10" width="180" height="205"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="ACZ-cl-5qU">
+                                            <rect key="frame" x="0.0" y="0.0" width="180" height="205"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="a6b-ZL-KyI">
+                                                    <rect key="frame" x="0.0" y="0.0" width="180" height="170"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="180" id="aLc-BX-Eep"/>
+                                                        <constraint firstAttribute="width" constant="180" id="zvC-oi-pYE"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(obs name)" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QXe-hW-rGy">
+                                                    <rect key="frame" x="0.0" y="170" width="180" height="17"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(date)" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xVi-uT-pOD" userLabel="Mushroom nickname">
+                                                    <rect key="frame" x="0.0" y="188" width="180" height="17"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="a6b-ZL-KyI" firstAttribute="top" secondItem="ACZ-cl-5qU" secondAttribute="top" id="9Lv-za-SmH"/>
+                                                <constraint firstAttribute="trailing" secondItem="a6b-ZL-KyI" secondAttribute="trailing" id="DcN-ix-5xE"/>
+                                                <constraint firstAttribute="bottom" secondItem="xVi-uT-pOD" secondAttribute="bottom" id="Euf-Zi-7FI"/>
+                                                <constraint firstItem="xVi-uT-pOD" firstAttribute="leading" secondItem="ACZ-cl-5qU" secondAttribute="leading" id="GXY-hP-kgv"/>
+                                                <constraint firstAttribute="trailing" secondItem="QXe-hW-rGy" secondAttribute="trailing" id="LHl-xA-jAO"/>
+                                                <constraint firstAttribute="trailing" secondItem="xVi-uT-pOD" secondAttribute="trailing" id="Ubo-xb-UfX"/>
+                                                <constraint firstAttribute="bottom" secondItem="QXe-hW-rGy" secondAttribute="bottom" constant="18" id="Xlu-7v-qoJ"/>
+                                                <constraint firstItem="a6b-ZL-KyI" firstAttribute="leading" secondItem="ACZ-cl-5qU" secondAttribute="leading" id="cHO-23-EcX"/>
+                                                <constraint firstAttribute="trailing" secondItem="QXe-hW-rGy" secondAttribute="trailing" id="dR1-JR-9qA"/>
+                                                <constraint firstAttribute="bottom" secondItem="a6b-ZL-KyI" secondAttribute="bottom" constant="35" id="k4x-IW-awU"/>
+                                                <constraint firstItem="QXe-hW-rGy" firstAttribute="leading" secondItem="ACZ-cl-5qU" secondAttribute="leading" id="vGP-kG-BRZ"/>
+                                                <constraint firstItem="QXe-hW-rGy" firstAttribute="leading" secondItem="ACZ-cl-5qU" secondAttribute="leading" id="wDt-7x-XXe"/>
+                                            </constraints>
+                                        </collectionViewCellContentView>
+                                        <size key="customSize" width="180" height="205"/>
+                                        <connections>
+                                            <outlet property="dateLabel" destination="xVi-uT-pOD" id="7HJ-2Y-exq"/>
+                                            <outlet property="observationImageView" destination="a6b-ZL-KyI" id="hUA-Ho-krd"/>
+                                            <outlet property="observationNameLabel" destination="QXe-hW-rGy" id="262-XM-pOx"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="1IL-9I-4e1"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="1IL-9I-4e1" firstAttribute="trailing" secondItem="08E-Q2-Pxd" secondAttribute="trailing" id="23p-w3-aiE"/>
+                            <constraint firstItem="08E-Q2-Pxd" firstAttribute="top" secondItem="jfR-cN-KuV" secondAttribute="bottom" id="3cE-Sx-478"/>
+                            <constraint firstItem="jfR-cN-KuV" firstAttribute="trailing" secondItem="1IL-9I-4e1" secondAttribute="trailing" id="AdS-Bm-v5J"/>
+                            <constraint firstItem="08E-Q2-Pxd" firstAttribute="leading" secondItem="1IL-9I-4e1" secondAttribute="leading" id="Bbm-1C-Ygz"/>
+                            <constraint firstItem="1IL-9I-4e1" firstAttribute="bottom" secondItem="08E-Q2-Pxd" secondAttribute="bottom" id="Omr-I2-Pt1"/>
+                            <constraint firstItem="jfR-cN-KuV" firstAttribute="top" secondItem="1IL-9I-4e1" secondAttribute="top" id="ajK-4R-VSg"/>
+                            <constraint firstItem="jfR-cN-KuV" firstAttribute="leading" secondItem="1IL-9I-4e1" secondAttribute="leading" id="mA8-qb-rac"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="vD6-rI-y5R">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="jf4-Ia-6vz">
+                            <connections>
+                                <segue destination="gKq-2F-ekE" kind="show" id="v0V-Jw-r1y"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="observationCollectionView" destination="08E-Q2-Pxd" id="RbL-ek-anE"/>
+                        <outlet property="searchBar" destination="jfR-cN-KuV" id="WmO-Kr-4wD"/>
+                        <segue destination="gKq-2F-ekE" kind="show" id="6v7-xT-zI5"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nna-G8-Ae4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2839" y="-84"/>
+        </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="3eB-NM-L6R"/>
+        <segue reference="6v7-xT-zI5"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="FinalBackdrop" width="544" height="260"/>
