@@ -35,6 +35,7 @@ class MushroomCollectionViewController: UIViewController, UICollectionViewDelega
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         resultsArray = MushroomController.mushrooms
+        mushroomCollectionView.reloadData()
     }
     
     // MARK: UICollectionViewDataSource
@@ -77,7 +78,7 @@ class MushroomCollectionViewController: UIViewController, UICollectionViewDelega
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let destinationVC = storyboard?.instantiateViewController(withIdentifier: "MushroomDetailViewController") as? MushroomDetailViewController
-        destinationVC?.mushroom = MushroomController.mushrooms[indexPath.row]
+        destinationVC?.mushroom = resultsArray[indexPath.row] as? Mushroom
         //let mushroomToSend = MushroomController.mushrooms[indexPath.row]
         self.navigationController?.pushViewController(destinationVC!, animated: true)
 

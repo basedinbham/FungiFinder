@@ -79,7 +79,7 @@ class ObservationCollectionViewController: UIViewController, UICollectionViewDel
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let destinationVC = storyboard?.instantiateViewController(withIdentifier: "ObservationDetailViewController") as? ObservationDetailViewController
-        destinationVC?.observation = ObservationController.shared.observations[indexPath.row]
+        destinationVC?.observation = resultsArray[indexPath.row] as? Observation
         self.navigationController?.pushViewController(destinationVC!, animated: true)
         
     }
