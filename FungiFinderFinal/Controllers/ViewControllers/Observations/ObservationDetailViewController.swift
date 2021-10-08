@@ -17,11 +17,11 @@ class ObservationDetailViewController: UIViewController, UITextViewDelegate, UNU
     @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var notesTextField: UITextView!
     @IBOutlet weak var reminderPicker: UIDatePicker!
-    @IBOutlet weak var typeTextField: UITextField!
     @IBOutlet weak var saveLocationSwitch: UISwitch!
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var selectImageButton: UIButton!
     @IBOutlet weak var photoImageView: UIImageView!
+    @IBOutlet weak var typeButton: UIButton!
     
     //MARK: - PROPERTIES
     var observation: Observation?
@@ -32,6 +32,7 @@ class ObservationDetailViewController: UIViewController, UITextViewDelegate, UNU
     var saveLong: Double?
     let imagePicker = UIImagePickerController()
     var observationImage: UIImage?
+    let mushroom: [Mushroom] = MushroomController.mushrooms.sorted(by: { $0.nickname < $1.nickname })
     
     //MARK: - LIFECYCLES
     override func viewDidLoad() {
@@ -39,20 +40,20 @@ class ObservationDetailViewController: UIViewController, UITextViewDelegate, UNU
         updateViews()
         setupViews()
         self.hideKeyboardWhenTappedAround()
-        
+        dropDownMenuButton()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         setupViews()
-        
+        updateViews()
     }
     
     //MARK: - ACTIONS
     @IBAction func saveButtonTapped(_ sender: Any) {
         guard let name = nameTextField.text, !name.isEmpty,
-              let notes = notesTextField.text, !notes.isEmpty,
-              let type = typeTextField.text, !type.isEmpty else { presentRequiredTextAlert(); return }
+              let type = typeButton.currentTitle, type != "Select Type",
+              let notes = notesTextField.text, !notes.isEmpty else { presentRequiredTextAlert(); return }
         let latitude = saveLat
         let longitude = saveLong
         
@@ -104,12 +105,15 @@ class ObservationDetailViewController: UIViewController, UITextViewDelegate, UNU
     }
     
     
+    @IBAction func typeButtonTapped(_ sender: Any) {
+        
+    }
     //MARK: - PERMISSIONS
     
     func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) -> Bool {
         var hasPermission = false
         switch manager.authorizationStatus {
-        // App first launched, hasn't determined
+            // App first launched, hasn't determined
         case .notDetermined:
             // For use when the app is open
             manager.requestWhenInUseAuthorization()
@@ -120,7 +124,7 @@ class ObservationDetailViewController: UIViewController, UITextViewDelegate, UNU
         case .authorizedAlways:
             hasPermission = true
             break
-        // For use when the app is open
+            // For use when the app is open
         case .authorizedWhenInUse:
             hasPermission = true
             break
@@ -167,7 +171,7 @@ class ObservationDetailViewController: UIViewController, UITextViewDelegate, UNU
         datePicker.date = observation.date ?? Date()
         notesTextField.text = observation.notes
         reminderPicker.date = observation.reminder ?? Date()
-        typeTextField.text = observation.type
+        typeButton.setTitle(observation.type, for: .normal)
         // If save location switch is set to on, let LocationIsOn property equal true
         saveLocationSwitch.isOn = observation.locationIsOn
         // If location is set to off hide the mapView
@@ -269,6 +273,30 @@ class ObservationDetailViewController: UIViewController, UITextViewDelegate, UNU
             return
         }
     }
+    
+    func dropDownMenuButton() {
+        let colorClosure = { (action: UIAction) in
+            print("running")
+        }
+        
+        typeButton.configuration = createConfig()
+        var menuArray: [UIAction] = []
+        menuArray.append(UIAction(title: "Select Type", handler: colorClosure))
+        menuArray.append(UIAction(title: "Uncertain", handler: colorClosure))
+        for m in mushroom {
+            menuArray.append(UIAction(title: m.nickname, handler: colorClosure))
+            
+        }
+        typeButton.menu = UIMenu(children: menuArray)
+    }
+
+    func createConfig() -> UIButton.Configuration {
+        var config: UIButton.Configuration = .filled()
+        config.titleAlignment = .center
+        config.title = "Select Type"
+        return config
+    }
+    
 }// End of Class
 
 extension UIViewController {
@@ -372,7 +400,7 @@ extension ObservationDetailViewController: UIImagePickerControllerDelegate & UIN
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let editedImage = info[.editedImage] as? UIImage {
             photoImageView.image = editedImage
-
+            
             observationImage = editedImage
             selectImageButton.setTitle("", for: .normal)
         } else if let pickedImage = info[.originalImage] as? UIImage {
