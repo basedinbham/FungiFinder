@@ -40,7 +40,7 @@ class ObservationDetailViewController: UIViewController, UITextViewDelegate, UNU
         updateViews()
         setupViews()
         self.hideKeyboardWhenTappedAround()
-        dropDownMenuButton()
+//        dropDownMenuButton()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -58,29 +58,29 @@ class ObservationDetailViewController: UIViewController, UITextViewDelegate, UNU
         let longitude = saveLong
         
         if let observation = observation {
-            ObservationController.shared.updateObservation(observation, name: name, date: datePicker.date, image: observationImage, notes: notes, reminder: reminderPicker.date, type: type, latitude: latitude ?? 0.0, longitude: longitude ?? 0.0, locationIsOn: saveLocationSwitch.isOn)
+            ObservationController.shared.updateObservation(observation, name: name, date: datePicker.date, image: observationImage, notes: notes, reminder: reminderPicker.date, type: type, latitude: observation.latitude, longitude: observation.longitude, locationIsOn: saveLocationSwitch.isOn)
         } else {
             ObservationController.shared.createObservation(with: name, image: observationImage, date: datePicker.date, notes: notes, reminder: reminderPicker.date, type: type, latitude: latitude ?? 0.0, longitude: longitude ?? 0.0, locationIsOn: saveLocationSwitch.isOn)
         }
         navigationController?.popViewController(animated: true)
     }
     
-    @IBAction func saveLocationSwitchTapped(_ sender: Any) {
-        // Request permission
-        manager.requestWhenInUseAuthorization()
-        if saveLocationSwitch.isOn == true && manager.authorizationStatus == .authorizedWhenInUse {
-            mapView.isHidden = false
-            observation?.locationIsOn = true
-        } else if saveLocationSwitch.isOn == false ||  saveLocationSwitch.isOn == true && manager.authorizationStatus == .denied || manager.authorizationStatus == .restricted {
-            mapView.isHidden = true
-            observation?.latitude = 0.0
-            observation?.longitude = 0.0
-            observation?.locationIsOn = false
-            saveLocationSwitch.isOn = false
-            presentRequiredPermissions()
-            return
-        }
-    }
+//    @IBAction func saveLocationSwitchTapped(_ sender: Any) {
+//        // Request permission
+//        manager.requestWhenInUseAuthorization()
+//        if saveLocationSwitch.isOn == true && manager.authorizationStatus == .authorizedWhenInUse {
+//            mapView.isHidden = false
+//            observation?.locationIsOn = true
+//        } else if saveLocationSwitch.isOn == false ||  saveLocationSwitch.isOn == true && manager.authorizationStatus == .denied || manager.authorizationStatus == .restricted {
+//            mapView.isHidden = true
+//            observation?.latitude = 0.0
+//            observation?.longitude = 0.0
+//            observation?.locationIsOn = false
+//            saveLocationSwitch.isOn = false
+//            presentRequiredPermissions()
+//            return
+//        }
+//    }
     
     @IBAction func selectImageButtonTapped(_ sender: Any) {
         let alert = UIAlertController(title: "Add a photo", message: nil, preferredStyle: .alert)
@@ -171,21 +171,21 @@ class ObservationDetailViewController: UIViewController, UITextViewDelegate, UNU
         datePicker.date = observation.date ?? Date()
         notesTextField.text = observation.notes
         reminderPicker.date = observation.reminder ?? Date()
-        typeButton.setTitle(observation.type, for: .normal)
+//        typeButton.setTitle(observation.type, for: .normal)
         // If save location switch is set to on, let LocationIsOn property equal true
-        saveLocationSwitch.isOn = observation.locationIsOn
+//        saveLocationSwitch.isOn = observation.locationIsOn
         // If location is set to off hide the mapView
-        mapView.isHidden = !observation.locationIsOn
+//        mapView.isHidden = !observation.locationIsOn
         // Convert data to UIImage
         if let data = observation.image {
             photoImageView.image = UIImage(data: data)
             selectImageButton.setTitle("", for: .normal)
         }
-        if observation.longitude == 0.0 {
-            mapView.isHidden = true
-            observation.locationIsOn = false
-            saveLocationSwitch.isOn = false
-        }
+//        if observation.longitude == 0.0 {
+//            mapView.isHidden = true
+//            observation.locationIsOn = false
+//            saveLocationSwitch.isOn = false
+//        }
     }
     func setupViews() {
         // Set accuracy for location
@@ -195,7 +195,7 @@ class ObservationDetailViewController: UIViewController, UITextViewDelegate, UNU
         // Fetch location
         manager.startUpdatingLocation()
         // Set delegate for mapView
-        mapView.delegate = self
+//        mapView.delegate = self
         //delegate declaration for properties: imagePicker
         imagePicker.delegate = self
         notesTextField.delegate = self
@@ -204,27 +204,27 @@ class ObservationDetailViewController: UIViewController, UITextViewDelegate, UNU
         notesTextField.backgroundColor = .systemBackground
         notesTextField.layer.borderColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
         notesTextField.layer.borderWidth = 1.0
-        notesTextField.layer.cornerRadius = 8.0
+//        notesTextField.layer.cornerRadius = 8.0
         notesTextField.clipsToBounds = true
         if notesTextField.text.isEmpty {
             notesTextField.text = "Place observation notes here..."
         }
         
-        mapView.layer.cornerRadius = 8.0
-        mapView.clipsToBounds = true
+//        mapView.layer.cornerRadius = 8.0
+//        mapView.clipsToBounds = true
         
-        if saveLocationSwitch.isOn == false {
-            mapView.isHidden = true
-        } else {
-            mapView.isHidden = false
-        }
-        
-        if saveLocationSwitch.isOn && manager.authorizationStatus == .notDetermined {
-            saveLocationSwitch.isOn = false
-        }
-        
-        NotificationManager.shared.requestAuthorization { granted in
-        }
+//        if saveLocationSwitch.isOn == false {
+//            mapView.isHidden = true
+//        } else {
+//            mapView.isHidden = false
+//        }
+//
+//        if saveLocationSwitch.isOn && manager.authorizationStatus == .notDetermined {
+//            saveLocationSwitch.isOn = false
+//        }
+//
+//        NotificationManager.shared.requestAuthorization { granted in
+//        }
     }
     
     func textViewDidBeginEditing (_ textView: UITextView) {
@@ -274,28 +274,28 @@ class ObservationDetailViewController: UIViewController, UITextViewDelegate, UNU
         }
     }
     
-    func dropDownMenuButton() {
-        let colorClosure = { (action: UIAction) in
-            print("running")
-        }
-        
-        typeButton.configuration = createConfig()
-        var menuArray: [UIAction] = []
-        menuArray.append(UIAction(title: "Select Type", handler: colorClosure))
-        menuArray.append(UIAction(title: "Uncertain", handler: colorClosure))
-        for m in mushroom {
-            menuArray.append(UIAction(title: m.nickname, handler: colorClosure))
-            
-        }
-        typeButton.menu = UIMenu(children: menuArray)
-    }
-
-    func createConfig() -> UIButton.Configuration {
-        var config: UIButton.Configuration = .filled()
-        config.titleAlignment = .center
-        config.title = "Select Type"
-        return config
-    }
+//    func dropDownMenuButton() {
+//        let colorClosure = { (action: UIAction) in
+//            print("running")
+//        }
+//
+//        typeButton.configuration = createConfig()
+//        var menuArray: [UIAction] = []
+//        menuArray.append(UIAction(title: "Select Type", handler: colorClosure))
+//        menuArray.append(UIAction(title: "Uncertain", handler: colorClosure))
+//        for m in mushroom {
+//            menuArray.append(UIAction(title: m.nickname, handler: colorClosure))
+//
+//        }
+//        typeButton.menu = UIMenu(children: menuArray)
+//    }
+//
+//    func createConfig() -> UIButton.Configuration {
+//        var config: UIButton.Configuration = .filled()
+//        config.titleAlignment = .center
+//        config.title = "Select Type"
+//        return config
+//    }
     
 }// End of Class
 

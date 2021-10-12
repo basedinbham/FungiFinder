@@ -24,7 +24,7 @@ class MushroomCollectionViewController: UIViewController, UICollectionViewDelega
     //MARK: - LIFECYCLES
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationController?.navigationBar.isHidden = false
+        navigationController?.navigationBar.isHidden = true
         mushroomCollectionView.delegate = self
         mushroomCollectionView.dataSource = self
         resultsArray = MushroomController.mushrooms
