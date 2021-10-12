@@ -35,6 +35,7 @@ class MushroomDetailViewController: UIViewController {
         updateViews()
         textLink()
         textLinkWiki()
+        navigationController?.navigationBar.isHidden = true
     }
     
     //MARK: - METHODS

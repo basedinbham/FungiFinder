@@ -12,6 +12,7 @@ class ObservationCollectionViewController: UIViewController, UICollectionViewDel
     //MARK: - OUTLETS
     @IBOutlet weak var observationCollectionView: UICollectionView!
     @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var searchButton: UIBarButtonItem!
     
     
     //MARK: - PROPERTIES
@@ -29,8 +30,11 @@ class ObservationCollectionViewController: UIViewController, UICollectionViewDel
         observationCollectionView.delegate = self
         observationCollectionView.dataSource = self
         resultsArray = ObservationController.shared.observations
-        hideKeyboardWhenTappedAround()
+        hideKeyboardWhenTappedAroundSearch()
         searchBar.delegate = self
+        searchBar.isHidden = true
+        searchBar.showsCancelButton = true
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -39,6 +43,15 @@ class ObservationCollectionViewController: UIViewController, UICollectionViewDel
         observationCollectionView.reloadData()
         resultsArray = ObservationController.shared.observations
     }
+    
+    //MARK: - ACTIONS
+    @IBAction func searchButtonTapped(_ sender: Any) {
+        searchBar.isHidden = false
+        navigationController?.navigationBar.isHidden = true
+        searchBar.becomeFirstResponder()
+
+    }
+    
     
     // MARK: UICollectionViewDataSource
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -80,7 +93,7 @@ class ObservationCollectionViewController: UIViewController, UICollectionViewDel
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let destinationVC = storyboard?.instantiateViewController(withIdentifier: "ObservationDetailViewController") as? ObservationDetailViewController
         destinationVC?.observation = resultsArray[indexPath.row] as? Observation
-        self.navigationController?.pushViewController(destinationVC!, animated: true)
+        self.present(destinationVC!, animated: true)
         
     }
 } // End of Class
@@ -109,4 +122,23 @@ extension ObservationCollectionViewController: UISearchBarDelegate {
         isSearching = false
     }
     
+} // End of Extension
+
+extension ObservationCollectionViewController {
+    func hideKeyboardWhenTappedAroundSearch() {
+        let tap = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboardSearch))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+
+        
+    }
+    
+    @objc func dismissKeyboardSearch() {
+        view.endEditing(true)
+        searchBar.isHidden = true
+        navigationController?.navigationBar.isHidden = false
+        resultsArray = ObservationController.shared.observations
+        observationCollectionView.reloadData()
+
+    }
 } // End of Extension

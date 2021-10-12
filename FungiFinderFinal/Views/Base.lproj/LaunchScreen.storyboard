@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="8ea-EF-3Gf">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="8ea-EF-3Gf">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -16,17 +16,24 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="FungiBackALTcolor" translatesAutoresizingMaskIntoConstraints="NO" id="ogP-Zv-awo">
-                                <rect key="frame" x="20" y="202" width="374" height="373"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bgnd6" translatesAutoresizingMaskIntoConstraints="NO" id="ogP-Zv-awo">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="FungiBackALTcolor" translatesAutoresizingMaskIntoConstraints="NO" id="WSR-JQ-L8f">
+                                <rect key="frame" x="66" y="282" width="283" height="333"/>
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="ukW-zB-9BG"/>
                         <color key="backgroundColor" systemColor="labelColor"/>
                         <constraints>
-                            <constraint firstItem="ukW-zB-9BG" firstAttribute="bottom" secondItem="ogP-Zv-awo" secondAttribute="bottom" constant="287" id="6yF-AU-Eb0"/>
-                            <constraint firstItem="ukW-zB-9BG" firstAttribute="trailing" secondItem="ogP-Zv-awo" secondAttribute="trailing" constant="20" id="dS6-p0-fJX"/>
-                            <constraint firstItem="ogP-Zv-awo" firstAttribute="leading" secondItem="ukW-zB-9BG" secondAttribute="leading" constant="20" id="fBu-k9-G5D"/>
-                            <constraint firstItem="ogP-Zv-awo" firstAttribute="top" secondItem="ukW-zB-9BG" secondAttribute="top" constant="158" id="i3G-AZ-18C"/>
+                            <constraint firstAttribute="bottom" secondItem="ogP-Zv-awo" secondAttribute="bottom" id="D1I-CD-eDX"/>
+                            <constraint firstItem="WSR-JQ-L8f" firstAttribute="top" secondItem="ukW-zB-9BG" secondAttribute="top" constant="238" id="FxM-qo-Er7"/>
+                            <constraint firstItem="ukW-zB-9BG" firstAttribute="trailing" secondItem="WSR-JQ-L8f" secondAttribute="trailing" constant="65" id="J5k-NG-FE7"/>
+                            <constraint firstItem="ogP-Zv-awo" firstAttribute="leading" secondItem="ukW-zB-9BG" secondAttribute="leading" id="LWl-kJ-hX9"/>
+                            <constraint firstItem="ogP-Zv-awo" firstAttribute="top" secondItem="rGc-Dn-F8p" secondAttribute="top" id="ROO-Te-hz5"/>
+                            <constraint firstAttribute="trailing" secondItem="ogP-Zv-awo" secondAttribute="trailing" id="Xtv-he-smY"/>
+                            <constraint firstItem="WSR-JQ-L8f" firstAttribute="leading" secondItem="ukW-zB-9BG" secondAttribute="leading" constant="66" id="Zes-4W-BLz"/>
+                            <constraint firstItem="ukW-zB-9BG" firstAttribute="bottom" secondItem="WSR-JQ-L8f" secondAttribute="bottom" constant="247" id="u2C-AJ-JA0"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -37,6 +44,7 @@
     </scenes>
     <resources>
         <image name="FungiBackALTcolor" width="600" height="600"/>
+        <image name="bgnd6" width="1023" height="629"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
