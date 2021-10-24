@@ -17,11 +17,10 @@ class ObservationDetailViewController: UIViewController, UITextViewDelegate, UNU
     @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var notesTextField: UITextView!
     @IBOutlet weak var reminderPicker: UIDatePicker!
-    @IBOutlet weak var saveLocationSwitch: UISwitch!
-    @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var selectImageButton: UIButton!
     @IBOutlet weak var photoImageView: UIImageView!
     @IBOutlet weak var typeButton: UIButton!
+    @IBOutlet weak var locationButton: UIButton!
     
     //MARK: - PROPERTIES
     var observation: Observation?
@@ -40,7 +39,7 @@ class ObservationDetailViewController: UIViewController, UITextViewDelegate, UNU
         updateViews()
         setupViews()
         self.hideKeyboardWhenTappedAround()
-//        dropDownMenuButton()
+        //        dropDownMenuButton()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -58,29 +57,13 @@ class ObservationDetailViewController: UIViewController, UITextViewDelegate, UNU
         let longitude = saveLong
         
         if let observation = observation {
-            ObservationController.shared.updateObservation(observation, name: name, date: datePicker.date, image: observationImage, notes: notes, reminder: reminderPicker.date, type: type, latitude: observation.latitude, longitude: observation.longitude, locationIsOn: saveLocationSwitch.isOn)
+            ObservationController.shared.updateObservation(observation, name: name, date: datePicker.date, image: observationImage, notes: notes, reminder: reminderPicker.date, type: type, latitude: observation.latitude, longitude: observation.longitude)
         } else {
-            ObservationController.shared.createObservation(with: name, image: observationImage, date: datePicker.date, notes: notes, reminder: reminderPicker.date, type: type, latitude: latitude ?? 0.0, longitude: longitude ?? 0.0, locationIsOn: saveLocationSwitch.isOn)
+            ObservationController.shared.createObservation(with: name, image: observationImage, date: datePicker.date, notes: notes, reminder: reminderPicker.date, type: type, latitude: latitude ?? 0.0, longitude: longitude ?? 0.0)
         }
-        navigationController?.popViewController(animated: true)
+//        navigationController?.popViewController(animated: true)
+        dismiss(animated: true, completion: nil)
     }
-    
-//    @IBAction func saveLocationSwitchTapped(_ sender: Any) {
-//        // Request permission
-//        manager.requestWhenInUseAuthorization()
-//        if saveLocationSwitch.isOn == true && manager.authorizationStatus == .authorizedWhenInUse {
-//            mapView.isHidden = false
-//            observation?.locationIsOn = true
-//        } else if saveLocationSwitch.isOn == false ||  saveLocationSwitch.isOn == true && manager.authorizationStatus == .denied || manager.authorizationStatus == .restricted {
-//            mapView.isHidden = true
-//            observation?.latitude = 0.0
-//            observation?.longitude = 0.0
-//            observation?.locationIsOn = false
-//            saveLocationSwitch.isOn = false
-//            presentRequiredPermissions()
-//            return
-//        }
-//    }
     
     @IBAction func selectImageButtonTapped(_ sender: Any) {
         let alert = UIAlertController(title: "Add a photo", message: nil, preferredStyle: .alert)
@@ -106,7 +89,13 @@ class ObservationDetailViewController: UIViewController, UITextViewDelegate, UNU
     
     
     @IBAction func typeButtonTapped(_ sender: Any) {
+        let destinationVC = storyboard?.instantiateViewController(withIdentifier: "MushroomCollection") as? MushroomCollectionViewController
+        // Assigning delegate to self
+        destinationVC?.selectionDelegate = self
+        self.present(destinationVC!, animated: true)
         
+//        let destinationVC = storyboard?.instantiateViewController(withIdentifier: "MushroomCollection") as? MushroomCollectionViewController
+//        self.navigationController?.pushViewController(destinationVC!, animated: true)
     }
     //MARK: - PERMISSIONS
     
@@ -171,31 +160,31 @@ class ObservationDetailViewController: UIViewController, UITextViewDelegate, UNU
         datePicker.date = observation.date ?? Date()
         notesTextField.text = observation.notes
         reminderPicker.date = observation.reminder ?? Date()
-//        typeButton.setTitle(observation.type, for: .normal)
+        typeButton.setTitle(observation.type, for: .normal)
         // If save location switch is set to on, let LocationIsOn property equal true
-//        saveLocationSwitch.isOn = observation.locationIsOn
+        //        saveLocationSwitch.isOn = observation.locationIsOn
         // If location is set to off hide the mapView
-//        mapView.isHidden = !observation.locationIsOn
+        //        mapView.isHidden = !observation.locationIsOn
         // Convert data to UIImage
         if let data = observation.image {
             photoImageView.image = UIImage(data: data)
             selectImageButton.setTitle("", for: .normal)
         }
-//        if observation.longitude == 0.0 {
-//            mapView.isHidden = true
-//            observation.locationIsOn = false
-//            saveLocationSwitch.isOn = false
-//        }
+        //        if observation.longitude == 0.0 {
+        //            mapView.isHidden = true
+        //            observation.locationIsOn = false
+        //            saveLocationSwitch.isOn = false
+        //        }
     }
     func setupViews() {
         // Set accuracy for location
         manager.desiredAccuracy = kCLLocationAccuracyBest
         // set delegate for location
-        manager.delegate = self
+//        manager.delegate = self
         // Fetch location
         manager.startUpdatingLocation()
         // Set delegate for mapView
-//        mapView.delegate = self
+        //        mapView.delegate = self
         //delegate declaration for properties: imagePicker
         imagePicker.delegate = self
         notesTextField.delegate = self
@@ -204,33 +193,33 @@ class ObservationDetailViewController: UIViewController, UITextViewDelegate, UNU
         notesTextField.backgroundColor = .systemBackground
         notesTextField.layer.borderColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
         notesTextField.layer.borderWidth = 1.0
-//        notesTextField.layer.cornerRadius = 8.0
+        //        notesTextField.layer.cornerRadius = 8.0
         notesTextField.clipsToBounds = true
         if notesTextField.text.isEmpty {
-            notesTextField.text = "Place observation notes here..."
+            notesTextField.text = "  Place observation notes here..."
         }
+        nameTextField.placeholder = " Name your Observation..."
+        displayLocation()
+        //        mapView.layer.cornerRadius = 8.0
+        //        mapView.clipsToBounds = true
         
-//        mapView.layer.cornerRadius = 8.0
-//        mapView.clipsToBounds = true
-        
-//        if saveLocationSwitch.isOn == false {
-//            mapView.isHidden = true
-//        } else {
-//            mapView.isHidden = false
-//        }
-//
-//        if saveLocationSwitch.isOn && manager.authorizationStatus == .notDetermined {
-//            saveLocationSwitch.isOn = false
-//        }
-//
-//        NotificationManager.shared.requestAuthorization { granted in
-//        }
+        //        if saveLocationSwitch.isOn == false {
+        //            mapView.isHidden = true
+        //        } else {
+        //            mapView.isHidden = false
+        //        }
+        //
+        //        if saveLocationSwitch.isOn && manager.authorizationStatus == .notDetermined {
+        //            saveLocationSwitch.isOn = false
+        //        }
+        //
+        //        NotificationManager.shared.requestAuthorization { granted in
+        //        }
     }
     
     func textViewDidBeginEditing (_ textView: UITextView) {
         if notesTextField.textColor == .label && notesTextField.isFirstResponder && notesTextField.text == "Place observation notes here..."{
             notesTextField.text = ""
-            notesTextField.textColor = .label
         }
     }
     
@@ -274,28 +263,51 @@ class ObservationDetailViewController: UIViewController, UITextViewDelegate, UNU
         }
     }
     
-//    func dropDownMenuButton() {
-//        let colorClosure = { (action: UIAction) in
-//            print("running")
-//        }
-//
-//        typeButton.configuration = createConfig()
-//        var menuArray: [UIAction] = []
-//        menuArray.append(UIAction(title: "Select Type", handler: colorClosure))
-//        menuArray.append(UIAction(title: "Uncertain", handler: colorClosure))
-//        for m in mushroom {
-//            menuArray.append(UIAction(title: m.nickname, handler: colorClosure))
-//
-//        }
-//        typeButton.menu = UIMenu(children: menuArray)
-//    }
-//
-//    func createConfig() -> UIButton.Configuration {
-//        var config: UIButton.Configuration = .filled()
-//        config.titleAlignment = .center
-//        config.title = "Select Type"
-//        return config
-//    }
+    func displayLocation() {
+        let geoCoder = CLGeocoder()
+        guard let location = manager.location else { return }
+        
+        geoCoder.reverseGeocodeLocation(location) { (placemarks, error) in
+            if let _ = error {
+                return
+            }
+            
+            guard let placemark = placemarks?.first.self else { return }
+            
+            let streetName = placemark.thoroughfare ?? ""
+            let city = placemark.locality ?? ""
+            let state = placemark.administrativeArea ?? ""
+            let country = placemark.country ?? ""
+            
+            DispatchQueue.main.async {
+                self.locationButton.setTitle("\(streetName), \(city), \(state), \(country)", for: .normal)
+            }
+        }
+    }
+
+    
+    //    func dropDownMenuButton() {
+    //        let colorClosure = { (action: UIAction) in
+    //            print("running")
+    //        }
+    //
+    //        typeButton.configuration = createConfig()
+    //        var menuArray: [UIAction] = []
+    //        menuArray.append(UIAction(title: "Select Type", handler: colorClosure))
+    //        menuArray.append(UIAction(title: "Uncertain", handler: colorClosure))
+    //        for m in mushroom {
+    //            menuArray.append(UIAction(title: m.nickname, handler: colorClosure))
+    //
+    //        }
+    //        typeButton.menu = UIMenu(children: menuArray)
+    //    }
+    //
+    //    func createConfig() -> UIButton.Configuration {
+    //        var config: UIButton.Configuration = .filled()
+    //        config.titleAlignment = .center
+    //        config.title = "Select Type"
+    //        return config
+    //    }
     
 }// End of Class
 
@@ -313,67 +325,67 @@ extension UIViewController {
 
 //MARK: - DELEGATE EXTENSIONS
 
-extension ObservationDetailViewController: CLLocationManagerDelegate, MKMapViewDelegate {
-    
-    // Delegate function; gets called when location is updated
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        if let location = locations.first {
-            let userLocation = location.coordinate
-            
-            saveLat = userLocation.latitude
-            saveLong = userLocation.longitude
-            
-            manager.stopUpdatingLocation()
-            
-            render(location)
-        }
-    }
-    /**
-     
-     # Render map for use with MapKit & MapView
-     
-     - Parameter location: Location must be of type CLLocation with **latitude**, & **longitude**.
-     */
-    func render(_ location: CLLocation) {
-        // If there is an Observation, display stored locaiton.
-        if let observation = observation {
-            let coordinate = CLLocationCoordinate2D(latitude: observation.latitude, longitude: observation.longitude)
-            // The width and height of a map region.
-            let span = MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1)
-            // Set maps region(view)
-            let region = MKCoordinateRegion(center: coordinate, span: span)
-            mapView.setRegion(region, animated: true)
-            // Creates annotation(pin)
-            let pin = MKPointAnnotation()
-            pin.coordinate = coordinate
-            mapView.addAnnotation(pin)
-            // If there isn't a current Observation, a new one is being created.  Display current locaiton.
-        } else {
-            let coordinate = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
-            
-            // The width and height of a map region.
-            let span = MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1)
-            // Set maps region(view)
-            let region = MKCoordinateRegion(center: coordinate, span: span)
-            mapView.setRegion(region, animated: true)
-            // Creates annotation(pin)
-            let pin = MKPointAnnotation()
-            pin.coordinate = coordinate
-            mapView.addAnnotation(pin)
-        }
-    }
-    
-    // Set custom image for map pin
-    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-        if annotation is MKUserLocation {
-            return nil
-        }
-        let annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: "customAnnotation")
-        annotationView.image = #imageLiteral(resourceName: "fungiPoint2")
-        annotationView.canShowCallout = true
-        return annotationView
-    }
-}
+//extension ObservationDetailViewController: CLLocationManagerDelegate, MKMapViewDelegate {
+//
+//    // Delegate function; gets called when location is updated
+//    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+//        if let location = locations.first {
+//            let userLocation = location.coordinate
+//
+//            saveLat = userLocation.latitude
+//            saveLong = userLocation.longitude
+//
+//            manager.stopUpdatingLocation()
+//
+//            render(location)
+//        }
+//    }
+//    /**
+//
+//     # Render map for use with MapKit & MapView
+//
+//     - Parameter location: Location must be of type CLLocation with **latitude**, & **longitude**.
+//     */
+//    func render(_ location: CLLocation) {
+//        // If there is an Observation, display stored locaiton.
+//        if let observation = observation {
+//            let coordinate = CLLocationCoordinate2D(latitude: observation.latitude, longitude: observation.longitude)
+//            // The width and height of a map region.
+//            let span = MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1)
+//            // Set maps region(view)
+//            let region = MKCoordinateRegion(center: coordinate, span: span)
+////            mapView.setRegion(region, animated: true)
+//            // Creates annotation(pin)
+//            let pin = MKPointAnnotation()
+//            pin.coordinate = coordinate
+////            mapView.addAnnotation(pin)
+//            // If there isn't a current Observation, a new one is being created.  Display current locaiton.
+//        } else {
+//            let coordinate = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
+//
+//            // The width and height of a map region.
+//            let span = MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1)
+//            // Set maps region(view)
+//            let region = MKCoordinateRegion(center: coordinate, span: span)
+////            mapView.setRegion(region, animated: true)
+//            // Creates annotation(pin)
+//            let pin = MKPointAnnotation()
+//            pin.coordinate = coordinate
+////            mapView.addAnnotation(pin)
+//        }
+//    }
+//
+//    // Set custom image for map pin
+//    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+//        if annotation is MKUserLocation {
+//            return nil
+//        }
+//        let annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: "customAnnotation")
+//        annotationView.image = #imageLiteral(resourceName: "fungiPoint2")
+//        annotationView.canShowCallout = true
+//        return annotationView
+//    }
+//}
 
 extension ObservationDetailViewController: UIImagePickerControllerDelegate & UINavigationControllerDelegate {
     /// Opens users gallery for photo selection
@@ -413,4 +425,9 @@ extension ObservationDetailViewController: UIImagePickerControllerDelegate & UIN
     }
 } // End of Extension
 
-
+extension ObservationDetailViewController: MushroomTypeDelegate {
+    func didSelectMushroom(name: String) {
+        typeButton.setTitle(name, for: .normal)
+        observation?.type = name
+    }
+} // End of Extension
