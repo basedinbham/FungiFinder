@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol MushroomTypeDelegate {
+    func didSelectMushroom(name: String)
+}
+
 class MushroomCollectionViewController: UIViewController, UICollectionViewDelegateFlowLayout, UICollectionViewDelegate, UICollectionViewDataSource {
     
     //MARK: - OUTLETS
@@ -20,6 +24,8 @@ class MushroomCollectionViewController: UIViewController, UICollectionViewDelega
     var dataSource: [SearchableRecord] {
         return isSearching ? resultsArray : MushroomController.mushrooms
     }
+    // Force unwrapped since it is being passed from other view (we know we have it)
+    var selectionDelegate: MushroomTypeDelegate!
     
     //MARK: - LIFECYCLES
     override func viewDidLoad() {
@@ -67,7 +73,7 @@ class MushroomCollectionViewController: UIViewController, UICollectionViewDelega
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-
+        
         let oneCellWidth = view.frame.width * 0.45
         let cellsTotalWidth = oneCellWidth * 2
         let leftoverWidth = view.frame.width - cellsTotalWidth
@@ -77,11 +83,16 @@ class MushroomCollectionViewController: UIViewController, UICollectionViewDelega
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let destinationVC = storyboard?.instantiateViewController(withIdentifier: "MushroomDetailViewController") as? MushroomDetailViewController
-        destinationVC?.mushroom = resultsArray[indexPath.row] as? Mushroom
-        //let mushroomToSend = MushroomController.mushrooms[indexPath.row]
-        self.navigationController?.pushViewController(destinationVC!, animated: true)
-
+        if presentingViewController?.definesPresentationContext == true {
+            guard let mushroom = resultsArray[indexPath.row] as? Mushroom else { return }
+            selectionDelegate.didSelectMushroom(name: mushroom.nickname)
+            dismiss(animated: true, completion: nil)
+        } else {
+            let destinationVC = storyboard?.instantiateViewController(withIdentifier: "MushroomDetailViewController") as? MushroomDetailViewController
+            destinationVC?.mushroom = resultsArray[indexPath.row] as? Mushroom
+            //let mushroomToSend = MushroomController.mushrooms[indexPath.row]
+            self.navigationController?.pushViewController(destinationVC!, animated: true)
+        }
     }
 } // End of Class
 

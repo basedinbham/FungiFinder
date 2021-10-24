@@ -30,7 +30,7 @@ class ObservationCollectionViewController: UIViewController, UICollectionViewDel
         observationCollectionView.delegate = self
         observationCollectionView.dataSource = self
         resultsArray = ObservationController.shared.observations
-        hideKeyboardWhenTappedAroundSearch()
+//        hideKeyboardWhenTappedAroundSearch()
         searchBar.delegate = self
         searchBar.isHidden = true
         searchBar.showsCancelButton = true
@@ -51,7 +51,6 @@ class ObservationCollectionViewController: UIViewController, UICollectionViewDel
         searchBar.becomeFirstResponder()
 
     }
-    
     
     // MARK: UICollectionViewDataSource
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -93,8 +92,7 @@ class ObservationCollectionViewController: UIViewController, UICollectionViewDel
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let destinationVC = storyboard?.instantiateViewController(withIdentifier: "ObservationDetailViewController") as? ObservationDetailViewController
         destinationVC?.observation = resultsArray[indexPath.row] as? Observation
-        self.present(destinationVC!, animated: true)
-        
+        self.navigationController?.pushViewController(destinationVC!, animated: true)
     }
 } // End of Class
 
@@ -124,21 +122,20 @@ extension ObservationCollectionViewController: UISearchBarDelegate {
     
 } // End of Extension
 
-extension ObservationCollectionViewController {
-    func hideKeyboardWhenTappedAroundSearch() {
-        let tap = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboardSearch))
-        tap.cancelsTouchesInView = false
-        view.addGestureRecognizer(tap)
-
-        
-    }
+//extension ObservationCollectionViewController {
+//    func hideKeyboardWhenTappedAroundSearch() {
+//        let tap = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboardSearch))
+//        tap.cancelsTouchesInView = false
+//        view.addGestureRecognizer(tap)
+//
+//    }
     
-    @objc func dismissKeyboardSearch() {
-        view.endEditing(true)
-        searchBar.isHidden = true
-        navigationController?.navigationBar.isHidden = false
-        resultsArray = ObservationController.shared.observations
-        observationCollectionView.reloadData()
-
-    }
-} // End of Extension
+//    @objc func dismissKeyboardSearch() {
+//        view.endEditing(true)
+//        searchBar.isHidden = true
+//        navigationController?.navigationBar.isHidden = false
+//        resultsArray = ObservationController.shared.observations
+//        observationCollectionView.reloadData()
+//
+//    }
+//} // End of Extension
