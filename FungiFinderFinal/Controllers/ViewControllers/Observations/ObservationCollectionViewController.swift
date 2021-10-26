@@ -16,7 +16,7 @@ class ObservationCollectionViewController: UIViewController, UICollectionViewDel
     
     
     //MARK: - PROPERTIES
-//    let observationSorted = ObservationController.shared.observations.sorted(by: { $0.date ?? Date() > $1.date ?? Date() })
+    //    let observationSorted = ObservationController.shared.observations.sorted(by: { $0.date ?? Date() > $1.date ?? Date() })
     var resultsArray: [SearchableRecord] = []
     var isSearching: Bool = false
     var dataSource: [SearchableRecord] {
@@ -30,7 +30,7 @@ class ObservationCollectionViewController: UIViewController, UICollectionViewDel
         observationCollectionView.delegate = self
         observationCollectionView.dataSource = self
         resultsArray = ObservationController.shared.observations
-//        hideKeyboardWhenTappedAroundSearch()
+        //        hideKeyboardWhenTappedAroundSearch()
         searchBar.delegate = self
         searchBar.isHidden = true
         searchBar.showsCancelButton = true
@@ -49,7 +49,7 @@ class ObservationCollectionViewController: UIViewController, UICollectionViewDel
         searchBar.isHidden = false
         navigationController?.navigationBar.isHidden = true
         searchBar.becomeFirstResponder()
-
+        
     }
     
     // MARK: UICollectionViewDataSource
@@ -75,7 +75,7 @@ class ObservationCollectionViewController: UIViewController, UICollectionViewDel
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let height = collectionView.frame.height * 0.3
-        let width  = collectionView.frame.width * 0.45
+        let width = collectionView.frame.width * 0.45
         return CGSize(width: width, height: height)
     }
     
@@ -120,6 +120,14 @@ extension ObservationCollectionViewController: UISearchBarDelegate {
         isSearching = false
     }
     
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        view.endEditing(true)
+        searchBar.isHidden = true
+        navigationController?.navigationBar.isHidden = false
+        resultsArray = ObservationController.shared.observations
+        observationCollectionView.reloadData()
+    }
+    
 } // End of Extension
 
 //extension ObservationCollectionViewController {
@@ -129,7 +137,7 @@ extension ObservationCollectionViewController: UISearchBarDelegate {
 //        view.addGestureRecognizer(tap)
 //
 //    }
-    
+
 //    @objc func dismissKeyboardSearch() {
 //        view.endEditing(true)
 //        searchBar.isHidden = true
