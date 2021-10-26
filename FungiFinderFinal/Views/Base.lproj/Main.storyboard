@@ -494,10 +494,10 @@
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vIt-lZ-6zG">
                                                         <rect key="frame" x="0.0" y="86.000000000000057" width="428" height="31"/>
                                                         <state key="normal" title="Button"/>
-                                                        <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                                        <buttonConfiguration key="configuration" style="plain" title="Location"/>
                                                     </button>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mappin.circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="kWu-zZ-mMI">
-                                                        <rect key="frame" x="4" y="88.333333333333314" width="39" height="27.666666666666671"/>
+                                                        <rect key="frame" x="4" y="90.333333333333314" width="39" height="27.666666666666671"/>
                                                         <color key="tintColor" systemColor="labelColor"/>
                                                     </imageView>
                                                 </subviews>
@@ -525,7 +525,7 @@
                                                     <constraint firstItem="MSw-9I-cld" firstAttribute="leading" secondItem="VQN-Lw-viR" secondAttribute="trailing" constant="60" id="tbk-Cg-mrO"/>
                                                     <constraint firstItem="MSw-9I-cld" firstAttribute="leading" secondItem="xfl-iA-Kc3" secondAttribute="leading" constant="107" id="wne-hn-NMt"/>
                                                     <constraint firstItem="VrL-4S-Qw7" firstAttribute="top" secondItem="xfl-iA-Kc3" secondAttribute="top" constant="8" id="yY6-MA-Vnq"/>
-                                                    <constraint firstItem="kWu-zZ-mMI" firstAttribute="top" secondItem="VQN-Lw-viR" secondAttribute="bottom" constant="10" id="ylt-NN-NYN"/>
+                                                    <constraint firstItem="kWu-zZ-mMI" firstAttribute="top" secondItem="VQN-Lw-viR" secondAttribute="bottom" constant="12" id="ylt-NN-NYN"/>
                                                 </constraints>
                                             </view>
                                         </subviews>

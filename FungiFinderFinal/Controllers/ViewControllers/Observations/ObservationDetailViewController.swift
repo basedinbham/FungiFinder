@@ -48,6 +48,10 @@ class ObservationDetailViewController: UIViewController, UITextViewDelegate, UNU
         updateViews()
     }
     
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+    }
+    
     //MARK: - ACTIONS
     @IBAction func saveButtonTapped(_ sender: Any) {
         guard let name = nameTextField.text, !name.isEmpty,
@@ -277,12 +281,13 @@ class ObservationDetailViewController: UIViewController, UITextViewDelegate, UNU
             let streetName = placemark.thoroughfare ?? ""
             let city = placemark.locality ?? ""
             let state = placemark.administrativeArea ?? ""
-            let country = placemark.country ?? ""
             
             DispatchQueue.main.async {
-                self.locationButton.setTitle("\(streetName), \(city), \(state), \(country)", for: .normal)
+                self.locationButton.setTitle("\(streetName), \(city), \(state)", for: .normal)
             }
         }
+        observation?.latitude = location.coordinate.latitude
+        observation?.longitude = location.coordinate.longitude
     }
 
     
