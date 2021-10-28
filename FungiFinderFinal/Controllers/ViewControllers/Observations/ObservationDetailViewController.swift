@@ -48,12 +48,9 @@ class ObservationDetailViewController: UIViewController, UITextViewDelegate, UNU
         updateViews()
     }
     
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
-    }
-    
     //MARK: - ACTIONS
     @IBAction func saveButtonTapped(_ sender: Any) {
+        
         guard let name = nameTextField.text, !name.isEmpty,
               let type = typeButton.currentTitle, type != "Select Type",
               let notes = notesTextField.text, !notes.isEmpty else { presentRequiredTextAlert(); return }
@@ -65,8 +62,7 @@ class ObservationDetailViewController: UIViewController, UITextViewDelegate, UNU
         } else {
             ObservationController.shared.createObservation(with: name, image: observationImage, date: datePicker.date, notes: notes, reminder: reminderPicker.date, type: type, latitude: latitude ?? 0.0, longitude: longitude ?? 0.0)
         }
-//        navigationController?.popViewController(animated: true)
-        dismiss(animated: true, completion: nil)
+        navigationController?.popViewController(animated: true)
     }
     
     @IBAction func selectImageButtonTapped(_ sender: Any) {
@@ -98,8 +94,8 @@ class ObservationDetailViewController: UIViewController, UITextViewDelegate, UNU
         destinationVC?.selectionDelegate = self
         self.present(destinationVC!, animated: true)
         
-//        let destinationVC = storyboard?.instantiateViewController(withIdentifier: "MushroomCollection") as? MushroomCollectionViewController
-//        self.navigationController?.pushViewController(destinationVC!, animated: true)
+        //        let destinationVC = storyboard?.instantiateViewController(withIdentifier: "MushroomCollection") as? MushroomCollectionViewController
+        //        self.navigationController?.pushViewController(destinationVC!, animated: true)
     }
     //MARK: - PERMISSIONS
     
@@ -184,7 +180,7 @@ class ObservationDetailViewController: UIViewController, UITextViewDelegate, UNU
         // Set accuracy for location
         manager.desiredAccuracy = kCLLocationAccuracyBest
         // set delegate for location
-//        manager.delegate = self
+                manager.delegate = self
         // Fetch location
         manager.startUpdatingLocation()
         // Set delegate for mapView
@@ -269,13 +265,16 @@ class ObservationDetailViewController: UIViewController, UITextViewDelegate, UNU
     
     func displayLocation() {
         let geoCoder = CLGeocoder()
-        guard let location = manager.location else { return }
+        if observation?.latitude == nil {
+            location = manager.location
+        } else {
+            location = CLLocation(latitude: observation?.latitude ?? 0.0, longitude: observation?.longitude ?? 0.0)
+        }
         
-        geoCoder.reverseGeocodeLocation(location) { (placemarks, error) in
+        geoCoder.reverseGeocodeLocation(location ?? CLLocation(latitude: 0.0, longitude: 0.0)) { (placemarks, error) in
             if let _ = error {
                 return
             }
-            
             guard let placemark = placemarks?.first.self else { return }
             
             let streetName = placemark.thoroughfare ?? ""
@@ -286,10 +285,8 @@ class ObservationDetailViewController: UIViewController, UITextViewDelegate, UNU
                 self.locationButton.setTitle("\(streetName), \(city), \(state)", for: .normal)
             }
         }
-        observation?.latitude = location.coordinate.latitude
-        observation?.longitude = location.coordinate.longitude
     }
-
+    
     
     //    func dropDownMenuButton() {
     //        let colorClosure = { (action: UIAction) in
@@ -330,21 +327,22 @@ extension UIViewController {
 
 //MARK: - DELEGATE EXTENSIONS
 
-//extension ObservationDetailViewController: CLLocationManagerDelegate, MKMapViewDelegate {
-//
-//    // Delegate function; gets called when location is updated
-//    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-//        if let location = locations.first {
-//            let userLocation = location.coordinate
-//
-//            saveLat = userLocation.latitude
-//            saveLong = userLocation.longitude
-//
-//            manager.stopUpdatingLocation()
-//
-//            render(location)
-//        }
-//    }
+extension ObservationDetailViewController: CLLocationManagerDelegate, MKMapViewDelegate {
+    
+    // Delegate function; gets called when location is updated
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        if let location = locations.first {
+            let userLocation = location.coordinate
+            
+            saveLat = userLocation.latitude
+            saveLong = userLocation.longitude
+            
+            manager.stopUpdatingLocation()
+            
+            //            render(location)
+        }
+    }
+}
 //    /**
 //
 //     # Render map for use with MapKit & MapView

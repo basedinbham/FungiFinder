@@ -13,6 +13,7 @@ class ObservationCollectionViewController: UIViewController, UICollectionViewDel
     @IBOutlet weak var observationCollectionView: UICollectionView!
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var searchButton: UIBarButtonItem!
+    @IBOutlet weak var addButtonTapped: UIBarButtonItem!
     
     
     //MARK: - PROPERTIES
@@ -49,8 +50,13 @@ class ObservationCollectionViewController: UIViewController, UICollectionViewDel
         searchBar.isHidden = false
         navigationController?.navigationBar.isHidden = true
         searchBar.becomeFirstResponder()
-        
     }
+    
+    @IBAction func addButtonTapped(_ sender: Any) {
+        let destinationVC = storyboard?.instantiateViewController(withIdentifier: "ObservationDetailViewController") as? ObservationDetailViewController
+        self.navigationController?.pushViewController(destinationVC!, animated: true)
+    }
+    
     
     // MARK: UICollectionViewDataSource
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -147,3 +153,4 @@ extension ObservationCollectionViewController: UISearchBarDelegate {
 //
 //    }
 //} // End of Extension
+
