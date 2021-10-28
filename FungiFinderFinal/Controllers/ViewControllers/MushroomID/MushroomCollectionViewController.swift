@@ -84,6 +84,7 @@ class MushroomCollectionViewController: UIViewController, UICollectionViewDelega
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if presentingViewController?.definesPresentationContext == true {
+//        if performsActionsWhilePresentingModally {
             guard let mushroom = resultsArray[indexPath.row] as? Mushroom else { return }
             selectionDelegate.didSelectMushroom(name: mushroom.nickname)
             dismiss(animated: true, completion: nil)
