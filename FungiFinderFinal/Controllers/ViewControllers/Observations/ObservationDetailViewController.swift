@@ -170,11 +170,6 @@ class ObservationDetailViewController: UIViewController, UITextViewDelegate, UNU
             photoImageView.image = UIImage(data: data)
             selectImageButton.setTitle("", for: .normal)
         }
-        //        if observation.longitude == 0.0 {
-        //            mapView.isHidden = true
-        //            observation.locationIsOn = false
-        //            saveLocationSwitch.isOn = false
-        //        }
     }
     func setupViews() {
         // Set accuracy for location
@@ -183,8 +178,6 @@ class ObservationDetailViewController: UIViewController, UITextViewDelegate, UNU
                 manager.delegate = self
         // Fetch location
         manager.startUpdatingLocation()
-        // Set delegate for mapView
-        //        mapView.delegate = self
         //delegate declaration for properties: imagePicker
         imagePicker.delegate = self
         notesTextField.delegate = self
@@ -200,18 +193,7 @@ class ObservationDetailViewController: UIViewController, UITextViewDelegate, UNU
         }
         nameTextField.placeholder = " Name your Observation..."
         displayLocation()
-        //        mapView.layer.cornerRadius = 8.0
-        //        mapView.clipsToBounds = true
-        
-        //        if saveLocationSwitch.isOn == false {
-        //            mapView.isHidden = true
-        //        } else {
-        //            mapView.isHidden = false
-        //        }
-        //
-        //        if saveLocationSwitch.isOn && manager.authorizationStatus == .notDetermined {
-        //            saveLocationSwitch.isOn = false
-        //        }
+
         //
         //        NotificationManager.shared.requestAuthorization { granted in
         //        }
