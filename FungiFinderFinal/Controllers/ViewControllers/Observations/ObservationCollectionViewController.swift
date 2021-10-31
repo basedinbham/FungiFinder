@@ -136,21 +136,3 @@ extension ObservationCollectionViewController: UISearchBarDelegate {
     
 } // End of Extension
 
-//extension ObservationCollectionViewController {
-//    func hideKeyboardWhenTappedAroundSearch() {
-//        let tap = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboardSearch))
-//        tap.cancelsTouchesInView = false
-//        view.addGestureRecognizer(tap)
-//
-//    }
-
-//    @objc func dismissKeyboardSearch() {
-//        view.endEditing(true)
-//        searchBar.isHidden = true
-//        navigationController?.navigationBar.isHidden = false
-//        resultsArray = ObservationController.shared.observations
-//        observationCollectionView.reloadData()
-//
-//    }
-//} // End of Extension
-
