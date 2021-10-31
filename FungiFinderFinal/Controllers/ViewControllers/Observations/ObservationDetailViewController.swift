@@ -186,7 +186,6 @@ class ObservationDetailViewController: UIViewController, UITextViewDelegate, UNU
         notesTextField.backgroundColor = .systemBackground
         notesTextField.layer.borderColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
         notesTextField.layer.borderWidth = 1.0
-        //        notesTextField.layer.cornerRadius = 8.0
         notesTextField.clipsToBounds = true
         if notesTextField.text.isEmpty {
             notesTextField.text = "  Place observation notes here..."
@@ -269,30 +268,6 @@ class ObservationDetailViewController: UIViewController, UITextViewDelegate, UNU
         }
     }
     
-    
-    //    func dropDownMenuButton() {
-    //        let colorClosure = { (action: UIAction) in
-    //            print("running")
-    //        }
-    //
-    //        typeButton.configuration = createConfig()
-    //        var menuArray: [UIAction] = []
-    //        menuArray.append(UIAction(title: "Select Type", handler: colorClosure))
-    //        menuArray.append(UIAction(title: "Uncertain", handler: colorClosure))
-    //        for m in mushroom {
-    //            menuArray.append(UIAction(title: m.nickname, handler: colorClosure))
-    //
-    //        }
-    //        typeButton.menu = UIMenu(children: menuArray)
-    //    }
-    //
-    //    func createConfig() -> UIButton.Configuration {
-    //        var config: UIButton.Configuration = .filled()
-    //        config.titleAlignment = .center
-    //        config.title = "Select Type"
-    //        return config
-    //    }
-    
 }// End of Class
 
 extension UIViewController {
@@ -359,18 +334,7 @@ extension ObservationDetailViewController: CLLocationManagerDelegate, MKMapViewD
 ////            mapView.addAnnotation(pin)
 //        }
 //    }
-//
-//    // Set custom image for map pin
-//    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-//        if annotation is MKUserLocation {
-//            return nil
-//        }
-//        let annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: "customAnnotation")
-//        annotationView.image = #imageLiteral(resourceName: "fungiPoint2")
-//        annotationView.canShowCallout = true
-//        return annotationView
-//    }
-//}
+
 
 extension ObservationDetailViewController: UIImagePickerControllerDelegate & UINavigationControllerDelegate {
     /// Opens users gallery for photo selection
