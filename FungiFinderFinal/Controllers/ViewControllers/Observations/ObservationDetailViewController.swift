@@ -94,8 +94,6 @@ class ObservationDetailViewController: UIViewController, UITextViewDelegate, UNU
         destinationVC?.selectionDelegate = self
         self.present(destinationVC!, animated: true)
         
-        //        let destinationVC = storyboard?.instantiateViewController(withIdentifier: "MushroomCollection") as? MushroomCollectionViewController
-        //        self.navigationController?.pushViewController(destinationVC!, animated: true)
     }
     //MARK: - PERMISSIONS
     
@@ -161,11 +159,7 @@ class ObservationDetailViewController: UIViewController, UITextViewDelegate, UNU
         notesTextField.text = observation.notes
         reminderPicker.date = observation.reminder ?? Date()
         typeButton.setTitle(observation.type, for: .normal)
-        // If save location switch is set to on, let LocationIsOn property equal true
-        //        saveLocationSwitch.isOn = observation.locationIsOn
-        // If location is set to off hide the mapView
-        //        mapView.isHidden = !observation.locationIsOn
-        // Convert data to UIImage
+
         if let data = observation.image {
             photoImageView.image = UIImage(data: data)
             selectImageButton.setTitle("", for: .normal)
@@ -300,40 +294,6 @@ extension ObservationDetailViewController: CLLocationManagerDelegate, MKMapViewD
         }
     }
 }
-//    /**
-//
-//     # Render map for use with MapKit & MapView
-//
-//     - Parameter location: Location must be of type CLLocation with **latitude**, & **longitude**.
-//     */
-//    func render(_ location: CLLocation) {
-//        // If there is an Observation, display stored locaiton.
-//        if let observation = observation {
-//            let coordinate = CLLocationCoordinate2D(latitude: observation.latitude, longitude: observation.longitude)
-//            // The width and height of a map region.
-//            let span = MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1)
-//            // Set maps region(view)
-//            let region = MKCoordinateRegion(center: coordinate, span: span)
-////            mapView.setRegion(region, animated: true)
-//            // Creates annotation(pin)
-//            let pin = MKPointAnnotation()
-//            pin.coordinate = coordinate
-////            mapView.addAnnotation(pin)
-//            // If there isn't a current Observation, a new one is being created.  Display current locaiton.
-//        } else {
-//            let coordinate = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
-//
-//            // The width and height of a map region.
-//            let span = MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1)
-//            // Set maps region(view)
-//            let region = MKCoordinateRegion(center: coordinate, span: span)
-////            mapView.setRegion(region, animated: true)
-//            // Creates annotation(pin)
-//            let pin = MKPointAnnotation()
-//            pin.coordinate = coordinate
-////            mapView.addAnnotation(pin)
-//        }
-//    }
 
 
 extension ObservationDetailViewController: UIImagePickerControllerDelegate & UINavigationControllerDelegate {
