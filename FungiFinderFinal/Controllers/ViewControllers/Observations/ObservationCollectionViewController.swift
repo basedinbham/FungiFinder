@@ -17,7 +17,6 @@ class ObservationCollectionViewController: UIViewController, UICollectionViewDel
     
     
     //MARK: - PROPERTIES
-    //    let observationSorted = ObservationController.shared.observations.sorted(by: { $0.date ?? Date() > $1.date ?? Date() })
     var resultsArray: [SearchableRecord] = []
     var isSearching: Bool = false
     var dataSource: [SearchableRecord] {
