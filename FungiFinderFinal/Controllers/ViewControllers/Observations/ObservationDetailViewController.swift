@@ -159,7 +159,7 @@ class ObservationDetailViewController: UIViewController, UITextViewDelegate, UNU
         notesTextField.text = observation.notes
         reminderPicker.date = observation.reminder ?? Date()
         typeButton.setTitle(observation.type, for: .normal)
-
+        
         if let data = observation.image {
             photoImageView.image = UIImage(data: data)
             selectImageButton.setTitle("", for: .normal)
@@ -169,7 +169,7 @@ class ObservationDetailViewController: UIViewController, UITextViewDelegate, UNU
         // Set accuracy for location
         manager.desiredAccuracy = kCLLocationAccuracyBest
         // set delegate for location
-                manager.delegate = self
+        manager.delegate = self
         // Fetch location
         manager.startUpdatingLocation()
         //delegate declaration for properties: imagePicker
@@ -186,10 +186,10 @@ class ObservationDetailViewController: UIViewController, UITextViewDelegate, UNU
         }
         nameTextField.placeholder = " Name your Observation..."
         displayLocation()
-
-        //
-        //        NotificationManager.shared.requestAuthorization { granted in
-        //        }
+        
+//        //
+                NotificationManager.shared.requestAuthorization { granted in
+                }
     }
     
     func textViewDidBeginEditing (_ textView: UITextView) {
@@ -256,8 +256,12 @@ class ObservationDetailViewController: UIViewController, UITextViewDelegate, UNU
             let city = placemark.locality ?? ""
             let state = placemark.administrativeArea ?? ""
             
-            DispatchQueue.main.async {
-                self.locationButton.setTitle("\(streetName), \(city), \(state)", for: .normal)
+            if streetName == "" {
+                return
+            } else {
+                DispatchQueue.main.async {
+                    self.locationButton.setTitle("\(streetName), \(city), \(state)", for: .normal)
+                }
             }
         }
     }
