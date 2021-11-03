@@ -30,7 +30,6 @@ class ObservationCollectionViewController: UIViewController, UICollectionViewDel
         observationCollectionView.delegate = self
         observationCollectionView.dataSource = self
         resultsArray = ObservationController.shared.observations
-        //        hideKeyboardWhenTappedAroundSearch()
         searchBar.delegate = self
         searchBar.isHidden = true
         searchBar.showsCancelButton = true
