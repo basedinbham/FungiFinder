@@ -39,7 +39,7 @@ class ObservationDetailViewController: UIViewController, UITextViewDelegate, UNU
         updateViews()
         setupViews()
         self.hideKeyboardWhenTappedAround()
-        //        dropDownMenuButton()
+
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -93,8 +93,13 @@ class ObservationDetailViewController: UIViewController, UITextViewDelegate, UNU
         // Assigning delegate to self
         destinationVC?.selectionDelegate = self
         self.present(destinationVC!, animated: true)
-        
     }
+    
+    @IBAction func locationButtonTapped(_ sender: Any) {
+        let destinationVC = storyboard?.instantiateViewController(withIdentifier: "MapVC") as? MapViewController
+        navigationController?.pushViewController(destinationVC!, animated: true)
+    }
+    
     //MARK: - PERMISSIONS
     
     func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) -> Bool {
