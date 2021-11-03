@@ -17,7 +17,6 @@ class ObservationCollectionViewController: UIViewController, UICollectionViewDel
     
     
     //MARK: - PROPERTIES
-    //    let observationSorted = ObservationController.shared.observations.sorted(by: { $0.date ?? Date() > $1.date ?? Date() })
     var resultsArray: [SearchableRecord] = []
     var isSearching: Bool = false
     var dataSource: [SearchableRecord] {
@@ -31,7 +30,6 @@ class ObservationCollectionViewController: UIViewController, UICollectionViewDel
         observationCollectionView.delegate = self
         observationCollectionView.dataSource = self
         resultsArray = ObservationController.shared.observations
-        //        hideKeyboardWhenTappedAroundSearch()
         searchBar.delegate = self
         searchBar.isHidden = true
         searchBar.showsCancelButton = true
