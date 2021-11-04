@@ -30,6 +30,7 @@
 		27475CBF26ED5664007685C9 /* ObservationCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27475CBE26ED5664007685C9 /* ObservationCollectionView.swift */; };
 		277C2B3F2708E89700D4B6EB /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 277C2B3E2708E89700D4B6EB /* NotificationManager.swift */; };
 		278495502717C25B00AB2677 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2784954E2717C25B00AB2677 /* Main.storyboard */; };
+		27A5741B273374250099625C /* TypeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A5741A273374250099625C /* TypeButton.swift */; };
 		27D710F5270D30EA002A154C /* SearchableResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D710F4270D30EA002A154C /* SearchableResults.swift */; };
 /* End PBXBuildFile section */
 
@@ -60,6 +61,7 @@
 		27475CBE26ED5664007685C9 /* ObservationCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservationCollectionView.swift; sourceTree = "<group>"; };
 		277C2B3E2708E89700D4B6EB /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
 		2784954F2717C25B00AB2677 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		27A5741A273374250099625C /* TypeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeButton.swift; sourceTree = "<group>"; };
 		27D710F4270D30EA002A154C /* SearchableResults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchableResults.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -81,6 +83,7 @@
 			children = (
 				27332F6C26E7E2110032CBD0 /* DateAsString.swift */,
 				277C2B3E2708E89700D4B6EB /* NotificationManager.swift */,
+				27A5741A273374250099625C /* TypeButton.swift */,
 			);
 			path = "Helpers+Extensions";
 			sourceTree = "<group>";
@@ -312,6 +315,7 @@
 				2747400926E5AB7B00A6DB8D /* HomeViewController.swift in Sources */,
 				27475CBB26EC3195007685C9 /* MushroomCollectionViewController.swift in Sources */,
 				27475CBF26ED5664007685C9 /* ObservationCollectionView.swift in Sources */,
+				27A5741B273374250099625C /* TypeButton.swift in Sources */,
 				27473FD826E59B8A00A6DB8D /* SceneDelegate.swift in Sources */,
 				2747400726E5AB1E00A6DB8D /* ObservationController.swift in Sources */,
 				27475CB926EC3156007685C9 /* MushroomCollectionViewCell.swift in Sources */,

@@ -12,14 +12,13 @@ import MapKit
 class ObservationDetailViewController: UIViewController, UITextViewDelegate, UNUserNotificationCenterDelegate {
     
     //MARK: - OUTLETS
-    
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var notesTextField: UITextView!
     @IBOutlet weak var reminderPicker: UIDatePicker!
     @IBOutlet weak var selectImageButton: UIButton!
     @IBOutlet weak var photoImageView: UIImageView!
-    @IBOutlet weak var typeButton: UIButton!
+    @IBOutlet weak var typeButton: typeButton!
     @IBOutlet weak var locationButton: UIButton!
     
     //MARK: - PROPERTIES
@@ -39,7 +38,6 @@ class ObservationDetailViewController: UIViewController, UITextViewDelegate, UNU
         updateViews()
         setupViews()
         self.hideKeyboardWhenTappedAround()
-
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -187,26 +185,29 @@ class ObservationDetailViewController: UIViewController, UITextViewDelegate, UNU
         notesTextField.layer.borderWidth = 1.0
         notesTextField.clipsToBounds = true
         if notesTextField.text.isEmpty {
-            notesTextField.text = "  Place observation notes here..."
+            notesTextField.text = " Place observation notes here..."
         }
-        nameTextField.placeholder = " Name your Observation..."
+        nameTextField.attributedPlaceholder = NSAttributedString(
+            string: "Name your observation...",
+            attributes: [NSAttributedString.Key.foregroundColor: UIColor.black]
+        )
         displayLocation()
         
-//        //
-                NotificationManager.shared.requestAuthorization { granted in
-                }
+        // Request notification access
+        NotificationManager.shared.requestAuthorization { granted in
+        }
     }
     
     func textViewDidBeginEditing (_ textView: UITextView) {
-        if notesTextField.textColor == .label && notesTextField.isFirstResponder && notesTextField.text == "Place observation notes here..."{
-            notesTextField.text = ""
+        if notesTextField.textColor == .label && notesTextField.isFirstResponder && notesTextField.text == " Place observation notes here..."{
+            notesTextField.text = " "
         }
     }
     
     func textViewDidEndEditing (_ textView: UITextView) {
         if notesTextField.text.isEmpty || notesTextField.text == "" {
             notesTextField.textColor = .lightGray
-            notesTextField.text = "Place observation notes here..."
+            notesTextField.text = " Place observation notes here..."
         }
     }
     
@@ -260,7 +261,7 @@ class ObservationDetailViewController: UIViewController, UITextViewDelegate, UNU
             let streetName = placemark.thoroughfare ?? ""
             let city = placemark.locality ?? ""
             let state = placemark.administrativeArea ?? ""
-            
+
             if streetName == "" {
                 return
             } else {
