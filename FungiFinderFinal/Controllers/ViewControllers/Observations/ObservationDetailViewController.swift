@@ -346,7 +346,20 @@ extension ObservationDetailViewController: UIImagePickerControllerDelegate & UIN
 
 extension ObservationDetailViewController: MushroomTypeDelegate {
     func didSelectMushroom(name: String) {
-        typeButton.setTitle(name, for: .normal)
+//        typeButton.setTitle(name, for: .normal)
+        let style = NSMutableParagraphStyle()
+        style.alignment = NSTextAlignment.left
+        style.lineBreakMode = NSLineBreakMode.byWordWrapping
+        
+        let titleAttributes: [NSAttributedString.Key : Any] = [
+            NSAttributedString.Key.foregroundColor: UIColor.label,
+            NSAttributedString.Key.font : UIFont.systemFont(ofSize: 14),
+//            preferredFont(forTextStyle: UIFont.TextStyle.title1),
+            NSAttributedString.Key.paragraphStyle : style
+        ]
+        
+        let attributedString = NSMutableAttributedString(string: name, attributes: titleAttributes)
+        typeButton.setAttributedTitle(attributedString, for: .normal)
         observation?.type = name
     }
 } // End of Extension

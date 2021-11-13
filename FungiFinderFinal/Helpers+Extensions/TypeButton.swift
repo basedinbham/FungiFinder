@@ -9,10 +9,28 @@ import UIKit
 
 class typeButton: UIButton {
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
+    required init?(title: String) {
+        super.init(frame: CGRect.zero)
+//    override init(frame: CGRect) {
+//        super.init(frame: frame)
         
-        titleLabel?.font = UIFont(name: "Helvetica", size: 2)
+        let style = NSMutableParagraphStyle()
+        style.alignment = NSTextAlignment.left
+        style.lineBreakMode = NSLineBreakMode.byWordWrapping
+        
+        let titleAttributes: [NSAttributedString.Key : Any] = [
+            NSAttributedString.Key.foregroundColor: UIColor.label,
+            NSAttributedString.Key.font : UIFont.systemFont(ofSize: 12),
+//            preferredFont(forTextStyle: UIFont.TextStyle.title1),
+            NSAttributedString.Key.paragraphStyle : style
+        ]
+        
+        let attributedString = NSMutableAttributedString(string: title, attributes: titleAttributes)
+        
+        setAttributedTitle(attributedString, for: UIControl.State.normal)
+        titleLabel?.numberOfLines = 0
+        titleLabel?.lineBreakMode = NSLineBreakMode.byWordWrapping
+//        titleLabel?.font = UIFont(name: "Helvetica", size: 14)
     }
     
     required init?(coder aDecoder: NSCoder) {
