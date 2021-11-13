@@ -50,7 +50,7 @@ class ObservationDetailViewController: UIViewController, UITextViewDelegate, UNU
     @IBAction func saveButtonTapped(_ sender: Any) {
         
         guard let name = nameTextField.text, !name.isEmpty,
-              let type = typeButton.currentTitle, type != "Select Type",
+              let type = typeButton.currentTitle, type != "Mushroom Type",
               let notes = notesTextField.text, !notes.isEmpty else { presentRequiredTextAlert(); return }
         let latitude = saveLat
         let longitude = saveLong
@@ -346,20 +346,8 @@ extension ObservationDetailViewController: UIImagePickerControllerDelegate & UIN
 
 extension ObservationDetailViewController: MushroomTypeDelegate {
     func didSelectMushroom(name: String) {
-//        typeButton.setTitle(name, for: .normal)
-        let style = NSMutableParagraphStyle()
-        style.alignment = NSTextAlignment.left
-        style.lineBreakMode = NSLineBreakMode.byWordWrapping
-        
-        let titleAttributes: [NSAttributedString.Key : Any] = [
-            NSAttributedString.Key.foregroundColor: UIColor.label,
-            NSAttributedString.Key.font : UIFont.systemFont(ofSize: 14),
-//            preferredFont(forTextStyle: UIFont.TextStyle.title1),
-            NSAttributedString.Key.paragraphStyle : style
-        ]
-        
-        let attributedString = NSMutableAttributedString(string: name, attributes: titleAttributes)
-        typeButton.setAttributedTitle(attributedString, for: .normal)
+        // If both title, & attributed title are set swift will prefer the attributed
+        typeButton.setTitle(name, for: .normal)
         observation?.type = name
     }
 } // End of Extension
