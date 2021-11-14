@@ -18,7 +18,7 @@ class ObservationDetailViewController: UIViewController, UITextViewDelegate, UNU
     @IBOutlet weak var reminderPicker: UIDatePicker!
     @IBOutlet weak var selectImageButton: UIButton!
     @IBOutlet weak var photoImageView: UIImageView!
-    @IBOutlet weak var typeButton: typeButton!
+    @IBOutlet weak var typeButton: UIButton!
     @IBOutlet weak var locationButton: UIButton!
     
     //MARK: - PROPERTIES
