@@ -48,13 +48,13 @@ class ObservationDetailViewController: UIViewController, UITextViewDelegate, UNU
     
     //MARK: - ACTIONS
     @IBAction func saveButtonTapped(_ sender: Any) {
-        
+
         guard let name = nameTextField.text, !name.isEmpty,
               let type = typeButton.currentTitle, type != "Mushroom Type",
               let notes = notesTextField.text, !notes.isEmpty else { presentRequiredTextAlert(); return }
         let latitude = saveLat
         let longitude = saveLong
-        
+
         if let observation = observation {
             ObservationController.shared.updateObservation(observation, name: name, date: datePicker.date, image: observationImage, notes: notes, reminder: reminderPicker.date, type: type, latitude: observation.latitude, longitude: observation.longitude)
         } else {
@@ -347,17 +347,18 @@ extension ObservationDetailViewController: UIImagePickerControllerDelegate & UIN
 extension ObservationDetailViewController: MushroomTypeDelegate {
     func didSelectMushroom(name: String) {
         typeButton.setTitle(name, for: .normal)
+        typeButton.titleLabel?.font =  UIFont(name: "System", size: 14)
         let style = NSMutableParagraphStyle()
         style.alignment = NSTextAlignment.left
         style.lineBreakMode = NSLineBreakMode.byWordWrapping
-        
+
         let titleAttributes: [NSAttributedString.Key : Any] = [
             NSAttributedString.Key.foregroundColor: UIColor.label,
             NSAttributedString.Key.font : UIFont.systemFont(ofSize: 14),
 //            preferredFont(forTextStyle: UIFont.TextStyle.title1),
             NSAttributedString.Key.paragraphStyle : style
         ]
-        
+
         let attributedString = NSMutableAttributedString(string: name, attributes: titleAttributes)
         typeButton.setAttributedTitle(attributedString, for: .normal)
         observation?.type = name
