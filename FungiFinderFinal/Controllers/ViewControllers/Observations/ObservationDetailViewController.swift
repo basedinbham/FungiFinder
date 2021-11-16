@@ -346,6 +346,7 @@ extension ObservationDetailViewController: UIImagePickerControllerDelegate & UIN
 
 extension ObservationDetailViewController: MushroomTypeDelegate {
     func didSelectMushroom(name: String) {
+        // If both title, & attributed title are set swift will prefer the attributed
         typeButton.setTitle(name, for: .normal)
         typeButton.titleLabel?.font =  UIFont(name: "System", size: 14)
         let style = NSMutableParagraphStyle()
@@ -354,7 +355,7 @@ extension ObservationDetailViewController: MushroomTypeDelegate {
 
         let titleAttributes: [NSAttributedString.Key : Any] = [
             NSAttributedString.Key.foregroundColor: UIColor.label,
-            NSAttributedString.Key.font : UIFont.systemFont(ofSize: 14),
+//            NSAttributedString.Key.font : UIFont.systemFont(ofSize: 14),
 //            preferredFont(forTextStyle: UIFont.TextStyle.title1),
             NSAttributedString.Key.paragraphStyle : style
         ]
